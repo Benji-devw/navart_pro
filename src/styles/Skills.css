@@ -1,0 +1,125 @@
+.skills {
+  background-color: white;
+  padding: 6rem 0;
+}
+
+.skills-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.skills-content.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills-description {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.skills-description p {
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skills-category {
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease;
+}
+
+.skills-category:hover {
+  transform: translateY(-5px);
+}
+
+.skills-category h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.skills-category h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.skill-item {
+  width: 100%;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-weight: 500;
+}
+
+.skill-percentage {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.skill-bar {
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: 10px;
+  width: 0;
+  animation: progressAnimation 1s ease-in-out forwards;
+}
+
+@keyframes progressAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skills {
+    padding: 4rem 0;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-category {
+    padding: 1.5rem;
+  }
+} 
