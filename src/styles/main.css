@@ -21,7 +21,7 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: var(--text-color);
-  background-color: var(--light-color);
+  /* background-color: var(--light-color); */
 }
 
 h1, h2, h3, h4, h5, h6 {

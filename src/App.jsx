@@ -28,11 +28,11 @@ function App() {
         <>
           <BackgroundAnimation 
             gridSize={60}
-            pointColor="rgba(58, 134, 255, 0.05)"
-            lineColor="rgba(58, 134, 255, 0.15)"
-            connectionDistance={120}
-            interactionRadius={200}
-            interactionForce={4}
+            pointColor="rgba(58, 134, 255, 0.35)"
+            lineColor="rgba(150, 58, 255, 0.3)"
+            connectionDistance={60}
+            interactionRadius={250}
+            interactionForce={22}
           />
           <Header />
           <main>
@@ -43,7 +43,7 @@ function App() {
           </main>
           <footer className="footer">
             <div className="container">
-              <p>&copy; {new Date().getFullYear()} - Mon Portfolio. Tous droits réservés.</p>
+              <p>&copy; {new Date().getFullYear()} - Navarro Benjamin. Tous droits réservés.</p>
             </div>
           </footer>
         </>
