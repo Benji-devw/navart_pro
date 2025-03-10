@@ -1,6 +1,8 @@
+import '../styles/contact.css';
+
 export const Contact = () => {
   return (
-    <div className="contact-details">
+    <div className="contact-box contact-details">
       <div className="detail">
         <i className="fas fa-map-marker-alt"></i>
         <span>Paris, France</span>

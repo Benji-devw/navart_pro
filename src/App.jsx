@@ -30,10 +30,10 @@ function App() {
           <BackgroundAnimation 
             gridSize={60}
             pointColor="rgba(58, 134, 255, 0.35)"
-            lineColor="rgba(150, 58, 255, 0.3)"
-            connectionDistance={60}
-            interactionRadius={250}
-            interactionForce={22}
+            lineColor="rgb(150, 58, 255)"
+            connectionDistance={80}
+            interactionRadius={210}
+            interactionForce={-22}
           />
 
             <Header />
@@ -41,7 +41,6 @@ function App() {
               <Hero />
               <About />
               <Skills />
-              {/* Vous pourrez ajouter d'autres sections ici comme Projects et Contact */}
             </main>
             <footer className="footer">
               <p>&copy; {new Date().getFullYear()} - Navarro Benjamin. Tous droits réservés.</p>

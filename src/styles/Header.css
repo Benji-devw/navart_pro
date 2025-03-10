@@ -5,7 +5,7 @@
   width: 100%;
   padding: 1.5rem 0;
   z-index: 1000;
-  background-color: transparent;
+  /* background-color: var(--light-color-transparent); */
   transition: var(--transition);
   display: flex;
   justify-content: center;

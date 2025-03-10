@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  pointer-events: none; /* Permet aux clics de passer à travers */
+  pointer-events: none !important; /* Permet aux clics de passer à travers */
   /* Suppression du fond blanc semi-transparent */
   /* background-color: rgba(248, 249, 250, 0.8); */
 } 

@@ -4,6 +4,7 @@
   --accent-color: #ff006e;
   --dark-color: #1a1a2e;
   --light-color: #f8f9fa;
+  --light-color-transparent: rgba(248, 249, 250, 0.8);
   --text-color: #333;
   --text-light: #666;
   --border-radius: 8px;

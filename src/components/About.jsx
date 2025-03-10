@@ -71,37 +71,42 @@ const About = () => {
       <div className="about-content" ref={sectionRef}>
         <div className="about-image">
           <div className="image-container">
-            <img src="/profile-placeholder.jpg" alt="Votre Nom" />
+            <img src="/Benjamin.png" alt="Benjamin" className="about-profile-img" />
           </div>
 
-          <div className="about-contact about-contact-desktop">
-            <Contact />
+          <div className="about-box about-box-desktop">
+            <div className="about-contact">
+              <Contact />
+            </div>
           </div>
-          
         </div>
-        <div className="about-text">
-          <h3>Qui suis-je ?</h3>
-          <p>
-            Je suis un développeur web passionné par la création d'expériences numériques exceptionnelles. Avec une
-            solide formation en informatique et plusieurs années d'expérience, j'ai développé une expertise dans la
-            conception et le développement de sites web et d'applications dynamiques.
-          </p>
-          <p>
-            Mon approche combine créativité et rigueur technique pour livrer des produits qui non seulement fonctionnent
-            parfaitement, mais offrent également une expérience utilisateur optimale.
-          </p>
-          <h3>Mon parcours</h3>
-          <p>
-            Après avoir obtenu mon diplôme en développement web, j'ai travaillé sur divers projets qui m'ont permis
-            d'affiner mes compétences et d'élargir mon expertise. J'ai collaboré avec des startups, des agences et des
-            entreprises établies, m'adaptant à différents environnements et méthodologies de travail.
-          </p>
+        <div className="about-context">
+          <div className="about-text">
+            <h3>Qui suis-je ?</h3>
+            <p>
+              Je suis un développeur web passionné par la création d'expériences numériques exceptionnelles. Avec une
+              solide formation en informatique et plusieurs années d'expérience, j'ai développé une expertise dans la
+              conception et le développement de sites web et d'applications dynamiques.
+            </p>
+            <p>
+              Mon approche combine créativité et rigueur technique pour livrer des produits qui non seulement
+              fonctionnent parfaitement, mais offrent également une expérience utilisateur optimale.
+            </p>
+            <h3>Mon parcours</h3>
+            <p>
+              Après avoir obtenu mon diplôme en développement web, j'ai travaillé sur divers projets qui m'ont permis
+              d'affiner mes compétences et d'élargir mon expertise. J'ai collaboré avec des startups, des agences et des
+              entreprises établies, m'adaptant à différents environnements et méthodologies de travail.
+            </p>
+          </div>
 
           <TimelineCV experiences={experiences} />
+        </div>
+      </div>
 
-          <div className="about-contact about-contact-mobile">
-            <Contact />
-          </div>
+      <div className="about-box about-box-mobile">
+        <div className="about-contact">
+          <Contact />
         </div>
       </div>
     </section>

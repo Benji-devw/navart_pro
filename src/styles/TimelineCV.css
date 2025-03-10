@@ -55,7 +55,7 @@
   position: relative;
   width: calc(50% - 40px);
   padding: 20px;
-  background: white;
+  background: var(--light-color);
   border-radius: 8px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
@@ -143,7 +143,7 @@
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content {
     float: right;
-    width: calc(100% - 80px);
+    width: calc(100% - 0px);
     margin-left: 60px;
     margin-right: 0;
     text-align: left;

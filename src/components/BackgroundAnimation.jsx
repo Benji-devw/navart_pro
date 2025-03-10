@@ -29,7 +29,7 @@ const BackgroundAnimation = ({
     
     // S'assurer que nous ne démarrons pas plusieurs animations
     if (state.isRunning) {
-      console.log('Animation already running, cleaning up first...');
+      // console.log('Animation already running, cleaning up first...');
       // Nettoyer toute animation précédente
       cancelAnimationFrame(state.animationId);
       clearInterval(state.autoAnimateId);
