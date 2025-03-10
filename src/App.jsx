@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
+import Layout from './components/Layout'
 import BackgroundAnimation from './components/BackgroundAnimation'
 import './styles/main.css'
 
@@ -34,18 +35,18 @@ function App() {
             interactionRadius={250}
             interactionForce={22}
           />
-          <Header />
-          <main>
-            <Hero />
-            <About />
-            <Skills />
-            {/* Vous pourrez ajouter d'autres sections ici comme Projects et Contact */}
-          </main>
-          <footer className="footer">
-            <div className="container">
+          <Layout>
+            <Header />
+            <main>
+              <Hero />
+              <About />
+              <Skills />
+              {/* Vous pourrez ajouter d'autres sections ici comme Projects et Contact */}
+            </main>
+            <footer className="footer">
               <p>&copy; {new Date().getFullYear()} - Navarro Benjamin. Tous droits réservés.</p>
-            </div>
-          </footer>
+            </footer>
+          </Layout>
         </>
       )}
     </div>
