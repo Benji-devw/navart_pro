@@ -32,17 +32,16 @@ const Skills = () => {
 
   // Liste des compétences avec leurs icônes Devicon
   const frontendSkills = [
-    // { name: 'HTML5', icon: 'devicon-html5-plain colored', level: 90 },
     { name: 'JavaScript', icon: 'devicon-javascript-plain colored', level: 85 },
     { name: 'React', icon: 'devicon-react-original colored', level: 80 },
-    { name: 'TypeScript', icon: 'devicon-typescript-plain colored', level: 80 },
+    { name: 'Next.js', icon: 'devicon-nextjs-plain colored', level: 80 },
+    { name: 'TypeScript', icon: 'devicon-typescript-plain colored', level: 60 },
     { name: 'Vue.js', icon: 'devicon-vuejs-plain colored', level: 55 },
-    { name: 'Cypress', icon: 'devicon-cypressio-plain colored', level: 75 },
-    { name: 'Jest', icon: 'devicon-jest-plain colored', level: 75 },
     { name: 'CSS3 / SASS', icon: 'devicon-sass-original colored', level: 85 },
     { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-plain colored', level: 85 },
     { name: 'Material UI', icon: 'devicon-materialui-plain colored', level: 85 },
     { name: 'Figma', icon: 'devicon-figma-plain colored', level: 80 },
+    { name: 'Storybook', icon: 'devicon-storybook-plain colored', level: 35 },
 
   ];
 
@@ -50,17 +49,27 @@ const Skills = () => {
     { name: 'Node.js', icon: 'devicon-nodejs-plain colored', level: 75 },
     { name: 'Express', icon: 'devicon-express-original colored', level: 75 },
     { name: 'MongoDB', icon: 'devicon-mongodb-plain colored', level: 65 },
+    { name: 'SQL', icon: 'devicon-mysql-plain colored', level: 70 },
     { name: 'PostgreSQL', icon: 'devicon-postgresql-plain colored', level: 70 },
-    { name: 'MySQL', icon: 'devicon-mysql-plain colored', level: 70 },
+    { name: 'Prisma', icon: 'devicon-prisma-plain colored', level: 55 },
+    { name: 'Vercel', icon: 'devicon-vercel-plain colored', level: 85 },
+    { name: 'AWS', icon: 'devicon-amazonwebservices-plain colored', level: 50 },
+    { name: '.NET', icon: 'devicon-dot-net-plain colored', level: 0 },
+
   ];
 
   const toolsSkills = [
+    { name: 'Cypress', icon: 'devicon-cypressio-plain colored', level: 75 },
+    { name: 'Jest', icon: 'devicon-jest-plain colored', level: 55 },
+    { name: 'Selenium', icon: 'devicon-selenium-plain colored', level: 25 },
     { name: 'Cursor', icon: '/icons/th.png', level: 85, isImage: true },
-    { name: 'Git', icon: 'devicon-git-plain colored', level: 85 },
+    { name: 'Git', icon: 'devicon-git-plain colored', level: 65 },
     { name: 'GitHub', icon: 'devicon-github-plain colored', level: 85 },
-    { name: 'CI/CD', icon: 'devicon-gitlab-plain colored', level: 85 },
-    { name: 'Docker', icon: 'devicon-docker-plain colored', level: 70 },
+    { name: 'CI/CD', icon: 'devicon-gitlab-plain colored', level: 65 },
+    { name: 'Docker', icon: 'devicon-docker-plain colored', level: 60 },
     { name: 'Jira', icon: 'devicon-jira-plain colored', level: 80 },
+    { name: 'Monday', icon: '/icons/monday-icon-icon-md.png', level: 75, isImage: true },
+    { name: 'Postman', icon: 'devicon-postman-plain colored', level: 85 },
 
   ];
 
