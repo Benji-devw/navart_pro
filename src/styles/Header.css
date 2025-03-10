@@ -22,7 +22,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   max-width: 1200px;
   padding: 0 20px;
 }
@@ -35,6 +34,9 @@
   letter-spacing: 1px;
 }
 
+.nav-menu {
+  margin: 0 2rem;
+}
 .nav-menu ul {
   display: flex;
   list-style: none;
@@ -70,6 +72,7 @@
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--dark-color);
+  max-width: 70px;
 }
 
 .mobile-menu-close {
@@ -86,6 +89,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .header > * {
+    width: 100%;
+  }
   .mobile-menu-btn {
     display: block;
   }

@@ -54,7 +54,7 @@ const Header = () => {
           <i className="fas fa-times"></i>
         </button>
         <ul>
-          <li><a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Accueil</a></li>
+          <li><a href="#home" onClick={() => setIsMobileMenuOpen(true)}>Accueil</a></li>
           <li><a href="#about" onClick={() => setIsMobileMenuOpen(false)}>À propos</a></li>
           <li><a href="#skills" onClick={() => setIsMobileMenuOpen(false)}>Compétences</a></li>
           <li><a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>Projets</a></li>
