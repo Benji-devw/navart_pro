@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../styles/Header.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,9 +17,18 @@ const Header = () => {
     };
   }, []);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
@@ -26,11 +36,23 @@ const Header = () => {
         <a href="#home">Portfolio</a>
       </div>
       
-      <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+      <button 
+        className="mobile-menu-btn" 
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
         <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
       </button>
       
-      <nav className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+      <nav 
+        className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`} 
+        ref={menuRef}
+      >
+        <button 
+          className="mobile-menu-close"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          <i className="fas fa-times"></i>
+        </button>
         <ul>
           <li><a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Accueil</a></li>
           <li><a href="#about" onClick={() => setIsMobileMenuOpen(false)}>À propos</a></li>
