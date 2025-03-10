@@ -4,6 +4,7 @@ import Hero from '@components/Hero'
 import About from '@components/About'
 import Skills from '@components/Skills'
 import Layout from '@components/Layout'
+import Contact from '@components/Contact'
 import BackgroundAnimation from '@components/BackgroundAnimation'
 import '@styles/main.css'
 
@@ -36,17 +37,19 @@ function App() {
             interactionForce={-22}
           />
 
-            <Header />
-            <main>
-              <Hero />
-              <About />
-              <Skills />
-            </main>
-            <footer className="footer">
+          <Header />
+          <main>
+            <Hero />
+            <About />
+            <Skills />
+          </main>
+          <footer className="footer">
+            <Contact />
+            <div className="footer-bottom">
               <p>&copy; {new Date().getFullYear()} - Navarro Benjamin. Tous droits réservés.</p>
-            </footer>
-          </Layout>
-
+            </div>
+          </footer>
+        </Layout>
       )}
     </div>
   )

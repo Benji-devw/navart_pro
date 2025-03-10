@@ -6,7 +6,7 @@ const Skills = () => {
 
   useEffect(() => {
     const currentRef = skillsRef.current;
-    
+
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
@@ -37,12 +37,11 @@ const Skills = () => {
     { name: 'Next.js', icon: 'devicon-nextjs-plain colored', level: 80 },
     { name: 'TypeScript', icon: 'devicon-typescript-plain colored', level: 60 },
     { name: 'Vue.js', icon: 'devicon-vuejs-plain colored', level: 55 },
-    { name: 'CSS3 / SASS', icon: 'devicon-sass-original colored', level: 85 },
+    { name: 'SASS', icon: 'devicon-sass-original colored', level: 85 },
     { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-plain colored', level: 85 },
     { name: 'Material UI', icon: 'devicon-materialui-plain colored', level: 85 },
     { name: 'Figma', icon: 'devicon-figma-plain colored', level: 80 },
     { name: 'Storybook', icon: 'devicon-storybook-plain colored', level: 35 },
-
   ];
 
   const backendSkills = [
@@ -55,7 +54,7 @@ const Skills = () => {
     { name: 'Vercel', icon: 'devicon-vercel-plain colored', level: 85 },
     { name: 'AWS', icon: 'devicon-amazonwebservices-plain colored', level: 50 },
     { name: '.NET', icon: 'devicon-dot-net-plain colored', level: 0 },
-
+    { name: 'Linux', icon: 'devicon-linux-plain colored', level: 65 },
   ];
 
   const toolsSkills = [
@@ -70,13 +69,14 @@ const Skills = () => {
     { name: 'Jira', icon: 'devicon-jira-plain colored', level: 80 },
     { name: 'Monday', icon: '/icons/monday-icon-icon-md.png', level: 75, isImage: true },
     { name: 'Postman', icon: 'devicon-postman-plain colored', level: 85 },
-
   ];
 
   // Fonction pour rendre l'icône en fonction de son type (Devicon ou image personnalisée)
   const renderIcon = (skill) => {
     if (skill.isImage) {
-      return <img src={skill.icon} alt={skill.name} className="custom-icon" style={{ width: '36px', height: '36px' }} />;
+      return (
+        <img src={skill.icon} alt={skill.name} className="custom-icon" style={{ width: '36px', height: '36px' }} />
+      );
     } else {
       return <i className={skill.icon}></i>;
     }
@@ -88,21 +88,18 @@ const Skills = () => {
       <div className="skills-content" ref={skillsRef}>
         <div className="skills-description">
           <p>
-            J'ai acquis une variété de compétences techniques au cours de mon parcours, 
-            me permettant de mener à bien des projets de bout en bout, de la conception 
-            à la mise en production.
+            J'ai acquis une variété de compétences techniques au cours de mon parcours, me permettant de mener à bien
+            des projets de bout en bout, de la conception à la mise en production.
           </p>
         </div>
-        
+
         <div className="skills-grid">
           <div className="skills-category">
             <h3>Frontend</h3>
             <div className="skills-list">
               {frontendSkills.map((skill, index) => (
                 <div className="skill-item" key={index}>
-                  <div className="skill-icon">
-                    {renderIcon(skill)}
-                  </div>
+                  <div className="skill-icon">{renderIcon(skill)}</div>
                   <div className="skill-info">
                     <span className="skill-name">{skill.name}</span>
                     <span className="skill-level">{skill.level}%</span>
@@ -111,15 +108,13 @@ const Skills = () => {
               ))}
             </div>
           </div>
-          
+
           <div className="skills-category">
             <h3>Backend</h3>
             <div className="skills-list">
               {backendSkills.map((skill, index) => (
                 <div className="skill-item" key={index}>
-                  <div className="skill-icon">
-                    {renderIcon(skill)}
-                  </div>
+                  <div className="skill-icon">{renderIcon(skill)}</div>
                   <div className="skill-info">
                     <span className="skill-name">{skill.name}</span>
                     <span className="skill-level">{skill.level}%</span>
@@ -128,15 +123,13 @@ const Skills = () => {
               ))}
             </div>
           </div>
-          
+
           <div className="skills-category">
             <h3>Outils & Autres</h3>
             <div className="skills-list">
               {toolsSkills.map((skill, index) => (
                 <div className="skill-item" key={index}>
-                  <div className="skill-icon">
-                    {renderIcon(skill)}
-                  </div>
+                  <div className="skill-icon">{renderIcon(skill)}</div>
                   <div className="skill-info">
                     <span className="skill-name">{skill.name}</span>
                     <span className="skill-level">{skill.level}%</span>
@@ -151,4 +144,4 @@ const Skills = () => {
   );
 };
 
-export default Skills; 
+export default Skills;

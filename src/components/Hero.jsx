@@ -31,8 +31,9 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content" ref={textRef}>
           <p className="hero-subtitle">Bonjour, je m'appelle</p>
-          <h1 className="hero-title">Votre Nom</h1>
-          <h2 className="hero-description">Développeur Web Créatif</h2>
+          <h1 className="hero-title">Benjare Nom</h1>
+          <h2 className="hero-description">Développeur full stack.</h2>
+          <h2 className="hero-description">Testeur QA.</h2>
           <p className="hero-text">
             Je conçois et développe des expériences numériques qui combinent créativité, 
             esthétique et fonctionnalité pour créer des sites web et des applications 
@@ -43,14 +44,14 @@ const Hero = () => {
             <a href="#contact" className="btn btn-secondary">Me contacter</a>
           </div>
           <div className="social-links">
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Benji-devw" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i>
+            </a>
+            <a href="https://gitlab.com/" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-gitlab"></i>
             </a>
             <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-linkedin"></i>
-            </a>
-            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-twitter"></i>
             </a>
           </div>
         </div>

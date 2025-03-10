@@ -24,6 +24,7 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   min-height: 100vh;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -97,11 +98,21 @@ section {
 
 /* Footer styles */
 .footer {
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  /* background-color: var(--dark-color); */
+  /* color: var(--accent-color); */
+  /* padding-top: 4rem; */
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.footer-bottom {
   text-align: center;
-  padding: 2rem 0;
-  margin-top: 2rem;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer p {

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import TimelineCV from '@components/TimelineCV';
 import '@styles/About.css';
-import { Contact } from '@components/contact';
+import { ContactBox } from '@/components/ContactBox';
 
 const About = () => {
   const sectionRef = useRef(null);
@@ -75,7 +75,7 @@ const About = () => {
           </div>
 
           <div className="about-contact-box about-contact-desktop">
-            <Contact />
+            <ContactBox />
           </div>
         </div>
 
@@ -104,7 +104,7 @@ const About = () => {
       </div>
 
       <div className="about-contact-box about-contact-mobile">
-        <Contact />
+        <ContactBox />
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import '../styles/contact.css';
+import '@styles/ContactBox.css';
 
-export const Contact = () => {
+export const ContactBox = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = async () => {
