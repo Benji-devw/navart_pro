@@ -22,9 +22,6 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: var(--text-color);
-  /* background-color: var(--light-color); */
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
 }
 
@@ -43,8 +40,6 @@ a {
 a:hover {
   color: var(--secondary-color);
 }
-
-/* Conteneur supprimé car géré par le Layout */
 
 section {
   padding: 5rem 0;

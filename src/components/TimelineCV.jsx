@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/TimelineCV.css';
+import '@styles/TimelineCV.css';
 
 const TimelineCV = ({experiences}) => {
   return (
-    <div className="experience-timeline-container">
+    <article className="experience-timeline-container">
       <h3>Mon parcours professionnel</h3>
       <div className="experience-timeline">
         <div className="timeline-center-line"></div>
@@ -22,7 +22,7 @@ const TimelineCV = ({experiences}) => {
           </div>
         ))}
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -1,6 +1,10 @@
 .about {
   background-color: #f9f9ff;
   padding: 6rem 0;
+  width: 100%;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
 }
 
 .about-content {
@@ -10,6 +14,8 @@
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .about-content.animate {
@@ -71,7 +77,7 @@
   line-height: 1.7;
 }
 
-.about-details {
+.about-contact {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -83,6 +89,10 @@
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   width: 100%;
+  margin: 0 auto;
+}
+.about-contact-mobile {
+  display: none;
 }
 
 .download-btn {
@@ -120,7 +130,7 @@
     max-width: 300px;
   }
   
-  .about-details {
+  .about-contact {
     position: static;
     margin-top: 1.5rem;
     max-width: 300px;
@@ -132,8 +142,15 @@
     padding: 4rem 0;
   }
   
-  .about-details {
+  .about-contact {
     flex-direction: column;
+    max-width: 80%;
+  }
+  .about-contact-desktop {
+    display: none;
+  }
+  .about-contact-mobile {
+    display: block;
   }
   
   .detail {

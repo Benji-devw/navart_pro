@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import '../styles/BackgroundAnimation.css';
+import '@styles/BackgroundAnimation.css';
 
 const BackgroundAnimation = ({ 
   gridSize = 50, 

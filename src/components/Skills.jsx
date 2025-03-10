@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import '../styles/Skills.css';
+import '@styles/Skills.css';
 
 const Skills = () => {
   const skillsRef = useRef(null);

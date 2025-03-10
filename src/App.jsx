@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Layout from './components/Layout'
-import BackgroundAnimation from './components/BackgroundAnimation'
-import './styles/main.css'
+import Header from '@components/Header'
+import Hero from '@components/Hero'
+import About from '@components/About'
+import Skills from '@components/Skills'
+import Layout from '@components/Layout'
+import BackgroundAnimation from '@components/BackgroundAnimation'
+import '@styles/main.css'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -26,7 +26,7 @@ function App() {
           <div className="loader-spinner"></div>
         </div>
       ) : (
-        <>
+        <Layout>
           <BackgroundAnimation 
             gridSize={60}
             pointColor="rgba(58, 134, 255, 0.35)"
@@ -35,7 +35,7 @@ function App() {
             interactionRadius={250}
             interactionForce={22}
           />
-          <Layout>
+
             <Header />
             <main>
               <Hero />
@@ -47,7 +47,7 @@ function App() {
               <p>&copy; {new Date().getFullYear()} - Navarro Benjamin. Tous droits réservés.</p>
             </footer>
           </Layout>
-        </>
+
       )}
     </div>
   )
