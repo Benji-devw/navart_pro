@@ -30,30 +30,48 @@ const Skills = () => {
     };
   }, []);
 
-  // Liste des compétences
+  // Liste des compétences avec leurs icônes Devicon
   const frontendSkills = [
-    { name: 'HTML5', level: 90 },
-    { name: 'CSS3 / SASS', level: 85 },
-    { name: 'JavaScript', level: 85 },
-    { name: 'React', level: 80 },
-    { name: 'Vue.js', level: 75 },
+    // { name: 'HTML5', icon: 'devicon-html5-plain colored', level: 90 },
+    { name: 'JavaScript', icon: 'devicon-javascript-plain colored', level: 85 },
+    { name: 'React', icon: 'devicon-react-original colored', level: 80 },
+    { name: 'TypeScript', icon: 'devicon-typescript-plain colored', level: 80 },
+    { name: 'Vue.js', icon: 'devicon-vuejs-plain colored', level: 55 },
+    { name: 'Cypress', icon: 'devicon-cypressio-plain colored', level: 75 },
+    { name: 'Jest', icon: 'devicon-jest-plain colored', level: 75 },
+    { name: 'CSS3 / SASS', icon: 'devicon-sass-original colored', level: 85 },
+    { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-plain colored', level: 85 },
+    { name: 'Material UI', icon: 'devicon-materialui-plain colored', level: 85 },
+    { name: 'Figma', icon: 'devicon-figma-plain colored', level: 80 },
+
   ];
 
   const backendSkills = [
-    { name: 'Node.js', level: 75 },
-    { name: 'Python', level: 70 },
-    { name: 'PHP', level: 65 },
-    { name: 'MySQL', level: 70 },
-    { name: 'MongoDB', level: 65 },
+    { name: 'Node.js', icon: 'devicon-nodejs-plain colored', level: 75 },
+    { name: 'Express', icon: 'devicon-express-original colored', level: 75 },
+    { name: 'MongoDB', icon: 'devicon-mongodb-plain colored', level: 65 },
+    { name: 'PostgreSQL', icon: 'devicon-postgresql-plain colored', level: 70 },
+    { name: 'MySQL', icon: 'devicon-mysql-plain colored', level: 70 },
   ];
 
   const toolsSkills = [
-    { name: 'Git', level: 85 },
-    { name: 'Docker', level: 70 },
-    { name: 'Webpack', level: 75 },
-    { name: 'Adobe XD', level: 70 },
-    { name: 'Figma', level: 80 },
+    { name: 'Cursor', icon: '/icons/th.png', level: 85, isImage: true },
+    { name: 'Git', icon: 'devicon-git-plain colored', level: 85 },
+    { name: 'GitHub', icon: 'devicon-github-plain colored', level: 85 },
+    { name: 'CI/CD', icon: 'devicon-gitlab-plain colored', level: 85 },
+    { name: 'Docker', icon: 'devicon-docker-plain colored', level: 70 },
+    { name: 'Jira', icon: 'devicon-jira-plain colored', level: 80 },
+
   ];
+
+  // Fonction pour rendre l'icône en fonction de son type (Devicon ou image personnalisée)
+  const renderIcon = (skill) => {
+    if (skill.isImage) {
+      return <img src={skill.icon} alt={skill.name} className="custom-icon" style={{ width: '36px', height: '36px' }} />;
+    } else {
+      return <i className={skill.icon}></i>;
+    }
+  };
 
   return (
     <section id="skills" className="skills">
@@ -73,15 +91,12 @@ const Skills = () => {
             <div className="skills-list">
               {frontendSkills.map((skill, index) => (
                 <div className="skill-item" key={index}>
+                  <div className="skill-icon">
+                    {renderIcon(skill)}
+                  </div>
                   <div className="skill-info">
                     <span className="skill-name">{skill.name}</span>
-                    <span className="skill-percentage">{skill.level}%</span>
-                  </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ width: `${skill.level}%`, animationDelay: `${index * 0.2}s` }}
-                    ></div>
+                    <span className="skill-level">{skill.level}%</span>
                   </div>
                 </div>
               ))}
@@ -93,15 +108,12 @@ const Skills = () => {
             <div className="skills-list">
               {backendSkills.map((skill, index) => (
                 <div className="skill-item" key={index}>
+                  <div className="skill-icon">
+                    {renderIcon(skill)}
+                  </div>
                   <div className="skill-info">
                     <span className="skill-name">{skill.name}</span>
-                    <span className="skill-percentage">{skill.level}%</span>
-                  </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ width: `${skill.level}%`, animationDelay: `${index * 0.2}s` }}
-                    ></div>
+                    <span className="skill-level">{skill.level}%</span>
                   </div>
                 </div>
               ))}
@@ -113,15 +125,12 @@ const Skills = () => {
             <div className="skills-list">
               {toolsSkills.map((skill, index) => (
                 <div className="skill-item" key={index}>
+                  <div className="skill-icon">
+                    {renderIcon(skill)}
+                  </div>
                   <div className="skill-info">
                     <span className="skill-name">{skill.name}</span>
-                    <span className="skill-percentage">{skill.level}%</span>
-                  </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ width: `${skill.level}%`, animationDelay: `${index * 0.2}s` }}
-                    ></div>
+                    <span className="skill-level">{skill.level}%</span>
                   </div>
                 </div>
               ))}
