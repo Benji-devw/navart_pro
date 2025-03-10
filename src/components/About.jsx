@@ -71,15 +71,14 @@ const About = () => {
       <div className="about-content" ref={sectionRef}>
         <div className="about-image">
           <div className="image-container">
-            <img src="/Benjamin.png" alt="Benjamin" className="about-profile-img" />
+            <img src="/Benjamin.png" alt="Benjamin" />
           </div>
 
-          <div className="about-box about-box-desktop">
-            <div className="about-contact">
-              <Contact />
-            </div>
+          <div className="about-contact-box about-contact-desktop">
+            <Contact />
           </div>
         </div>
+
         <div className="about-context">
           <div className="about-text">
             <h3>Qui suis-je ?</h3>
@@ -98,16 +97,14 @@ const About = () => {
               d'affiner mes compétences et d'élargir mon expertise. J'ai collaboré avec des startups, des agences et des
               entreprises établies, m'adaptant à différents environnements et méthodologies de travail.
             </p>
-          </div>
 
-          <TimelineCV experiences={experiences} />
+          </div>
+            <TimelineCV experiences={experiences} />
         </div>
       </div>
 
-      <div className="about-box about-box-mobile">
-        <div className="about-contact">
-          <Contact />
-        </div>
+      <div className="about-contact-box about-contact-mobile">
+        <Contact />
       </div>
     </section>
   );

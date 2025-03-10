@@ -12,7 +12,6 @@
   transition: all 0.8s ease;
   width: 100%;
   max-width: 1200px;
-  /* background-color: #f9f9ff; */
 }
 
 .about-content.animate {
@@ -26,27 +25,30 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  height: 100%;
 }
 
-.about-profile-img {
-  /* box-shadow: var(--box-shadow); */
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 150px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-context {
   display: flex;
   flex-direction: column;
   height: 100%;
-
 }
+
 .about-text {
   background-color: var(--light-color);
-  box-shadow: var(--box-shadow);
   padding: 2rem;
   border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
-
 .about-text h3 {
   font-size: 1.8rem;
   margin-bottom: 1.2rem;
@@ -59,19 +61,18 @@
   line-height: 1.7;
 }
 
-.about-box-desktop {
-  display: block;
-  width: 100%;
-  position: relative;
-}
-
-.about-box-desktop .about-contact {
+.about-contact-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
   position: sticky;
   top: 100px;
-  width: 100%;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
-
-.about-box-mobile {
+.about-contact-mobile {
   display: none;
   width: 70%;
   margin: 0 auto;
@@ -81,32 +82,25 @@
   .about-content {
     grid-template-columns: 1fr;
   }
-  
+
   .about-image {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 2rem;
   }
-  
+
   .image-container {
     max-width: 300px;
   }
 
-  .about-box-desktop {
+  .about-contact-desktop {
     display: none;
   }
-  
-  .about-box-mobile {
+  .about-contact-mobile {
     display: block;
     width: 70%;
     margin: 0 auto;
-    position: relative;
-  }
-  
-  .about-box-mobile .about-contact {
-    position: sticky;
-    top: 100px;
   }
 }
 
@@ -115,8 +109,13 @@
     padding: 4rem 0;
   }
 
-  .about-box-mobile .about-contact {
-    position: static;
+  .about-contact-box {
+    flex-direction: column;
+  }
+  .about-contact-desktop {
+    display: none;
+  }
+  .detail {
     width: 100%;
   }
-} 
+}

@@ -1,5 +1,5 @@
 .experience-timeline-container {
-  margin: 3rem 0;
+  margin: 5rem 0;
 }
 
 .experience-timeline-container h3 {
@@ -139,24 +139,24 @@
   .timeline-center-line {
     left: 30px;
   }
-  
+
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content {
     float: right;
-    width: calc(100% - 0px);
+    width: calc(100% - 70px);
     margin-left: 60px;
     margin-right: 0;
     text-align: left;
   }
-  
+
   .timeline-item.left .timeline-content::after,
   .timeline-item.right .timeline-content::after {
     left: -50px;
   }
-  
+
   .timeline-item.left .timeline-content::before,
   .timeline-item.right .timeline-content::before {
     left: -30px;
     right: auto;
   }
-} 
+}
