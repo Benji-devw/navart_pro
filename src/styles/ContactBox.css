@@ -32,11 +32,30 @@
   border-radius: var(--border-radius);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   cursor: pointer;
+  position: relative;
 }
 
 .detail i {
   color: var(--primary-color);
   margin-right: 0.5rem;
+}
+
+.copy-icon {
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: var(--primary-color);
+}
+
+.detail:hover .copy-icon {
+  opacity: 1;
+}
+
+.copied-text {
+  margin-left: 10px;
+  color: var(--primary-color);
+  transition: opacity 0.2s ease;
 }
 
 @media screen and (max-width: 768px) {

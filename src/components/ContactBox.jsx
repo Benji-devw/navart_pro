@@ -22,8 +22,9 @@ export const ContactBox = () => {
       </div>
       <div className="detail" onClick={handleCopyEmail} style={{ cursor: 'pointer' }}>
         <i className="fas fa-envelope"></i>
-        <span>ben.nav@pm.me</span>
-        {copied && <span style={{ marginLeft: '10px', color: "var(--primary-color)" }}>Copié !</span>}
+        <span>***.***@pm.me</span>
+        <i className="copy-icon fas fa-copy"></i>
+        {copied && <span className="copied-text">Copié !</span>}
       </div>
       <div className="detail">
         <i className="fas fa-graduation-cap"></i>
