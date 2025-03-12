@@ -124,17 +124,7 @@ const Contact = () => {
           <i className="fas fa-map-marker-alt"></i>
           <span>Paris, France</span>
         </div>
-        <div className="social-links">
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github"></i>
-          </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin"></i>
-          </a>
-          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-twitter"></i>
-          </a>
-        </div>
+
       </div>
     </div>
   );

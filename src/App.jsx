@@ -6,6 +6,7 @@ import Skills from '@components/Skills';
 import Layout from '@components/Layout';
 import Footer from '@components/Footer';
 import BackgroundAnimation from '@components/BackgroundAnimation';
+import FloatingContact from '@components/FloatingContact';
 import './App.css';
 
 function App() {
@@ -28,12 +29,12 @@ function App() {
         </div>
       ) : (
         <Layout>
-      <div className="hero-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
-        <div className="shape shape-3"></div>
-        <div className="shape shape-4"></div>
-      </div>
+          <div className="hero-shapes">
+            <div className="shape shape-1"></div>
+            <div className="shape shape-2"></div>
+            <div className="shape shape-3"></div>
+            <div className="shape shape-4"></div>
+          </div>
           <BackgroundAnimation
             gridSize={60}
             pointColor={'rgb(44, 44, 44)'}
@@ -49,6 +50,7 @@ function App() {
             <Skills />
           </main>
           <Footer />
+          <FloatingContact />
         </Layout>
       )}
     </div>
