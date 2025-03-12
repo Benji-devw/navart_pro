@@ -1,0 +1,26 @@
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  /* font-size: 1.9rem; */
+  transition: all 0.3s ease;
+  /* box-shadow: var(--box-light-shadow); */
+}
+
+.social-links a:hover {
+  transform: translateY(-5px) rotate(10deg);
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}

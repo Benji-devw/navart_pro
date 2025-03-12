@@ -75,7 +75,7 @@ const FloatingContact = () => {
             ref={modalRef}
             onClick={(e) => e.stopPropagation()} // Empêcher la propagation du clic
           >
-            <button 
+            <button
               className="close-modal-btn" 
               onClick={handleCloseButtonClick}
             >

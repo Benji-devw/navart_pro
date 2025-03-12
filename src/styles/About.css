@@ -10,7 +10,7 @@
   transform: translateY(30px);
   transition: all 0.8s ease;
   width: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
 }
 
 .about-content.animate {
@@ -67,9 +67,6 @@
   margin-top: 2rem;
   position: sticky;
   top: 100px;
-  background-color: var(--light-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
 }
 .about-contact-mobile {
   display: none;

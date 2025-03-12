@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
+import Button from './Button';
 import '@styles/Hero.css';
+import SocialLinks from './SocialLinks';
 
 const Hero = () => {
   const textRef = useRef(null);
@@ -46,29 +48,18 @@ const Hero = () => {
                 performants qui <span className="hero-highlight">répondent aux besoins</span> des utilisateurs.
               </p>
               <div className="hero-buttons">
-                <a href="#projects" className="btn btn-primary">
-                  <span>Voir mes projets</span>
-                  <i className="fas fa-arrow-right"></i>
-                </a>
-                <a href="#contact" className="btn btn-secondary">
-                  <span>Me contacter</span>
-                </a>
+                <Button variant="primary" size="large" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
+                  <i className="fas fa-eye"></i> Voir mes projets
+                </Button>
+                <Button variant="outline" size="large" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+                  <i className="fas fa-paper-plane"></i> Me contacter
+                </Button>
               </div>
             </div>
           </div>
           
           <div className="hero-right">
-            <div className="social-links">
-              <a href="https://github.com/Benji-devw" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <i className="fab fa-github"></i>
-              </a>
-              <a href="https://gitlab.com/" target="_blank" rel="noopener noreferrer" aria-label="GitLab">
-                <i className="fab fa-gitlab"></i>
-              </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <i className="fab fa-linkedin"></i>
-              </a>
-            </div>
+            <SocialLinks />
             
             <div className="tech-stack">
               <div className="tech-badge">React</div>

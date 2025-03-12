@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '@styles/ContactBox.css';
+import Button from '@components/Button';
 
 export const ContactBox = () => {
   const [copied, setCopied] = useState(false);
@@ -30,9 +31,15 @@ export const ContactBox = () => {
         <i className="fas fa-graduation-cap"></i>
         <span>Master en Développement Web</span>
       </div>
-      <a href="/cv.pdf" className="btn download-btn" target="_blank" rel="noopener noreferrer">
+      <Button
+        variant="primary"
+        size="large"
+        onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
+      >
+        {/* <a href="/cv.pdf" className="btn download-btn" target="_blank" rel="noopener noreferrer"> */}
         Télécharger mon CV <i className="fas fa-download"></i>
-      </a>
+        {/* </a> */}
+      </Button>
     </div>
   );
 };
