@@ -32,8 +32,8 @@ const Hero = () => {
         <div className="hero-content" ref={textRef}>
           <div className="hero-left">
             <div className="hero-text-container">
-              <p className="hero-greeting">Bonjour, je m'appelle</p>
-              <h1 className="hero-title">Benjare <span className="hero-title-highlight">Nom</span></h1>
+              <p className="hero-greeting">Bonjour, je suis</p>
+              <h1 className="hero-title">Benjamin <span className="hero-title-highlight">Navarro</span></h1>
               <div className="hero-roles">
                 <div className="role-container">
                   <h2 className="hero-role">Développeur full stack</h2>
@@ -86,12 +86,7 @@ const Hero = () => {
         </a>
       </div>
       
-      <div className="hero-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
-        <div className="shape shape-3"></div>
-        <div className="shape shape-4"></div>
-      </div>
+
     </section>
   );
 };

@@ -1,61 +1,60 @@
 import { useState } from 'react';
-import '@styles/Contact.css';
+import '@styles/ContactForm.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
   const [status, setStatus] = useState({
     submitted: false,
     submitting: false,
-    info: { error: false, msg: null }
+    info: { error: false, msg: null },
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus(prevStatus => ({ ...prevStatus, submitting: true }));
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
 
     try {
       // Simulation d'envoi (à remplacer par votre API d'envoi d'emails)
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       setStatus({
         submitted: true,
         submitting: false,
-        info: { error: false, msg: "Message envoyé avec succès!" }
+        info: { error: false, msg: 'Message envoyé avec succès!' },
       });
-      
+
       // Réinitialiser le formulaire après envoi réussi
       setFormData({
         name: '',
         email: '',
-        message: ''
+        message: '',
       });
-      
+
       // Réinitialiser le statut après 5 secondes
       setTimeout(() => {
         setStatus({
           submitted: false,
           submitting: false,
-          info: { error: false, msg: null }
+          info: { error: false, msg: null },
         });
       }, 5000);
-      
     } catch (error) {
       setStatus({
         submitted: false,
         submitting: false,
-        info: { error: true, msg: "Une erreur s'est produite. Veuillez réessayer." }
+        info: { error: true, msg: "Une erreur s'est produite. Veuillez réessayer." },
       });
     }
   };
@@ -66,7 +65,7 @@ const Contact = () => {
       <p className="contact-description">
         Vous avez un projet en tête ou une question ? N'hésitez pas à me contacter !
       </p>
-      
+
       <form className="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Nom</label>
@@ -80,7 +79,7 @@ const Contact = () => {
             required
           />
         </div>
-        
+
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -93,7 +92,7 @@ const Contact = () => {
             required
           />
         </div>
-        
+
         <div className="form-group">
           <label htmlFor="message">Message</label>
           <textarea
@@ -106,22 +105,16 @@ const Contact = () => {
             required
           ></textarea>
         </div>
-        
-        <button 
-          type="submit" 
-          className="submit-btn"
-          disabled={status.submitting}
-        >
+
+        <button type="submit" className="submit-btn" disabled={status.submitting}>
           {status.submitting ? 'Envoi en cours...' : 'Envoyer'}
         </button>
-        
+
         {status.info.msg && (
-          <div className={`form-status ${status.info.error ? 'error' : 'success'}`}>
-            {status.info.msg}
-          </div>
+          <div className={`form-status ${status.info.error ? 'error' : 'success'}`}>{status.info.msg}</div>
         )}
       </form>
-      
+
       <div className="contact-info">
         <div className="contact-item">
           <i className="fas fa-envelope"></i>
@@ -147,4 +140,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

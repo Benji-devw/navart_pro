@@ -1,6 +1,5 @@
 .skills {
   padding: 6rem 0;
-  background-color: white;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -9,10 +8,11 @@
 
 .skills-content {
   opacity: 0;
+  background-color: var(--light-color);
   transform: translateY(30px);
   transition: all 0.8s ease;
   width: 100%;
-  max-width: 1200px;
+  padding: 2rem 0;
 }
 
 .skills-content.animate {

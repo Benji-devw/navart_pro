@@ -1,0 +1,14 @@
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  z-index: -1;
+  background-color: var(--dark-color);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}

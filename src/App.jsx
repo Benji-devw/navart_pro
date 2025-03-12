@@ -4,7 +4,7 @@ import Hero from '@components/Hero';
 import About from '@components/About';
 import Skills from '@components/Skills';
 import Layout from '@components/Layout';
-import Contact from '@components/Contact';
+import Footer from '@components/Footer';
 import BackgroundAnimation from '@components/BackgroundAnimation';
 import './App.css';
 
@@ -28,27 +28,27 @@ function App() {
         </div>
       ) : (
         <Layout>
+      <div className="hero-shapes">
+        <div className="shape shape-1"></div>
+        <div className="shape shape-2"></div>
+        <div className="shape shape-3"></div>
+        <div className="shape shape-4"></div>
+      </div>
           <BackgroundAnimation
             gridSize={60}
-            pointColor = {'rgb(44, 44, 44)'}
-            lineColor = {'rgb(48, 48, 48)'}
+            pointColor={'rgb(44, 44, 44)'}
+            lineColor={'rgb(48, 48, 48)'}
             connectionDistance={80}
             interactionRadius={210}
             interactionForce={-22}
           />
-
           <Header />
           <main>
             <Hero />
             <About />
             <Skills />
           </main>
-          <footer className="footer">
-            <Contact />
-            <div className="footer-bottom">
-              <p>&copy; {new Date().getFullYear()} - Navarro Benjamin. Tous droits réservés.</p>
-            </div>
-          </footer>
+          <Footer />
         </Layout>
       )}
     </div>
