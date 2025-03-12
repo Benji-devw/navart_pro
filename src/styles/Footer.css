@@ -3,20 +3,20 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 3rem 0 1.5rem;
+  padding: 3rem 0 0;
   background-color: var(--dark-color);
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   z-index: 10;
+  border-radius: var(--border-radius);
 }
 
 .footer-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   width: 90%;
   padding-bottom: 2rem;
@@ -94,8 +94,8 @@
 .footer-bottom {
   width: 100%;
   text-align: center;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-top: 1px solid var(--dark-color-light);
   margin-top: 1rem;
 }
 
@@ -106,7 +106,7 @@
 
 @media screen and (max-width: 768px) {
   .footer {
-    padding: 2rem 0 1rem;
+    padding: 2rem 0 0;
   }
   
   .footer-content {

@@ -32,6 +32,7 @@
   cursor: pointer;
   color: var(--text-light);
   transition: all 0.2s ease;
+  font-size: 1.2rem;
 }
 
 .view-mode-btn.active {
@@ -41,25 +42,6 @@
 
 .view-mode-btn:hover:not(.active) {
   background-color: rgba(0, 0, 0, 0.05);
-}
-
-.toggle-layout-btn {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.toggle-layout-btn:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-2px);
 }
 
 .experience-timeline-container h3 {

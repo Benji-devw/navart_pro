@@ -1,5 +1,5 @@
 .skills {
-  padding: 6rem 0;
+  /* padding: 6rem 0; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,8 @@
   transform: translateY(30px);
   transition: all 0.8s ease;
   width: 100%;
-  padding: 2rem 0;
+  padding: 2rem;
+  border-radius: var(--border-radius);
 }
 
 .skills-content.animate {
@@ -57,16 +58,6 @@
   padding-bottom: 10px;
 }
 
-.skills-category h3::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 3px;
-  background-color: var(--primary-color);
-}
-
 .skills-list {
   display: flex;
   flex-direction: column;
@@ -77,15 +68,15 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0.8rem;
+  padding: 0.4rem;
   border-radius: var(--border-radius);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: var(--light-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 .skill-icon {
