@@ -10,33 +10,20 @@ import '@styles/Button.css';
  * @param {React.ReactNode} props.children - Le contenu du bouton
  * @param {React.Ref} ref - Référence React
  */
-const Button = forwardRef(({
-  variant = 'primary',
-  size = 'medium',
-  fullWidth = false,
-  className = '',
-  children,
-  ...props
-}, ref) => {
-  const buttonClasses = [
-    'btn',
-    `btn-${variant}`,
-    `btn-${size}`,
-    fullWidth ? 'btn-full-width' : '',
-    className
-  ].filter(Boolean).join(' ');
+const Button = forwardRef(
+  ({ variant = 'primary', size = 'medium', fullWidth = false, className = '', children, ...props }, ref) => {
+    const buttonClasses = ['btn', `btn-${variant}`, `btn-${size}`, fullWidth ? 'btn-full-width' : '', className]
+      .filter(Boolean)
+      .join(' ');
 
-  return (
-    <button 
-      className={buttonClasses}
-      ref={ref}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-});
+    return (
+      <button className={buttonClasses} ref={ref} {...props}>
+        {children}
+      </button>
+    );
+  }
+);
 
 Button.displayName = 'Button';
 
-export default Button; 
+export default Button;

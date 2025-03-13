@@ -32,6 +32,7 @@ export const ContactBox = () => {
         <span>Master en Développement Web</span>
       </div>
       <Button
+        className="download-btn"
         variant="primary"
         size="large"
         onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
