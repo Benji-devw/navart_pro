@@ -1,0 +1,22 @@
+{
+  "featuredProjects": [
+    {
+      "id": 1,
+      "title": "Site e-commerce moderne",
+      "category": "web",
+      "image": "https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+      "id": 3,
+      "title": "Identité visuelle pour startup",
+      "category": "design",
+      "image": "https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+      "id": 5,
+      "title": "Campagne publicitaire",
+      "category": "infographie",
+      "image": "https://images.unsplash.com/photo-1583322801485-a38022e20ab9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+    }
+  ]
+}
