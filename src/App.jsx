@@ -4,11 +4,13 @@ import Header from '@/components/ui/Header';
 import Hero from '@components/Hero';
 import About from '@components/About';
 import Skills from '@components/Skills';
+import Gallery from '@/components/Gallery/Gallery';
 import Layout from '@/components/ui/Layout';
 import Footer from '@/components/ui/Footer';
 import BackgroundAnimation from '@components/BackgroundAnimation';
 import FloatingContact from '@components/FloatingContact';
 import Shapes from '@/components/ui/Shapes';
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -43,6 +45,7 @@ function App() {
             <Hero />
             <About />
             <Skills />
+            <Gallery />
           </main>
           <Footer />
           <FloatingContact />
