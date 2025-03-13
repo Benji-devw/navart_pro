@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Gallery.css';
 import { projects } from '../../assets/featuredProjects.json';
+import Modal from '../ui/Modal';
 
 // Liste des catégories pour le filtre
 const categories = [
@@ -16,7 +17,6 @@ const Gallery = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const modalRef = useRef(null);
   const galleryRef = useRef(null);
 
   // Effet d'apparition au scroll
@@ -57,36 +57,6 @@ const Gallery = () => {
     }, 300);
   }, [selectedCategory]);
 
-  // Fermer la modale si on clique en dehors
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        closeModal();
-      }
-    };
-
-    if (isModalOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isModalOpen]);
-
-  // Bloquer le scroll quand la modale est ouverte
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isModalOpen]);
-
   const openModal = (project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
@@ -115,7 +85,7 @@ const Gallery = () => {
         </div>
 
         <div className={`gallery-grid ${isAnimating ? 'animating' : ''}`}>
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <div key={project.id} className="gallery-item" onClick={() => openModal(project)}>
               <div className="gallery-item-inner">
                 <div className="gallery-img-container">
@@ -145,50 +115,49 @@ const Gallery = () => {
       </div>
 
       {/* Modal de projet */}
-      {selectedProject && (
-        <div className={`project-modal-overlay ${isModalOpen ? 'open' : ''}`}>
-          <div className="project-modal" ref={modalRef}>
-            <button className="modal-close-btn" onClick={closeModal}>
-              <i className="fas fa-times"></i>
-            </button>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        size="large"
+        title={selectedProject?.title}
+      >
+        {selectedProject && (
+          <>
+            <div className="modal-image">
+              <img src={selectedProject.image} alt={selectedProject.title} />
+            </div>
 
-            <div className="modal-content">
-              <div className="modal-image">
-                <img src={selectedProject.image} alt={selectedProject.title} />
+            <div className="modal-info">
+              <h2 className="modal-title">{selectedProject.title}</h2>
+
+              <div className="modal-tags">
+                {selectedProject.tags.map((tag, index) => (
+                  <span key={index} className="modal-tag">
+                    {tag}
+                  </span>
+                ))}
               </div>
 
-              <div className="modal-info">
-                <h2 className="modal-title">{selectedProject.title}</h2>
+              <div className="modal-category">
+                Catégorie: {categories.find((cat) => cat.id === selectedProject.category)?.name}
+              </div>
 
-                <div className="modal-tags">
-                  {selectedProject.tags.map((tag, index) => (
-                    <span key={index} className="modal-tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <p className="modal-description">{selectedProject.description}</p>
 
-                <div className="modal-category">
-                  Catégorie: {categories.find((cat) => cat.id === selectedProject.category)?.name}
-                </div>
-
-                <p className="modal-description">{selectedProject.description}</p>
-
-                <div className="modal-links">
-                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="modal-link">
-                    <i className="fas fa-external-link-alt"></i>
-                    <span>Voir le site</span>
-                  </a>
-                  <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="modal-link">
-                    <i className="fab fa-github"></i>
-                    <span>Code source</span>
-                  </a>
-                </div>
+              <div className="modal-links">
+                <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="modal-link">
+                  <i className="fas fa-external-link-alt"></i>
+                  <span>Voir le site</span>
+                </a>
+                <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="modal-link">
+                  <i className="fab fa-github"></i>
+                  <span>Code source</span>
+                </a>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </>
+        )}
+      </Modal>
     </section>
   );
 };

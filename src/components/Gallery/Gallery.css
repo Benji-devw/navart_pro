@@ -178,7 +178,7 @@
 }
 
 /* Project Modal */
-.project-modal-overlay {
+/* .project-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -326,7 +326,7 @@
 .modal-link:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* Responsive Design */
 @media screen and (min-width: 768px) {
@@ -355,7 +355,7 @@
     height: 280px;
   }
 
-  .modal-links {
+  /* .modal-links {
     flex-direction: column;
     width: 100%;
   }
@@ -363,7 +363,7 @@
   .modal-link {
     width: 100%;
     justify-content: center;
-  }
+  } */
 }
 
 @media screen and (max-width: 480px) {

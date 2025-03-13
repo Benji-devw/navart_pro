@@ -19,7 +19,7 @@ const TimelineCV = ({ experiences }) => {
               onClick={() => changeViewMode('timeline')}
               aria-label="Afficher en mode timeline"
             >
-              <i class="fa-solid fa-timeline fa-rotate-90"></i>
+              <i className="fa-solid fa-timeline fa-rotate-90"></i>
             </button>
             <button
               className={`view-mode-btn ${viewMode === 'list' ? 'active' : ''}`}

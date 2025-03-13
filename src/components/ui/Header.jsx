@@ -29,15 +29,15 @@ const Header = () => {
       href: '#about'
     },
     {
-      name: 'projects',
-      icon: 'fas fa-tools',
-      href: '#projects'
-    },
-    {
       name: 'skills',
       icon: 'fas fa-cubes-stacked',
       href: '#skills'
-    }
+    },
+    {
+      name: 'gallery',
+      icon: 'fas fa-folder-open',
+      href: '#gallery'
+    },
   ];
 
   // Effet pour initialiser les refs des sections
@@ -86,7 +86,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       // Obtient toutes les sections
-      const sections = ['home', 'about', 'projects', 'skills'];
+      const sections = ['home', 'about', 'skills', 'gallery'];
       
       // Trouve la section actuellement visible en utilisant les refs
       const current = sections.find(section => {
