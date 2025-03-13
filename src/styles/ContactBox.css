@@ -19,8 +19,9 @@
 
 /* Référence au bouton de téléchargement - style défini dans Button.css */
 .download-btn {
-  margin-top: 1rem;
-  width: 100%;
+  /* margin-top: 1rem; */
+  /* width: 100%; */
+  margin: 0 auto;
 }
 
 .detail {

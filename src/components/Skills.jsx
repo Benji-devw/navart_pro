@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
-import '../styles/Skills.css';
-import skills from '../assets/skills.json';
+import '@styles/Skills.css';
 
 const Skills = () => {
   const skillsRef = useRef(null);
@@ -31,7 +30,46 @@ const Skills = () => {
     };
   }, []);
 
-  const { frontendSkills, backendSkills, toolsSkills } = skills;
+  // Liste des compétences avec leurs icônes Devicon
+  const frontendSkills = [
+    { name: 'JavaScript', icon: 'devicon-javascript-plain colored', level: 85 },
+    { name: 'React', icon: 'devicon-react-original colored', level: 80 },
+    { name: 'Next.js', icon: 'devicon-nextjs-plain colored', level: 80 },
+    { name: 'TypeScript', icon: 'devicon-typescript-plain colored', level: 60 },
+    { name: 'Vue.js', icon: 'devicon-vuejs-plain colored', level: 55 },
+    { name: 'SASS', icon: 'devicon-sass-original colored', level: 85 },
+    { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-plain colored', level: 85 },
+    { name: 'Material UI', icon: 'devicon-materialui-plain colored', level: 85 },
+    { name: 'Figma', icon: 'devicon-figma-plain colored', level: 70 },
+    { name: 'Three.js', icon: '/icons/threejs.png', level: 55, isImage: true },
+  ];
+
+  const backendSkills = [
+    { name: 'Node.js', icon: 'devicon-nodejs-plain colored', level: 80 },
+    { name: 'Express', icon: 'devicon-express-original colored', level: 80 },
+    { name: 'MongoDB', icon: 'devicon-mongodb-plain colored', level: 70 },
+    { name: 'SQL', icon: 'devicon-mysql-plain colored', level: 60 },
+    { name: 'PostgreSQL', icon: 'devicon-postgresql-plain colored', level: 60 },
+    { name: 'Prisma', icon: 'devicon-prisma-plain colored', level: 55 },
+    { name: 'Vercel', icon: 'devicon-vercel-plain colored', level: 80 },
+    { name: 'AWS', icon: 'devicon-amazonwebservices-plain colored', level: 50 },
+    { name: 'Linux', icon: 'devicon-linux-plain colored', level: 65 },
+  ];
+
+  const toolsSkills = [
+    { name: 'Cypress', icon: 'devicon-cypressio-plain colored', level: 80 },
+    { name: 'Jest', icon: 'devicon-jest-plain colored', level: 55 },
+    { name: 'Vitest', icon: 'devicon-vitest-plain colored', level: 65 },
+    { name: 'Selenium', icon: 'devicon-selenium-plain colored', level: 25 },
+    { name: 'Cursor', icon: '/icons/th.png', level: 85, isImage: true },
+    { name: 'Git', icon: 'devicon-git-plain colored', level: 65 },
+    { name: 'GitHub', icon: 'devicon-github-plain colored', level: 70 },
+    { name: 'CI/CD', icon: 'devicon-gitlab-plain colored', level: 70 },
+    { name: 'Docker', icon: 'devicon-docker-plain colored', level: 60 },
+    { name: 'Jira', icon: 'devicon-jira-plain colored', level: 80 },
+    { name: 'Monday', icon: '/icons/monday-icon-icon-md.png', level: 75, isImage: true },
+    { name: 'Postman', icon: 'devicon-postman-plain colored', level: 85 },
+  ];
 
   // Fonction pour rendre l'icône en fonction de son type (Devicon ou image personnalisée)
   const renderIcon = (skill) => {

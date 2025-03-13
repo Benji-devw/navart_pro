@@ -1,3 +1,5 @@
+// Générer par l'IA
+
 import { useEffect, useRef } from 'react';
 import '@styles/BackgroundAnimation.css';
 

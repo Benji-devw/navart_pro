@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './App.css';
 import Header from '@components/Header';
 import Hero from '@components/Hero';
 import About from '@components/About';
@@ -7,8 +8,7 @@ import Layout from '@components/Layout';
 import Footer from '@components/Footer';
 import BackgroundAnimation from '@components/BackgroundAnimation';
 import FloatingContact from '@components/FloatingContact';
-import './App.css';
-
+import Shapes from '@components/Shapes';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,12 +29,7 @@ function App() {
         </div>
       ) : (
         <Layout>
-          <div className="hero-shapes">
-            <div className="shape shape-1"></div>
-            <div className="shape shape-2"></div>
-            <div className="shape shape-3"></div>
-            <div className="shape shape-4"></div>
-          </div>
+          <Shapes variant="colorful" count={4} />
           <BackgroundAnimation
             gridSize={60}
             pointColor={'rgb(44, 44, 44)'}

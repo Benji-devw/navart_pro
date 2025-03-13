@@ -16,6 +16,30 @@ const Header = () => {
     skills: null
   });
 
+  // Array of items to link to
+  const items = [
+    {
+      name: 'home',
+      icon: 'fas fa-home',
+      href: '#home'
+    },
+    {
+      name: 'about',
+      icon: 'fas fa-user',
+      href: '#about'
+    },
+    {
+      name: 'projects',
+      icon: 'fas fa-tools',
+      href: '#projects'
+    },
+    {
+      name: 'skills',
+      icon: 'fas fa-cubes-stacked',
+      href: '#skills'
+    }
+  ];
+
   // Effet pour initialiser les refs des sections
   useEffect(() => {
     // Initialiser les refs avec les éléments DOM
@@ -86,39 +110,17 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''} ${isVisible ? 'visible' : 'hidden'}`}>
       <div className="icon-menu-container">
-        <nav className="icon-menu" ref={menuRef}>
-          <a 
-            href="#home" 
-            className={`menu-icon ${activeIcon === 'home' ? 'active' : ''}`}
-            onClick={() => handleIconClick('home')}
-          >
-            <i className="fas fa-home"></i>
-          </a>
-          
-          <a 
-            href="#about" 
-            className={`menu-icon ${activeIcon === 'about' ? 'active' : ''}`}
-            onClick={() => handleIconClick('about')}
-          >
-            {/* <i className="fas fa-user"></i> */}
-            <i class="fa-solid fa-address-card"></i>
-          </a>
-          
-          <a 
-            href="#projects" 
-            className={`menu-icon ${activeIcon === 'projects' ? 'active' : ''}`}
-            onClick={() => handleIconClick('projects')}
-          >
-            <i className="fas fa-tools"></i>
-          </a>
-          
-          <a 
-            href="#skills" 
-            className={`menu-icon ${activeIcon === 'skills' ? 'active' : ''}`}
-            onClick={() => handleIconClick('skills')}
-          >
-            <i className="fas fa-cubes-stacked"></i>
-          </a>
+      <nav className="icon-menu" ref={menuRef}>
+          {items.map((item) => (
+            <a 
+              key={item.name}
+              href={item.href}
+              className={`menu-icon ${activeIcon === item.name ? 'active' : ''}`}
+              onClick={() => handleIconClick(item.name)}
+            >
+              <i className={item.icon}></i>
+            </a>
+          ))}
         </nav>
       </div>
     </header>
