@@ -16,13 +16,13 @@
 
 /* Bouton flottant */
 .floating-contact-btn {
-  width: 60px;
+  width: 50px;
+  height: 50px;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  height: 60px;
   border-radius: 30px;
-  background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
+  background: var(--gradient-color);
   color: var(--light-color);
   border: none;
   display: flex;
@@ -31,7 +31,7 @@
   cursor: pointer;
   font-size: 1.5rem;
   box-shadow: var(--box-shadow);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: all 0.3s var(--animation-bezier);
   z-index: 1002;
   animation: pulse 1s infinite;
   user-select: none !important;
@@ -51,11 +51,11 @@
 
 .floating-contact-btn:hover {
   transform: translateY(-8px) scale(1.05);
-  box-shadow: var(--box-light-shadow);
+  box-shadow: var(--box-dark-shadow);
 }
 
 .floating-contact-btn.active {
-  background: linear-gradient(145deg, var(--secondary-color), var(--primary-color));
+  background: var(--gradient-color);
   transform: rotate(90deg) scale(1.1);
   animation: none;
 }
@@ -77,14 +77,13 @@
 /* Modale */
 .floating-contact-modal {
   position: relative;
-  width: 500px;
-  max-width: 90vw;
+  width: 50vw;
   max-height: 80vh;
   background-color: var(--dark-color);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   overflow: hidden;
-  animation: slideUp 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+  animation: slideUp 0.2s var(--animation-bezier) forwards;
   z-index: 1020;
 }
 
@@ -118,7 +117,7 @@
 .floating-contact-content {
   position: relative;
   z-index: 1001;
-  padding: 2rem;
+  padding: 1.5rem;
   max-height: 80vh;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -149,7 +148,7 @@
 .floating-contact-content .contact-title {
   font-size: 1.8rem;
   margin-top: 0;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: var(--gradient-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -159,7 +158,7 @@
 .floating-contact-content .contact-description {
   font-size: 1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--light-color);
   margin-bottom: 1.5rem;
 }
 
@@ -195,8 +194,8 @@
   }
 
   .floating-contact-btn {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     font-size: 1.2rem;
     bottom: 10px;
     right: 10px;

@@ -51,6 +51,7 @@ const Contact = () => {
         });
       }, 5000);
     } catch (error) {
+      console.log(error);
       setStatus({
         submitted: false,
         submitting: false,
@@ -63,7 +64,7 @@ const Contact = () => {
     <div className="contact-container" id="contact">
       <h2 className="contact-title">Me contacter</h2>
       <p className="contact-description">
-        Vous avez un projet en tête ou une question ? N'hésitez pas à me contacter !
+        N'hésitez pas à me contacter !
       </p>
 
       <form className="contact-form" onSubmit={handleSubmit}>
@@ -115,7 +116,7 @@ const Contact = () => {
         )}
       </form>
 
-      <div className="contact-info">
+      {/* <div className="contact-info">
         <div className="contact-item">
           <i className="fas fa-envelope"></i>
           <span>contact@example.com</span>
@@ -124,8 +125,8 @@ const Contact = () => {
           <i className="fas fa-map-marker-alt"></i>
           <span>Paris, France</span>
         </div>
+      </div> */}
 
-      </div>
     </div>
   );
 };

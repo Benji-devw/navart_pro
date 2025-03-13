@@ -20,7 +20,7 @@
 
 .social-links a:hover {
   transform: translateY(-5px) rotate(10deg);
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-  color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background: var(--gradient-color  );
+  color: var(--light-color);
+  box-shadow: var(--box-light-shadow);
 }
