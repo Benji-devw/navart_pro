@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import Header from '@components/Header';
+import Header from '@/components/ui/Header';
 import Hero from '@components/Hero';
 import About from '@components/About';
 import Skills from '@components/Skills';
-import Layout from '@components/Layout';
-import Footer from '@components/Footer';
+import Layout from '@/components/ui/Layout';
+import Footer from '@/components/ui/Footer';
 import BackgroundAnimation from '@components/BackgroundAnimation';
 import FloatingContact from '@components/FloatingContact';
-import Shapes from '@components/Shapes';
+import Shapes from '@/components/ui/Shapes';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 

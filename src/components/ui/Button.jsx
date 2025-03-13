@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import '@styles/Button.css';
+import './Button.css';
 /**
  * Composant Button réutilisable
  * @param {Object} props - Les propriétés du bouton

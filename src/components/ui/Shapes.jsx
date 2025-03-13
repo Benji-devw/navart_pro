@@ -1,5 +1,5 @@
 import React from 'react';
-import '@/styles/Shapes.css';
+import './Shapes.css';
 
 /**
  * Composant Shapes réutilisable pour créer des formes décoratives

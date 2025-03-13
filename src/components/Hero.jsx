@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import Button from './Button';
+import Button from './ui/Button';
 import '@styles/Hero.css';
 import SocialLinks from './SocialLinks';
 
