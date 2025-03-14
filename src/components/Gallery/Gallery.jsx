@@ -134,6 +134,7 @@ const Gallery = () => {
               <h3 className="modal-title">{selectedProject.title}</h3>
 
               <div className="modal-category">
+                <i className="fas fa-folder"></i>
                 Catégorie: {categories.find((cat) => cat.id === selectedProject.category)?.name}
               </div>
 
