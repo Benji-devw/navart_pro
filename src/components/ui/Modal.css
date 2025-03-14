@@ -33,27 +33,32 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
   overflow: hidden;
   position: relative;
+  display: none;
 }
 
 .modal-visible {
   opacity: 1;
   transform: scale(1);
+  display: block;
 }
 
 /* ===== MODAL SIZES ===== */
 .modal-small {
-  width: 400px;
+  width: 40vw;
   max-width: 100%;
+  height: 40vh;
 }
 
 .modal-medium {
-  width: 600px;
+  width: 50vw;
   max-width: 100%;
+  height: 50vh;
 }
 
 .modal-large {
-  width: 800px;
+  width: 70vw;
   max-width: 100%;
+  height: 70vh;
 }
 
 .modal-fullscreen {
@@ -105,8 +110,9 @@
   overflow: hidden;
   flex: 1;
   display: flex;
-  /* flex-direction: column; */
+  height: 100%;
 }
+
 
 /* Style pour les images pleine hauteur */
 .modal-content img {
@@ -157,11 +163,8 @@
     width: 95% !important;
     max-height: 80vh;
   }
-  
-  .modal-header,
-  .modal-content,
-  .modal-footer {
-    padding: 1rem;
+  .modal-content {
+    flex-direction: column;
   }
   
   .modal-title {

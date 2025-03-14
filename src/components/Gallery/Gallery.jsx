@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Gallery.css';
 import { projects } from '../../assets/featuredProjects.json';
 import Modal from '../ui/Modal';
+import Button from '../ui/Button';
 
 // Liste des catégories pour le filtre
 const categories = [
@@ -74,13 +75,13 @@ const Gallery = () => {
 
         <div className="gallery-filter">
           {categories.map((category) => (
-            <button
+            <Button
               key={category.id}
-              className={`filter-btn ${selectedCategory === category.id ? 'active' : ''}`}
+              className={`${selectedCategory === category.id ? 'active' : ''}`}
               onClick={() => setSelectedCategory(category.id)}
             >
               {category.name}
-            </button>
+            </Button>
           ))}
         </div>
 
@@ -119,6 +120,7 @@ const Gallery = () => {
         isOpen={isModalOpen}
         onClose={closeModal}
         size="large"
+        showHeader={false}
       >
         {selectedProject && (
           <>
@@ -127,7 +129,11 @@ const Gallery = () => {
             </div>
 
             <div className="modal-info">
-              <h2 className="modal-title">{selectedProject.title}</h2>
+              <h3 className="modal-title">{selectedProject.title}</h3>
+
+              <div className="modal-category">
+                Catégorie: {categories.find((cat) => cat.id === selectedProject.category)?.name}
+              </div>
 
               <div className="modal-tags">
                 {selectedProject.tags.map((tag, index) => (
@@ -135,10 +141,6 @@ const Gallery = () => {
                     {tag}
                   </span>
                 ))}
-              </div>
-
-              <div className="modal-category">
-                Catégorie: {categories.find((cat) => cat.id === selectedProject.category)?.name}
               </div>
 
               <p className="modal-description">{selectedProject.description}</p>

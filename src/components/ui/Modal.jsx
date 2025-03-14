@@ -11,6 +11,7 @@ import './Modal.css';
  * @param {string} [props.size='medium'] - Taille du modal (small, medium, large, fullscreen)
  * @param {boolean} [props.closeOnOverlayClick=true] - Si le modal se ferme en cliquant sur l'overlay
  * @param {boolean} [props.showCloseButton=true] - Si le bouton de fermeture est affiché
+ * @param {boolean} [props.showHeader=true] - Si le header est affiché
  * @param {React.ReactNode} [props.footer] - Contenu du footer du modal
  */
 const Modal = ({
@@ -21,7 +22,8 @@ const Modal = ({
   size = 'medium',
   closeOnOverlayClick = true,
   showCloseButton = true,
-  footer
+  showHeader = true,
+  footer,
 }) => {
   const modalRef = useRef(null);
 
@@ -61,53 +63,39 @@ const Modal = ({
     }
   }, [isOpen]);
 
-  // Fonction pour formater le contenu
-  const formatContent = (content) => {
-    // Si le contenu est une chaîne simple, on l'enveloppe dans un paragraphe
-    if (typeof content === 'string') {
-      return <p>{content}</p>;
-    }
-    return content;
-  };
-
   if (!isOpen) return null;
 
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
-      <div 
-        className={`modal modal-${size}`} 
+      <div
+        className={`modal modal-${size}`}
         ref={modalRef}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
-        aria-labelledby={title ? "modal-title" : undefined}
+        aria-labelledby={title ? 'modal-title' : undefined}
       >
-        
-        <div className="modal-header">
-          {title && <h3 id="modal-title" className="modal-title">{title}</h3>}
-          {showCloseButton && (
-            <button 
-              className="modal-close" 
-              onClick={onClose}
-              aria-label="Fermer"
-            >
-              <i className="fas fa-times"></i>
-            </button>
-          )}
-        </div>
-        
-        <div className="modal-content">
-          {formatContent(children)}
-        </div>
-        
-        {footer && (
-          <div className="modal-footer">
-            {footer}
+        {showHeader && (
+          <div className="modal-header">
+            {title && (
+              <h3 id="modal-title" className="modal-title">
+                {title}
+              </h3>
+            )}
+            {showCloseButton && (
+              <button className="modal-close" onClick={onClose} aria-label="Fermer">
+                <i className="fas fa-times"></i>
+              </button>
+            )}
           </div>
         )}
+
+        <div className="modal-content">{children}</div>
+
+        {footer && <div className="modal-footer">{footer}</div>}
       </div>
     </div>
   );
 };
 
-export default Modal; 
+export default Modal;
