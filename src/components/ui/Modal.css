@@ -78,30 +78,44 @@
 }
 
 .modal-close {
-  background: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
   border: none;
-  font-size: 1.25rem;
-  color: var(--text-light);
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
   transition: all 0.2s ease;
 }
 
 .modal-close:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: var(--dark-color);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* ===== MODAL CONTENT ===== */
 .modal-content {
-  padding: 1.5rem;
-  overflow-y: auto;
+  padding: 0;
+  overflow: hidden;
   flex: 1;
+  display: flex;
+  /* flex-direction: column; */
+}
+
+/* Style pour les images pleine hauteur */
+.modal-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  border-radius: 0;
 }
 
 /* ===== MODAL FOOTER ===== */

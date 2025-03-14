@@ -61,6 +61,15 @@ const Modal = ({
     }
   }, [isOpen]);
 
+  // Fonction pour formater le contenu
+  const formatContent = (content) => {
+    // Si le contenu est une chaîne simple, on l'enveloppe dans un paragraphe
+    if (typeof content === 'string') {
+      return <p>{content}</p>;
+    }
+    return content;
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -73,6 +82,7 @@ const Modal = ({
         aria-modal="true"
         aria-labelledby={title ? "modal-title" : undefined}
       >
+        
         <div className="modal-header">
           {title && <h3 id="modal-title" className="modal-title">{title}</h3>}
           {showCloseButton && (
@@ -87,7 +97,7 @@ const Modal = ({
         </div>
         
         <div className="modal-content">
-          {children}
+          {formatContent(children)}
         </div>
         
         {footer && (

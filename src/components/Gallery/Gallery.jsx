@@ -119,7 +119,6 @@ const Gallery = () => {
         isOpen={isModalOpen}
         onClose={closeModal}
         size="large"
-        title={selectedProject?.title}
       >
         {selectedProject && (
           <>
