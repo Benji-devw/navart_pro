@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Gallery.css';
-import { projects } from '../../assets/featuredProjects.json';
-import Modal from '../ui/Modal';
-import Button from '../ui/Button';
-import RenderIcon from '../../hooks/RenderIcon';
+import projectsData from '@assets/projectsData.json';
+import Modal from '@components/ui/Modal';
+import Button from '@components/ui/Button';
+import RenderIcon from '@hooks/RenderIcon';
 
 // Liste des catégories pour le filtre
 const categories = [
   { id: 'all', name: 'Tous' },
-  { id: 'web', name: 'Web' },
-  { id: 'Design', name: 'Design' },
-  { id: 'Infographie', name: 'Infographie' },
+  { id: 'web', name: 'web' },
+  { id: 'design', name: 'design' },
+  { id: 'infographie', name: 'infographie' },
 ];
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [filteredProjects, setFilteredProjects] = useState(projects);
+  const [filteredProjects, setFilteredProjects] = useState(projectsData);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -51,9 +51,9 @@ const Gallery = () => {
     setIsAnimating(true);
     setTimeout(() => {
       if (selectedCategory === 'all') {
-        setFilteredProjects(projects);
+        setFilteredProjects(projectsData);
       } else {
-        setFilteredProjects(projects.filter((project) => project.category === selectedCategory));
+        setFilteredProjects(projectsData.filter((project) => project.category === selectedCategory));
       }
       setIsAnimating(false);
     }, 300);

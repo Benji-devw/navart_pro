@@ -10,7 +10,7 @@
 
 .gallery-container {
   width: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   padding: 0 1.5rem;
   opacity: 0;
   transform: translateY(30px);

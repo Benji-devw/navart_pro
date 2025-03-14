@@ -1,0 +1,569 @@
+[
+    {
+        "id": 2,
+        "title": "#",
+        "category": "infographie",
+        "tags": ["Blender", "3D", "Animation"],
+        "icons": [
+            {
+                "icon": "devicon-blender-original colored"
+            }
+        ],
+        "sub": ["/media/icons/blender-3d.svg"],
+        "image": "/media/3D/Super Sparrow.png",
+        "link": "#"
+    },
+    {
+        "id": 3,
+        "title": "#",
+        "category": "infographie",
+        "tags": ["Blender", "3D", "Animation"],
+        "icons": [
+            {
+                "icon": "devicon-blender-original colored"
+            }
+        ],
+        "sub": ["/media/icons/blender-3d.svg"],
+        "image": "/media/3D/Box_1.png",
+        "link": "#"
+    },
+    {
+        "id": 4,
+        "title": "#",
+        "category": "infographie",
+        "tags": ["Blender", "3D", "Animation"],
+        "icons": [
+            {
+                "icon": "devicon-blender-original colored"
+            }
+        ],
+        "sub": ["/media/icons/blender-3d.svg"],
+        "image": "/media/3D/Armory.png",
+        "link": "#"
+    },
+    {
+        "id": 5,
+        "title": "#",
+        "category": "infographie",
+        "tags": ["Blender", "3D", "Animation"],
+        "icons": [
+            {
+                "icon": "devicon-blender-original colored"
+            }
+        ],
+        "sub": ["/media/icons/blender-3d.svg"],
+        "image": "/media/3D/mecanique_2.jpg",
+        "link": "#"
+    },
+    {
+        "id": 6,
+        "title": "#",
+        "category": "infographie",
+        "tags": ["Maya", "3D", "Animation"],
+        "icons": [
+            {
+                "icon": "devicon-maya-original colored"
+            }
+        ],
+        "sub": ["/media/icons/maya.svg"],
+        "image": "/media/3D/Tasse.jpg",
+        "link": "#"
+    },
+    {
+        "id": 7,
+        "title": "#",
+        "category": "infographie",
+        "tags": ["Maya", "3D", "Animation"],
+        "icons": [
+            {
+                "icon": "devicon-maya-original colored"
+            }
+        ],
+        "sub": ["/media/icons/maya.svg"],
+        "image": "/media/3D/goku.png",
+        "link": "#"
+    },
+    {
+        "id": 8,
+        "title": "#",
+        "category": "infographie",
+        "tags": ["Maya", "3D", "Animation"],
+        "icons": [
+            {
+                "icon": "devicon-maya-original colored"
+            }
+        ],
+        "sub": ["/media/icons/maya.svg"],
+        "image": "/media/3D/test.jpg",
+        "link": "#"
+    },
+    {
+        "id": 9,
+        "title": "#",
+        "category": "infographie",
+        "tags": ["Maya", "3D", "Animation"],
+        "icons": [
+            {
+                "icon": "devicon-maya-original colored"
+            }
+        ],
+        "sub": ["/media/icons/maya.svg"],
+        "image": "/media/3D/bg_scene.jpg",
+        "link": "#"
+    },
+    {
+        "id": 10,
+        "title": "#",
+        "category": "infographie",
+        "tags": ["Maya", "3D", "Animation"],
+        "icons": [
+            {
+                "icon": "devicon-maya-original colored"
+            }
+        ],
+        "sub": ["/media/icons/maya.svg"],
+        "image": "/media/3D/ship.jpg",
+        "link": "#"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+        "id": 11,
+        "title": "#",
+        "category": "design",
+        "tags": ["Illustrator"],
+        "icons": [
+            {
+                "icon": "devicon-illustrator-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ai.png"],
+        "image": "/media/design/Design-Orange.jpg",
+        "link": "#"
+    },
+    {
+        "id": 12,
+        "title": "#", 
+        "category": "design",
+        "tags": ["Illustrator", "XD", "Photoshop"],
+        "icons": [
+            {
+                "icon": "devicon-illustrator-plain colored"
+            },
+            {
+                "icon": "devicon-xd-plain colored"
+            },
+            {
+                "icon": "devicon-photoshop-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ai.png", "/media/icons/xd.png", "/media/icons/ps.png"],
+        "image": "/media/design/Meteo.jpg",
+        "link": "#"
+    },
+    {
+        "id": 13,
+        "title": "#",
+        "category": "design", 
+        "tags": ["Photoshop"],
+        "icons": [
+            {
+                "icon": "devicon-photoshop-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ps.png"],
+        "image": "/media/design/Femme-Soie.jpg",
+        "link": "#"
+    },
+    {
+        "id": 14,
+        "title": "#",
+        "category": "design",
+        "tags": ["Illustrator"],
+        "icons": [
+            {
+                "icon": "devicon-illustrator-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ai.png"],
+        "image": "/media/design/Wave-Purple.jpg",
+        "link": "#"
+    },
+    {
+        "id": 15,
+        "title": "#",
+        "category": "design",
+        "tags": ["Illustrator"],
+        "icons": [
+            {
+                "icon": "devicon-illustrator-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ai.png"],
+        "image": "/media/design/Robot.jpg",
+        "link": "#"
+    },
+    {
+        "id": 16,
+        "title": "#",
+        "category": "design",
+        "tags": ["Illustrator", "XD", "Photoshop"],
+        "icons": [
+            {
+                "icon": "devicon-illustrator-plain colored"
+            },
+            {
+                "icon": "devicon-xd-plain colored"
+            },
+            {
+                "icon": "devicon-photoshop-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ai.png", "/media/icons/xd.png", "/media/icons/ps.png"],
+        "image": "/media/design/Street.jpg",
+        "link": "#"
+    },
+    {
+        "id": 17,
+        "title": "#",
+        "category": "design",
+        "tags": ["Illustrator"],
+        "icons": [
+            {
+                "icon": "devicon-illustrator-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ai.png"],
+        "image": "/media/design/Planete-Illustration.jpg",
+        "link": "#"
+    },
+    {
+        "id": 18,
+        "title": "#",
+        "category": "design",
+        "tags": ["Illustrator"],
+        "icons": [
+            {
+                "icon": "devicon-illustrator-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ai.png"],
+        "image": "/media/design/SPACE_ONE.jpg",
+        "link": "#"
+    },
+    {
+        "id": 19,
+        "title": "#",
+        "category": "design",
+        "tags": ["Photoshop"],
+        "icons": [
+            {
+                "icon": "devicon-photoshop-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ps.png"],
+        "image": "/media/design/egle-Destructure.jpg",
+        "link": "#"
+    },
+    {
+        "id": 20,
+        "title": "#",
+        "category": "design",
+        "tags": ["Illustrator"],
+        "icons": [
+            {
+                "icon": "devicon-illustrator-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ai.png"],
+        "image": "/media/design/Background-Illustration.jpg",
+        "link": "#"
+    },
+    {
+        "id": 21,
+        "title": "#",
+        "category": "design",
+        "tags": ["Photoshop"],
+        "icons": [
+            {
+                "icon": "devicon-photoshop-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ps.png"],
+        "image": "/media/design/404.jpg",
+        "link": "#"
+    },
+    {
+        "id": 22,
+        "title": "#",
+        "category": "design",
+        "tags": ["Photoshop"],
+        "icons": [
+            {
+                "icon": "devicon-photoshop-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ps.png"],
+        "image": "/media/design/automne.jpg",
+        "link": "#"
+    },
+    {
+        "id": 23,
+        "title": "#",
+        "category": "design",
+        "tags": ["Photoshop"],
+        "icons": [
+            {
+                "icon": "devicon-photoshop-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ps.png"],
+        "image": "/media/design/Text-Destructuré.jpg",
+        "link": "#"
+    },
+    {
+        "id": 24,
+        "title": "#",
+        "category": "design",
+        "tags": ["Illustrator"],
+        "icons": [
+            {
+                "icon": "devicon-illustrator-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/ai.png"],
+        "image": "/media/design/3CSI-Carte-visite.jpg",
+        "link": "#"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+        "id": 25,
+        "title": "Projet Cours",
+        "category": "web",
+        "tags": ["HTML", "CSS", "JavaScript"],
+        "icons": [
+            {
+                "icon": "devicon-html5-plain colored"
+            },
+            {
+                "icon": "devicon-css3-plain colored"
+            },
+            {
+                "icon": "devicon-javascript-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/Html.svg", "/media/icons/Css.svg", "/media/icons/Js.svg"],
+        "image": "/media/web/petitsPlats.jpeg",
+        "link": "https://benji-devw.github.io/p7-petits-plats/",
+        "github": "https://github.com/Benji-devw/p7-petits-plats"
+    },
+    {
+        "id": 26,
+        "title": "personnel",
+        "category": "web",
+        "tags": ["Next.js", "Node.js", "MongoDB", "TypeScript", "Tailwind"],
+        "icons": [
+            {
+                "icon": "devicon-nextjs-plain colored"
+            },
+            {
+                "icon": "devicon-nodejs-plain colored"
+            },
+            {
+                "icon": "devicon-mongodb-plain colored"
+            },
+            {
+                "icon": "devicon-typescript-plain colored"
+            },
+            {
+                "icon": "devicon-tailwindcss-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/next-js.svg", "/media/icons/Nodejs.svg", "/media/icons/mongo.png", "/media/icons/ts.svg", "/media/icons/Tailwind.svg"],
+        "image": "/media/web/StouflyDocPreview.jpg",
+        "link": "https://stoufly-doc.vercel.app/",
+        "github": "https://github.com/Benji-devw/stoufly_doc"
+    },
+    {
+        "id": 27,
+        "title": "contribution",
+        "category": "web", 
+        "tags": ["HTML", "CSS", "JavaScript", "Bootstrap"],
+        "icons": [
+            {
+                "icon": "devicon-html5-plain colored"
+            },
+            {
+                "icon": "devicon-css3-plain colored"
+            },
+            {
+                "icon": "devicon-javascript-plain colored"
+            },
+            {
+                "icon": "devicon-bootstrap-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/Html.svg", "/media/icons/Css.svg", "/media/icons/Js.svg", "/media/icons/bootstrap.svg"],
+        "image": "/media/web/speedo-bis.jpg",
+        "link": "aqua"
+    },
+    {
+        "id": 28,
+        "title": "contribution",
+        "category": "web",
+        "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
+        "icons": [
+            {
+                "icon": "devicon-wordpress-plain colored"
+            },
+            {
+                "icon": "devicon-php-plain colored"
+            },
+            {
+                "icon": "devicon-javascript-plain colored"
+            },
+            {
+                "icon": "devicon-jquery-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/wordpress.svg", "/media/icons/php.svg", "/media/icons/Js.svg", "/media/icons/jquery-icon.svg"],
+        "image": "/media/web/aleph.jpg",
+        "link": "https://www.aleph-ecriture.fr/"
+    },
+    {
+        "id": 29,
+        "title": "contribution",
+        "category": "web",
+        "tags": ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap"],
+        "icons": [
+            {
+                "icon": "devicon-html5-plain colored"
+            },
+            {
+                "icon": "devicon-css3-plain colored"
+            },
+            {
+                "icon": "devicon-javascript-plain colored"
+            },
+            {
+                "icon": "devicon-php-plain colored"
+            },
+            {
+                "icon": "devicon-bootstrap-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/Html.svg", "/media/icons/Css.svg", "/media/icons/Js.svg", "/media/icons/php.svg", "/media/icons/bootstrap.svg"],
+        "image": "/media/web/Aquapulse2.jpg",
+        "link": "speedo"
+    },
+    {
+        "id": 30,
+        "title": "contribution",
+        "category": "web",
+        "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
+        "icons": [
+            {
+                "icon": "devicon-wordpress-plain colored"
+            },
+            {
+                "icon": "devicon-php-plain colored"
+            },
+            {
+                "icon": "devicon-javascript-plain colored"
+            },
+            {
+                "icon": "devicon-jquery-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/wordpress.svg", "/media/icons/php.svg", "/media/icons/Js.svg", "/media/icons/jquery-icon.svg"],
+        "image": "/media/web/ffmi.jpg",
+        "link": "https://www.ffmi.asso.fr/"
+    },
+    {
+        "id": 31,
+        "title": "personnel",
+        "category": "web",
+        "tags": ["React", "Node.js", "MongoDB", "Sass", "Bootstrap"],
+        "icons": [
+            {
+                "icon": "devicon-react-plain colored"
+            },
+            {
+                "icon": "devicon-nodejs-plain colored"
+            },
+            {
+                "icon": "devicon-mongodb-plain colored"
+            },
+            {
+                "icon": "devicon-sass-plain colored"
+            },
+            {
+                "icon": "devicon-bootstrap-plain colored"
+            }
+        ],
+        "sub": ["/media/icons/react_logo.svg", "/media/icons/Nodejs.svg", "/media/icons/mongo.png", "/media/icons/Sass.svg", "/media/icons/bootstrap.svg"],
+        "image": "/media/web/vallena-1.jpg",
+        "link": "#",
+        "github": "https://github.com/Benji-devw/Vallena"
+    },
+    {
+        "id": 32,
+        "title": "3D porfolio",
+        "category": "web",
+        "tags": ["Next.js", "Three.js"],
+        "icons": [
+            {
+                "icon": "devicon-nextjs-plain colored"
+            },
+            {
+                "icon": "devicon-threejs-original colored"
+            }
+        ],
+        "sub": ["/media/icons/next-js.svg", "/media/icons/Threejs-logo.svg"],
+        "image": "/media/web/spacefolio.png",
+        "link": "https://bn-3d.vercel.app/"
+    },
+    {
+        "id": 33,
+        "title": "3D porfolio",
+        "category": "web",
+        "tags": ["Next.js", "Three.js"],
+        "icons": [
+            {
+                "icon": "devicon-nextjs-plain colored"
+            },
+            {
+                "icon": "devicon-threejs-original colored"
+            }
+        ],
+        "sub": ["/media/icons/next-js.svg", "/media/icons/Threejs-logo.svg"],
+        "image": "/media/web/Folio_Preview.jpg",
+        "link": "https://navarro-benjamin.vercel.app/",
+        "github": "https://github.com/Benji-devw/folio-threejs"
+    }
+    
+]
