@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import '@styles/Skills.css';
-import {frontendSkills, backendSkills, toolsSkills} from '../assets/skills.json';
+import { frontendSkills, backendSkills, toolsSkills } from '../assets/skills.json';
+import RenderIcon from '../hooks/RenderIcon';
 
 const Skills = () => {
   const skillsRef = useRef(null);
@@ -31,17 +32,6 @@ const Skills = () => {
     };
   }, []);
 
-  // Fonction pour rendre l'icône en fonction de son type (Devicon ou image personnalisée)
-  const renderIcon = (skill) => {
-    if (skill.isImage) {
-      return (
-        <img src={skill.icon} alt={skill.name} className="custom-icon" style={{ width: '36px', height: '36px' }} />
-      );
-    } else {
-      return <i className={skill.icon}></i>;
-    }
-  };
-
   return (
     <section id="skills" className="skills">
       <h2 className="section-title">Ma Stack</h2>
@@ -59,7 +49,7 @@ const Skills = () => {
             <div className="skills-list">
               {frontendSkills.map((skill, index) => (
                 <div className="skill-item" key={index}>
-                  <div className="skill-icon">{renderIcon(skill)}</div>
+                  <div className="skill-icon">{RenderIcon(skill, '36px')}</div>
                   <div className="skill-info">
                     <span className="skill-name">{skill.name}</span>
                     <span className="skill-level">{skill.level}%</span>
@@ -74,7 +64,7 @@ const Skills = () => {
             <div className="skills-list">
               {backendSkills.map((skill, index) => (
                 <div className="skill-item" key={index}>
-                  <div className="skill-icon">{renderIcon(skill)}</div>
+                  <div className="skill-icon">{RenderIcon(skill, '36px')}</div>
                   <div className="skill-info">
                     <span className="skill-name">{skill.name}</span>
                     <span className="skill-level">{skill.level}%</span>
@@ -89,7 +79,7 @@ const Skills = () => {
             <div className="skills-list">
               {toolsSkills.map((skill, index) => (
                 <div className="skill-item" key={index}>
-                  <div className="skill-icon">{renderIcon(skill)}</div>
+                  <div className="skill-icon">{RenderIcon(skill, '36px')}</div>
                   <div className="skill-info">
                     <span className="skill-name">{skill.name}</span>
                     <span className="skill-level">{skill.level}%</span>

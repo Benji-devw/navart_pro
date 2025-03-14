@@ -5,6 +5,18 @@
       "title": "Application e-commerce React",
       "category": "web",
       "tags": ["React", "Redux", "Node.js"],
+      "icons": [
+        {
+          "icon": "devicon-react-original colored"
+        },
+        {
+          "icon": "devicon-redux-original colored"
+        },
+        {
+          "icon": "devicon-nodejs-plain colored",
+          "isImage": false
+        }
+      ],
       "image": "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?q=80&w=1974&auto=format&fit=crop",
       "description": "Application e-commerce complète avec panier, paiement et gestion des commandes.",
       "link": "https://example.com/project1",

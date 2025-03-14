@@ -3,6 +3,7 @@ import './Gallery.css';
 import { projects } from '../../assets/featuredProjects.json';
 import Modal from '../ui/Modal';
 import Button from '../ui/Button';
+import RenderIcon from '../../hooks/RenderIcon';
 
 // Liste des catégories pour le filtre
 const categories = [
@@ -98,11 +99,17 @@ const Gallery = () => {
                     {categories.find((cat) => cat.id === project.category)?.name}
                   </div>
                   <div className="gallery-item-tags">
-                    {project.tags.map((tag, index) => (
+                    {/* {project.tags.map((tag, index) => (
                       <span key={index} className="tag">
                         {tag}
                       </span>
-                    ))}
+                    ))} */}
+                    {project.icons &&
+                      project.icons.map((icon, index) => (
+                        <div className="project-icon" key={index}>
+                          {RenderIcon(icon, '30px')}
+                        </div>
+                      ))}
                   </div>
                   <button className="view-details-btn">
                     <span>Voir les détails</span>
@@ -116,12 +123,7 @@ const Gallery = () => {
       </div>
 
       {/* Modal de projet */}
-      <Modal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        size="large"
-        showHeader={false}
-      >
+      <Modal isOpen={isModalOpen} onClose={closeModal} size="large" showHeader={false}>
         {selectedProject && (
           <>
             <div className="modal-image">
@@ -136,11 +138,12 @@ const Gallery = () => {
               </div>
 
               <div className="modal-tags">
-                {selectedProject.tags.map((tag, index) => (
-                  <span key={index} className="modal-tag">
-                    {tag}
-                  </span>
-                ))}
+                {selectedProject.icons &&
+                  selectedProject.icons.map((icon, index) => (
+                    <div className="project-icon" key={index}>
+                      {RenderIcon(icon, '36px')}
+                    </div>
+                  ))}
               </div>
 
               <p className="modal-description">{selectedProject.description}</p>
