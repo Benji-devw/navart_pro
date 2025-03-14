@@ -7,20 +7,21 @@ import RenderIcon from '@hooks/RenderIcon';
 
 // Liste des catégories pour le filtre
 const categories = [
-  { id: 'all', name: 'Tous' },
+  // { id: 'all', name: 'Tous' },
   { id: 'web', name: 'web' },
   { id: 'design', name: 'design' },
   { id: 'infographie', name: 'infographie' },
 ];
 
 const Gallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState('web');
   const [filteredProjects, setFilteredProjects] = useState(projectsData);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const galleryRef = useRef(null);
 
+  // TODO: Move observer to a hook
   // Effet d'apparition au scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -50,11 +51,7 @@ const Gallery = () => {
   useEffect(() => {
     setIsAnimating(true);
     setTimeout(() => {
-      if (selectedCategory === 'all') {
-        setFilteredProjects(projectsData);
-      } else {
-        setFilteredProjects(projectsData.filter((project) => project.category === selectedCategory));
-      }
+      setFilteredProjects(projectsData.filter((project) => project.category === selectedCategory));
       setIsAnimating(false);
     }, 300);
   }, [selectedCategory]);
@@ -87,8 +84,8 @@ const Gallery = () => {
         </div>
 
         <div className={`gallery-grid ${isAnimating ? 'animating' : ''}`}>
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="gallery-item" onClick={() => openModal(project)}>
+          {filteredProjects.map((project, index) => (
+            <div key={index} className="gallery-item" onClick={() => openModal(project)}>
               <div className="gallery-item-inner">
                 <div className="gallery-img-container">
                   <img src={project.image} alt={project.title} />
@@ -125,42 +122,59 @@ const Gallery = () => {
       {/* Modal de projet */}
       <Modal isOpen={isModalOpen} onClose={closeModal} size="large" showHeader={false}>
         {selectedProject && (
-          <>
+          <div className="project-modal-content">
             <div className="modal-image">
               <img src={selectedProject.image} alt={selectedProject.title} />
             </div>
 
             <div className="modal-info">
-              <h3 className="modal-title">{selectedProject.title}</h3>
-
-              <div className="modal-category">
-                <i className="fas fa-folder"></i>
-                Catégorie: {categories.find((cat) => cat.id === selectedProject.category)?.name}
+              <div className="modal-row">
+                {/* Zone gauche - Titre et catégorie */}
+                <div className="modal-info-left">
+                  {selectedProject.title !== '#' && <h3 className="modal-title">{selectedProject.title}</h3>}
+                  {/* <div className="modal-category">
+                    <i className="fas fa-folder"></i>
+                    Catégorie: {categories.find((cat) => cat.id === selectedProject.category)?.name}
+                  </div> */}
+                </div>
+                
+                {/* Zone centrale - Icônes */}
+                <div className="modal-info-center">
+                  <div className="modal-tags">
+                    {selectedProject.icons &&
+                      selectedProject.icons.map((icon, index) => (
+                        <div className="project-icon" key={index}>
+                          {RenderIcon(icon, '36px')}
+                        </div>
+                      ))}
+                  </div>
+                </div>
+                
+                {/* Zone droite - Boutons */}
+                <div className="modal-info-right">
+                  {
+                    selectedProject.link !== '#' && (
+                      <div className="modal-links">
+                        <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="modal-link">
+                      <i className="fas fa-external-link-alt"></i>
+                      <span>Voir le site</span>
+                    </a>
+                    <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="modal-link">
+                      <i className="fab fa-github"></i>
+                      <span>Code source</span>
+                        </a>
+                      </div>
+                    )
+                  }
+                </div>
               </div>
-
-              <div className="modal-tags">
-                {selectedProject.icons &&
-                  selectedProject.icons.map((icon, index) => (
-                    <div className="project-icon" key={index}>
-                      {RenderIcon(icon, '36px')}
-                    </div>
-                  ))}
-              </div>
-
-              <p className="modal-description">{selectedProject.description}</p>
-
-              <div className="modal-links">
-                <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="modal-link">
-                  <i className="fas fa-external-link-alt"></i>
-                  <span>Voir le site</span>
-                </a>
-                <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="modal-link">
-                  <i className="fab fa-github"></i>
-                  <span>Code source</span>
-                </a>
+              
+              {/* Description en bas */}
+              <div className="modal-description-container">
+                <p className="modal-description">{selectedProject.description}</p>
               </div>
             </div>
-          </>
+          </div>
         )}
       </Modal>
     </section>
