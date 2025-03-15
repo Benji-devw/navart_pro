@@ -313,7 +313,7 @@
   },
 
   {
-    "title": "Projet Cours",
+    "title": "Petit Plats",
     "category": "web",
     "tags": ["HTML", "CSS", "JavaScript"],
     "icons": [
@@ -333,7 +333,7 @@
     "github": "https://github.com/Benji-devw/p7-petits-plats"
   },
   {
-    "title": "personnel",
+    "title": "StouflyDoc",
     "category": "web",
     "tags": ["Next.js", "Node.js", "MongoDB", "TypeScript", "Tailwind"],
     "icons": [
@@ -365,7 +365,7 @@
     "github": "https://github.com/Benji-devw/stoufly_doc"
   },
   {
-    "title": "contribution",
+    "title": "Speedo",
     "category": "web",
     "tags": ["HTML", "CSS", "JavaScript", "Bootstrap"],
     "icons": [
@@ -387,7 +387,7 @@
     "link": "aqua"
   },
   {
-    "title": "contribution",
+    "title": "Aleph",
     "category": "web",
     "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
     "icons": [
@@ -414,7 +414,7 @@
     "link": "https://www.aleph-ecriture.fr/"
   },
   {
-    "title": "contribution",
+    "title": "Aquapulse",
     "category": "web",
     "tags": ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap"],
     "icons": [
@@ -445,7 +445,7 @@
     "link": "speedo"
   },
   {
-    "title": "contribution",
+    "title": "FFMI",
     "category": "web",
     "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
     "icons": [
@@ -472,7 +472,7 @@
     "link": "https://www.ffmi.asso.fr/"
   },
   {
-    "title": "personnel",
+    "title": "Vallena",
     "category": "web",
     "tags": ["React", "Node.js", "MongoDB", "Sass", "Bootstrap"],
     "icons": [

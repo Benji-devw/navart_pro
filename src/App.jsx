@@ -8,7 +8,7 @@ import Gallery from '@/components/Gallery/Gallery';
 import Layout from '@/components/ui/Layout';
 import Footer from '@/components/ui/Footer';
 import BackgroundAnimation from '@components/BackgroundAnimation';
-import FloatingContact from '@components/FloatingContact';
+import Contact from '@components/ContactForm';
 import Shapes from '@/components/ui/Shapes';
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
             <Gallery />
           </main>
           <Footer />
-          <FloatingContact />
+          <Contact />
         </Layout>
       )}
     </div>
