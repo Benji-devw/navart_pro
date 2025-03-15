@@ -20,6 +20,7 @@ const Gallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const galleryRef = useRef(null);
+  const [isInfoCollapsed, setIsInfoCollapsed] = useState(false);
 
   // TODO: Move observer to a hook
   // Effet d'apparition au scroll
@@ -64,6 +65,10 @@ const Gallery = () => {
   const closeModal = () => {
     setIsModalOpen(false);
     setTimeout(() => setSelectedProject(null), 300);
+  };
+
+  const toggleInfoCollapse = () => {
+    setIsInfoCollapsed(!isInfoCollapsed);
   };
 
   return (
@@ -122,12 +127,12 @@ const Gallery = () => {
       {/* Modal de projet */}
       <Modal isOpen={isModalOpen} onClose={closeModal} size="large" showHeader={false}>
         {selectedProject && (
-          <div className="project-modal-content">
+          <div className="project-modal-content" onClick={toggleInfoCollapse}>
             <div className="modal-image">
               <img src={selectedProject.image} alt={selectedProject.title} />
             </div>
 
-            <div className="modal-info">
+            <div className={`modal-info ${isInfoCollapsed ? 'collapsed' : ''}`}>
               <div className="modal-row">
                 {/* Zone gauche - Titre et catégorie */}
                 <div className="modal-info-left">
