@@ -22,9 +22,9 @@ const Gallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isInfoCollapsed, setIsInfoCollapsed] = useState(false);
-  
+
   const { defaultInViewOptions } = useContext(ScrollObserverContext);
-  
+
   // Utiliser useInView au lieu du contexte personnalisé
   const [ref, inView] = useInView(defaultInViewOptions);
 
@@ -38,11 +38,11 @@ const Gallery = () => {
   const renderMedia = (mediaUrl, title, isInModal = false) => {
     if (isVideo(mediaUrl)) {
       return (
-        <video 
-          src={mediaUrl} 
-          alt={title} 
+        <video
+          src={mediaUrl}
+          alt={title}
           controls={isInModal}
-          autoPlay={isInModal}
+          autoPlay={false}
           loop={true}
           muted={true}
           playsInline
@@ -79,15 +79,14 @@ const Gallery = () => {
 
   return (
     <section id="gallery" className="gallery-section">
+      <h2 className="section-title">Mes projets</h2>
       <div className={`gallery-container ${inView ? 'animate' : ''}`} ref={ref}>
-        <h2 className="section-title">Mes projets</h2>
-
         <div className="gallery-filter bnt-tabs">
           {categories.map((category) => (
             <Button
               variant="transparent"
               key={category.id}
-              className={`bnt-tab ${selectedCategory === category.id ? 'active' : ''}`} 
+              className={`bnt-tab ${selectedCategory === category.id ? 'active' : ''}`}
               onClick={() => setSelectedCategory(category.id)}
             >
               {category.name}
@@ -95,7 +94,7 @@ const Gallery = () => {
           ))}
         </div>
 
-          {/* Gallery */}
+        {/* Gallery */}
         <div className={`gallery-grid ${isAnimating ? 'animating' : ''}`}>
           {filteredProjects.map((project, index) => (
             <div key={index} className="gallery-item" onClick={() => openModal(project)}>
@@ -150,7 +149,7 @@ const Gallery = () => {
                     Catégorie: {categories.find((cat) => cat.id === selectedProject.category)?.name}
                   </div> */}
                 </div>
-                
+
                 {/* Zone centrale - Icônes */}
                 <div className="modal-info-center">
                   <div className="modal-tags">
@@ -162,26 +161,24 @@ const Gallery = () => {
                       ))}
                   </div>
                 </div>
-                
+
                 {/* Zone droite - Boutons */}
                 <div className="modal-info-right">
-                  {
-                    selectedProject.link !== '#' && (
-                      <div className="modal-links">
-                        <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="modal-link">
-                      <i className="fas fa-external-link-alt"></i>
-                      <span>Voir le site</span>
-                    </a>
-                    <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="modal-link">
-                      <i className="fab fa-github"></i>
-                      <span>Code source</span>
-                        </a>
-                      </div>
-                    )
-                  }
+                  {selectedProject.link !== '#' && (
+                    <div className="modal-links">
+                      <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="modal-link">
+                        <i className="fas fa-external-link-alt"></i>
+                        <span>Voir le site</span>
+                      </a>
+                      <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="modal-link">
+                        <i className="fab fa-github"></i>
+                        <span>Code source</span>
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
-              
+
               {/* Description en bas */}
               <div className="modal-description-container">
                 <p className="modal-description">{selectedProject.description}</p>

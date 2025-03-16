@@ -4,7 +4,7 @@
   --accent-color: #ff006e;
 
   --dark-color: #1a1a2e;
-  --dark-color-light: rgba(255, 255, 255, 0.1);
+  --dark-color-light: rgba(255, 255, 255, 1);
   --dark-color-transparent: #1a1a2eb2;
   
   --light-color: #f8f9fa;
@@ -17,7 +17,7 @@
   --border-radius: 8px;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --box-dark-shadow: 0 4px 6px rgba(0, 0, 0, .8);
-  --box-light-shadow: 0 4px 6px rgba(255, 255, 255, .8);
+  --box-light-shadow: 0 4px 6px rgba(216, 215, 215, 0.8);
   
   --transition: all 0.2s ease;
   --blur-6: blur(6px);

@@ -43,7 +43,7 @@ const Skills = () => {
   );
 
   return (
-    <section id="skills" className="skills">
+    <section id="skills" className="skills-section">
       <h2 className="section-title">Ma Stack</h2>
       <div className={`skills-content ${inView ? 'animate' : ''}`} ref={ref}>
         <div className="skills-description">

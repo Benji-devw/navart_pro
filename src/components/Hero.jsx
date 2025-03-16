@@ -10,7 +10,7 @@ const Hero = () => {
   const [ref, inView] = useInView(defaultInViewOptions);
   
   return (
-    <section id="home" className="hero">
+    <section id="hero" className="hero">
       <div className="hero-container">
         <div className={`hero-content ${inView ? 'animate' : ''}`} ref={ref}>
           <div className="hero-left">

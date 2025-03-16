@@ -4,24 +4,24 @@ import './Header.css';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [activeIcon, setActiveIcon] = useState('home'); // 'home', 'shop', 'projects', 'contact'
+  const [activeIcon, setActiveIcon] = useState('hero'); // 'home', 'shop', 'projects', 'contact'
   const menuRef = useRef(null);
   const lastScrollY = useRef(0);
   
   // Créer des refs pour chaque section
   const sectionRefs = useRef({
-    home: null,
+    hero: null,
     about: null,
-    projects: null,
-    skills: null
+    skills: null,
+    gallery: null
   });
 
   // Array of items to link to
   const items = [
     {
-      name: 'home',
+      name: 'hero',
       icon: 'fas fa-home',
-      href: '#home'
+      href: '#hero'
     },
     {
       name: 'about',
@@ -60,7 +60,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       // Obtient toutes les sections
-      const sections = ['home', 'about', 'skills', 'gallery'];
+      const sections = ['hero', 'about', 'skills', 'gallery'];
       
       // Trouve la section actuellement visible en utilisant les refs
       const current = sections.find(section => {
