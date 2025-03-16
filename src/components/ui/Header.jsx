@@ -13,7 +13,7 @@ const Header = () => {
     hero: null,
     about: null,
     skills: null,
-    gallery: null
+    projects: null
   });
 
   // Array of items to link to
@@ -34,9 +34,9 @@ const Header = () => {
       href: '#skills'
     },
     {
-      name: 'gallery',
+      name: 'projects',
       icon: 'fas fa-folder-open',
-      href: '#gallery'
+      href: '#projects'
     },
   ];
 
@@ -60,7 +60,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       // Obtient toutes les sections
-      const sections = ['hero', 'about', 'skills', 'gallery'];
+      const sections = ['hero', 'about', 'skills', 'projects'];
       
       // Trouve la section actuellement visible en utilisant les refs
       const current = sections.find(section => {

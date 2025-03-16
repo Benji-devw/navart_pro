@@ -4,7 +4,7 @@ import Header from '@/components/ui/Header';
 import Hero from '@components/Hero';
 import About from '@components/About';
 import Skills from '@components/Skills';
-import Gallery from '@/components/Gallery/Gallery';
+import Projects from '@components/Projects';
 import Layout from '@/components/ui/Layout';
 import Footer from '@/components/ui/Footer';
 import BackgroundAnimation from '@components/BackgroundAnimation';
@@ -56,7 +56,7 @@ function App() {
               <Hero />
               <About />
               <Skills />
-              <Gallery />
+              <Projects />
             </main>
             <Footer />
             <Contact />
