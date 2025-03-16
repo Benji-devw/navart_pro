@@ -9,6 +9,32 @@
       }
     ],
     "sub": ["/media/icons/blender-3d.svg"],
+    "image": "/media/3D/Navart_Circle.mp4",
+    "link": "#"
+  },
+  {
+    "title": "#",
+    "category": "infographie",
+    "tags": ["Blender", "3D", "Animation"],
+    "icons": [
+      {
+        "icon": "devicon-blender-original colored"
+      }
+    ],
+    "sub": ["/media/icons/blender-3d.svg"],
+    "image": "/media/3D/Cuby.mp4",
+    "link": "#"
+  },
+  {
+    "title": "#",
+    "category": "infographie",
+    "tags": ["Blender", "3D", "Animation"],
+    "icons": [
+      {
+        "icon": "devicon-blender-original colored"
+      }
+    ],
+    "sub": ["/media/icons/blender-3d.svg"],
     "image": "/media/3D/Super Sparrow.png",
     "link": "#"
   },
@@ -117,6 +143,31 @@
     "link": "#"
   },
 
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "title": "#",
+    "category": "design",
+    "tags": ["Figma"],
+    "icons": [
+      {
+        "icon": "devicon-figma-plain colored"
+      }
+    ],
+    "sub": ["/media/icons/figma.svg"],
+    "image": "/media/design/Checkout_Process.jpg",
+    "link": "#"
+  },
   {
     "title": "#",
     "category": "design",
@@ -312,6 +363,22 @@
     "link": "#"
   },
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   {
     "title": "Petit Plats",
     "category": "web",
@@ -328,7 +395,7 @@
       }
     ],
     "sub": ["/media/icons/Html.svg", "/media/icons/Css.svg", "/media/icons/Js.svg"],
-    "image": "/media/web/petitsPlats.jpeg",
+    "image": "/media/web/petitsPlats.png",
     "link": "https://benji-devw.github.io/p7-petits-plats/",
     "github": "https://github.com/Benji-devw/p7-petits-plats"
   },
@@ -360,7 +427,7 @@
       "/media/icons/ts.svg",
       "/media/icons/Tailwind.svg"
     ],
-    "image": "/media/web/StouflyDocPreview.jpg",
+    "image": "/media/web/StouflyDocPreview_fg.png",
     "link": "https://stoufly-doc.vercel.app/",
     "github": "https://github.com/Benji-devw/stoufly_doc"
   },

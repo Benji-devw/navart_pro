@@ -48,32 +48,6 @@ const Header = () => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.scrollY;
-      
-  //     // Détermine si on a scrollé vers le bas ou vers le haut
-  //     if (currentScrollY > lastScrollY.current) {
-  //       // Scroll vers le bas - cache le menu
-  //       setIsVisible(false);
-  //     } else {
-  //       // Scroll vers le haut - montre le menu
-  //       setIsVisible(true);
-  //     }
-      
-  //     // Met à jour la position du dernier scroll
-  //     lastScrollY.current = currentScrollY;
-      
-  //     // Détermine si la page a été scrollée pour l'effet de fond
-  //     setIsScrolled(currentScrollY > 50);
-  //   };
-    
-  //   window.addEventListener('scroll', handleScroll, { passive: true });
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
-
   const handleIconClick = (icon) => {
     setActiveIcon(icon);
     // Utiliser la ref pour accéder à la section

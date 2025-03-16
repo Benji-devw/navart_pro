@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Gallery.css';
 import projectsData from '@assets/projectsData.json';
 import Modal from '@components/ui/Modal';
 import Button from '@components/ui/Button';
 import RenderIcon from '@hooks/RenderIcon';
+import { ScrollObserverContext } from '@/App';
+import { useInView } from 'react-intersection-observer';
 
 // Liste des catégories pour le filtre
 const categories = [
@@ -19,34 +21,38 @@ const Gallery = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const galleryRef = useRef(null);
   const [isInfoCollapsed, setIsInfoCollapsed] = useState(false);
+  
+  const { defaultInViewOptions } = useContext(ScrollObserverContext);
+  
+  // Utiliser useInView au lieu du contexte personnalisé
+  const [ref, inView] = useInView(defaultInViewOptions);
 
-  // TODO: Move observer to a hook
-  // Effet d'apparition au scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      },
-      {
-        threshold: 0.1,
-      }
-    );
+  // Fonction pour déterminer si le média est une vidéo ou une image
+  const isVideo = (url) => {
+    if (!url) return false;
+    return url.toLowerCase().endsWith('.mp4') || url.toLowerCase().endsWith('.webm');
+  };
 
-    if (galleryRef.current) {
-      observer.observe(galleryRef.current);
+  // Fonction pour rendre le média (image ou vidéo)
+  const renderMedia = (mediaUrl, title, isInModal = false) => {
+    if (isVideo(mediaUrl)) {
+      return (
+        <video 
+          src={mediaUrl} 
+          alt={title} 
+          controls={isInModal}
+          autoPlay={isInModal}
+          loop={true}
+          muted={true}
+          playsInline
+          className={isInModal ? 'modal-video' : 'gallery-video'}
+        />
+      );
+    } else {
+      return <img src={mediaUrl} alt={title} />;
     }
-
-    return () => {
-      if (galleryRef.current) {
-        observer.unobserve(galleryRef.current);
-      }
-    };
-  }, []);
+  };
 
   // Filtrer les projets lorsque la catégorie change
   useEffect(() => {
@@ -73,14 +79,15 @@ const Gallery = () => {
 
   return (
     <section id="gallery" className="gallery-section">
-      <div className="gallery-container" ref={galleryRef}>
+      <div className={`gallery-container ${inView ? 'animate' : ''}`} ref={ref}>
         <h2 className="section-title">Mes projets</h2>
 
-        <div className="gallery-filter">
+        <div className="gallery-filter bnt-tabs">
           {categories.map((category) => (
             <Button
+              variant="transparent"
               key={category.id}
-              className={`${selectedCategory === category.id ? 'active' : ''}`}
+              className={`bnt-tab ${selectedCategory === category.id ? 'active' : ''}`} 
               onClick={() => setSelectedCategory(category.id)}
             >
               {category.name}
@@ -88,12 +95,13 @@ const Gallery = () => {
           ))}
         </div>
 
+          {/* Gallery */}
         <div className={`gallery-grid ${isAnimating ? 'animating' : ''}`}>
           {filteredProjects.map((project, index) => (
             <div key={index} className="gallery-item" onClick={() => openModal(project)}>
               <div className="gallery-item-inner">
-                <div className="gallery-img-container">
-                  <img src={project.image} alt={project.title} />
+                <div className={`gallery-img-container ${isVideo(project.image) ? 'has-video' : ''}`}>
+                  {renderMedia(project.image, project.title)}
                 </div>
                 <div className="gallery-item-overlay">
                   <h3 className="gallery-item-title">{project.title}</h3>
@@ -113,10 +121,10 @@ const Gallery = () => {
                         </div>
                       ))}
                   </div>
-                  <button className="view-details-btn">
+                  {/* <button className="view-details-btn">
                     <span>Voir les détails</span>
                     <i className="fas fa-arrow-right"></i>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -124,12 +132,12 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Modal de projet */}
+      {/* Modal */}
       <Modal isOpen={isModalOpen} onClose={closeModal} size="large" showHeader={false}>
         {selectedProject && (
           <div className="project-modal-content" onClick={toggleInfoCollapse}>
-            <div className="modal-image">
-              <img src={selectedProject.image} alt={selectedProject.title} />
+            <div className={`modal-image ${isVideo(selectedProject.image) ? 'has-video' : ''}`}>
+              {renderMedia(selectedProject.image, selectedProject.title, true)}
             </div>
 
             <div className={`modal-info ${isInfoCollapsed ? 'collapsed' : ''}`}>

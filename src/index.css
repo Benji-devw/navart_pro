@@ -104,6 +104,42 @@ p {
   margin: 0;
 }
 
+
+/* Tabs Navigation */
+.bnt-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.bnt-tab {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--light-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-color);
+}
+
+.bnt-tab.active {
+  background: var(--gradient-color);
+  color: var(--light-color);
+  border-color: transparent;
+  box-shadow: var(--box-shadow);
+}
+
+.bnt-tab:hover:not(.active) {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
+}
+
+
+
+/* 
 .btn {
   display: inline-block;
   padding: 0.8rem 1.8rem;
@@ -132,7 +168,7 @@ p {
 .btn-secondary:hover {
   background-color: var(--primary-color);
   color: white;
-}
+} */
 
 
 

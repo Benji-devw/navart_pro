@@ -1,37 +1,18 @@
-import { useEffect, useRef } from 'react';
+import { useContext } from 'react';
 import Button from './ui/Button';
 import '@styles/Hero.css';
 import SocialLinks from './SocialLinks';
+import { ScrollObserverContext } from '@/App';
+import { useInView } from 'react-intersection-observer';
 
 const Hero = () => {
-  const textRef = useRef(null);
-
-  useEffect(() => {
-    const currentRef = textRef.current;
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      });
-    });
-
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
-
+  const { defaultInViewOptions } = useContext(ScrollObserverContext);
+  const [ref, inView] = useInView(defaultInViewOptions);
+  
   return (
     <section id="home" className="hero">
       <div className="hero-container">
-        <div className="hero-content" ref={textRef}>
+        <div className={`hero-content ${inView ? 'animate' : ''}`} ref={ref}>
           <div className="hero-left">
             <div className="hero-text-container">
               <p className="hero-greeting">Bonjour, je suis</p>
@@ -76,8 +57,6 @@ const Hero = () => {
           <i className="fas fa-chevron-down"></i>
         </a>
       </div>
-      
-
     </section>
   );
 };

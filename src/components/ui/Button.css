@@ -1,14 +1,26 @@
+/* ===== VARIABLES LOCALES ===== */
+:root {
+  --btn-primary-color: #3a86ff;
+  --btn-secondary-color: #8338ec;
+  --btn-text-light: #ffffff;
+  --btn-text-dark: #333333;
+  --btn-border-radius: 8px;
+  --btn-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --btn-transition-speed: 0.3s;
+  --btn-font-family: 'Poppins', sans-serif;
+}
+
 /* ===== STYLES DE BASE DU BOUTON ===== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--btn-font-family);
   font-weight: 500;
-  border-radius: 8px;
+  border-radius: var(--btn-border-radius);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--btn-transition-speed) ease;
   border: none;
   outline: none;
   position: relative;
@@ -51,7 +63,7 @@
   width: 0;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.1);
-  transition: width 0.3s ease;
+  transition: width var(--btn-transition-speed) ease;
   z-index: -1;
 }
 
@@ -60,17 +72,25 @@
 }
 
 /* ===== VARIANTES DE BOUTONS ===== */
+/* Bouton transparent */
+.btn-transparent {
+  background-color: transparent;
+  backdrop-filter: blur(4px);
+  color: var(--btn-primary-color);
+  border: 2px solid var(--btn-primary-color);
+}
+
 /* Bouton primaire */
 .btn-primary {
-  background-color: var(--primary-color);
-  color: white;
-  box-shadow: var(--box-shadow);
+  background-color: var(--btn-primary-color);
+  color: var(--btn-text-light);
+  box-shadow: var(--btn-box-shadow);
 }
 
 .btn-primary:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--btn-secondary-color);
   transform: translateY(-3px);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--btn-box-shadow);
 }
 
 .btn-primary:active {
@@ -79,41 +99,41 @@
 
 /* Bouton secondaire */
 .btn-secondary {
-  background-color: var(--secondary-color);
-  color: white;
-  box-shadow: var(--box-shadow);
+  background-color: var(--btn-secondary-color);
+  color: var(--btn-text-light);
+  box-shadow: var(--btn-box-shadow);
 }
 
 .btn-secondary:hover {
   background-color: #9152e0;
   transform: translateY(-3px);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--btn-box-shadow);
 }
 
 /* Bouton outline */
 .btn-outline {
   background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
+  color: var(--btn-primary-color);
+  border: 2px solid var(--btn-primary-color);
 }
 
 .btn-outline:hover {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--btn-primary-color);
+  color: var(--btn-text-light);
   transform: translateY(-3px);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--btn-box-shadow);
 }
 
 /* Bouton texte */
 .btn-text {
   background-color: transparent;
-  color: var(--primary-color);
+  color: var(--btn-primary-color);
   padding: 0;
   box-shadow: none;
 }
 
 .btn-text:hover {
-  color: var(--secondary-color);
+  color: var(--btn-secondary-color);
   transform: translateY(-2px);
 }
 
@@ -203,4 +223,36 @@
   .hero-buttons .btn {
     width: 100%;
   }
+}
+
+/* ===== STYLES POUR LES ONGLETS ===== */
+.bnt-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.bnt-tab {
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--btn-border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--btn-transition-speed) ease;
+  color: var(--btn-text-dark);
+}
+
+.bnt-tab.active {
+  background: linear-gradient(135deg, var(--btn-primary-color), var(--btn-secondary-color));
+  color: var(--btn-text-light);
+  border-color: transparent;
+  box-shadow: var(--btn-box-shadow);
+}
+
+.bnt-tab:hover:not(.active) {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
 } 
