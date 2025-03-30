@@ -226,7 +226,7 @@
 }
 
 /* ===== STYLES POUR LES ONGLETS ===== */
-.bnt-tabs {
+/* .bnt-tabs {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -255,4 +255,4 @@
 .bnt-tab:hover:not(.active) {
   background-color: rgba(0, 0, 0, 0.05);
   transform: translateY(-3px);
-} 
+}  */

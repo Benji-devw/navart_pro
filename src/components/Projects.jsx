@@ -1,28 +1,60 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Gallery from '@components/Gallery/Gallery';
 import projectsData from '@assets/projectsData.json';
 import Button from '@components/ui/Button';
 
 export default function Projects() {
-  const [filteredProjects, setFilteredProjects] = useState(projectsData);
-  const [selectedProject, setSelectedProject] = useState(null);
+  // Combiner toutes les catégories dans un seul tableau
+  const allProjects = [
+    ...projectsData.web || [],
+    ...projectsData.design || [],
+    ...projectsData.infographie || []
+  ];
+  
+  const [filteredProjects, setFilteredProjects] = useState([]);
+  const [activeTab, setActiveTab] = useState('design');
+  
+  // Extraire dynamiquement les catégories disponibles
+  const uniqueCategories = ['all', ...new Set(Object.keys(projectsData))];
+
+  useEffect(() => {
+    // Initialiser avec les projets de la catégorie active
+    if (activeTab === 'all') {
+      setFilteredProjects(allProjects);
+    } else {
+      setFilteredProjects(projectsData[activeTab] || []);
+    }
+  }, [activeTab]);
 
   const filterProjects = (category) => {
-    setFilteredProjects(projectsData.filter(project => project.category === category));
+    if (category === 'all') {
+      setFilteredProjects(allProjects);
+    } else {
+      // Utiliser directement la catégorie du JSON sans filtrer par propriété category
+      setFilteredProjects(projectsData[category] || []);
+    }
+    setActiveTab(category);
   };
 
   return (
-    <div>
-      <h1>Projects</h1>
+    <section id="projects">
+      <h2 className="section-title">Portfolio</h2>
+
       <div className="projects-container">
-        <div className="projects-filter">
-          <Button className="btn-tab" variant="transparent" onClick={() => setFilteredProjects(projectsData)}>All</Button>
-          <Button className="btn-tab" variant="transparent" onClick={() => setFilteredProjects(projectsData.filter(project => project.category === 'Web'))}>Web</Button>
-          <Button className="btn-tab" variant="transparent" onClick={() => setFilteredProjects(projectsData.filter(project => project.category === 'Design'))}>Design</Button>
-          <Button className="btn-tab" variant="transparent" onClick={() => setFilteredProjects(projectsData.filter(project => project.category === 'Illustration'))}>Illustration</Button>
+        <div className="bnt-tabs">
+          {uniqueCategories.map((category, index) => (
+            <Button
+              key={index}
+              className={`bnt-tab ${activeTab === category ? 'active' : ''}`}
+              variant="transparent"
+              onClick={() => filterProjects(category)}
+            >
+              {category}
+            </Button>
+          ))}
         </div>
-        <Gallery projects={filteredProjects} isAnimating={false} onProjectClick={() => {}} categories={[]} />
+        <Gallery projects={filteredProjects} />
       </div>
-    </div>
+    </section>
   );
 }

@@ -31,7 +31,7 @@ const Skills = () => {
       <div className="skill-group-grid">
         {skills.map((skill, index) => (
           <div className="skill-item" key={index}>
-            <div className="skill-icon">{RenderIcon(skill, '36px')}</div>
+            <div className="skill-icon">{RenderIcon(skill.icon, '36px')}</div>
             <div className="skill-info">
               <span className="skill-name">{skill.name}</span>
               <span className="skill-level">{skill.level}%</span>

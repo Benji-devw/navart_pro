@@ -1,146 +1,174 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import './Gallery.css';
 import RenderIcon from '@hooks/RenderIcon';
 
-const Gallery = ({ projects, isAnimating, onProjectClick, categories }) => {
-  const [selectedCard, setSelectedCard] = useState(null);
-  const [displayClone, setDisplayClone] = useState(false);
-  const [cardRect, setCardRect] = useState(null);
+const Gallery = ({ projects }) => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [transformState, setTransformState] = useState({});
+  const [overlayVisible, setOverlayVisible] = useState(false);
+  const [descriptionVisible, setDescriptionVisible] = useState({});
+  const appStoreRef = useRef(null);
+  const cardsRef = useRef([]);
+  const overlayRef = useRef(null);
 
-  // Fonction pour déterminer si le média est une vidéo ou une image
-  const isVideo = (url) => {
-    if (!url) return false;
-    return url.toLowerCase().endsWith('.mp4') || url.toLowerCase().endsWith('.webm');
-  };
-
-  // Effet pour gérer le clic en dehors de la carte
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (selectedCard && !event.target.closest('.gallery-item.clone')) {
-        setSelectedCard(null);
-        setDisplayClone(false);
-        setCardRect(null);
-      }
-    };
-
-    if (selectedCard) {
-      document.addEventListener('mousedown', handleOutsideClick);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, [selectedCard]);
-
-  // Effet pour appeler onProjectClick après que la carte est centrée
-  useEffect(() => {
-    if (selectedCard) {
-      // Afficher le clone après un court délai pour s'assurer que les classes selected soient appliquées
-      const timer1 = setTimeout(() => {
-        setDisplayClone(true);
-      }, 50);
-      
-      const timer2 = setTimeout(() => {
-        if (typeof onProjectClick === 'function') {
-          onProjectClick(selectedCard);
-        }
-      }, 300);
-      
-      return () => {
-        clearTimeout(timer1);
-        clearTimeout(timer2);
-      };
-    }
-  }, [selectedCard, onProjectClick]);
-
-  // Fonction pour rendre le média (image ou vidéo)
-  const renderMedia = (mediaUrl, title) => {
-    if (isVideo(mediaUrl)) {
+  const getMediaElement = (project) => {
+    if (project.image?.endsWith('.mp4')) {
       return (
-        <video
-          src={mediaUrl}
-          alt={title}
-          autoPlay={false}
-          loop={true}
-          muted={true}
-          playsInline
-          className="gallery-video"
-        />
-      );
-    } else {
-      return <img src={mediaUrl} alt={title} />;
-    }
-  };
-
-  // Fonction pour gérer le clic sur une carte
-  const handleCardClick = (project, event) => {
-    event.stopPropagation();
-    
-    // Capturer les dimensions et la position de la carte cliquée
-    const card = event.currentTarget;
-    const rect = card.getBoundingClientRect();
-    
-    setCardRect({
-      top: rect.top,
-      left: rect.left,
-      width: rect.width,
-      height: rect.height
-    });
-    
-    setSelectedCard(project);
-  };
-
-  // Fonction pour rendre une carte
-  const renderCard = (project, index, isClone = false) => {
-    const cardSize = index % 3 === 0 ? 'large' : index % 3 === 1 ? 'medium' : 'small';
-    
-    return (
-      <div 
-        key={`${index}-${isClone ? 'clone' : 'original'}`}
-        className={`gallery-item ${cardSize} ${selectedCard === project && !isClone ? 'selected' : ''} ${isClone ? 'clone selected' : ''}`}
-        onClick={(e) => !isClone && handleCardClick(project, e)}
-        style={isClone && cardRect ? {
-          top: `${cardRect.top}px`,
-          left: `${cardRect.left}px`,
-          width: `${cardRect.width}px`,
-          height: `${cardRect.height}px`
-        } : undefined}
-      >
-        <div className="gallery-item-inner">
-          <div className={`gallery-img-container ${isVideo(project.image) ? 'has-video' : ''}`}>
-            {renderMedia(project.image, project.title)}
-          </div>
-          <div className="gallery-item-overlay">
-            <h3 className="gallery-item-title">{project.title}</h3>
-            <div className="gallery-item-category">
-              {categories.find((cat) => cat.id === project.category)?.name}
-            </div>
-            <div className="gallery-item-description">
-              {project.description}
-            </div>
-            {project.icons && (
-              <div className="gallery-item-tags">
-                {project.icons.map((icon, iconIndex) => (
-                  <div className="project-icon" key={iconIndex}>
-                    {RenderIcon(icon, '30px')}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+        <div className="video-wrapper">
+          <video 
+            className="card-image"
+            autoPlay={false}
+            loop={true}
+            muted={true}
+            playsInline={true}
+            controls={true}
+            onClick={(e) => {
+              const projectId = project.id || `project-${projects.findIndex(p => p === project)}`;
+              // Si la carte est déjà transformée, permettre aux contrôles de fonctionner
+              if (transformState[projectId]) {
+                e.stopPropagation();
+              }
+            }}
+          >
+            <source src={project.image} type="video/mp4" />
+          </video>
         </div>
-      </div>
-    );
+      );
+    }
+    return <img src={project.image} alt={project.title} className="card-image" />;
   };
+
+  const captureAndTransform = useCallback((project, index, event) => {
+    // Vérifier si le clic est spécifiquement sur les contrôles de la vidéo
+    if (event.target.closest('.video-controls') || 
+        (event.target.tagName === 'VIDEO' && transformState[project.id || `project-${index}`])) {
+      // Ne pas propager l'événement seulement si la carte est déjà transformée
+      event.stopPropagation();
+      return;
+    }
+    
+    const card = cardsRef.current[index];
+    const appStore = appStoreRef.current;
+    if (!card || !appStore) return;
+    
+    const projectId = project.id || `project-${index}`;
+    
+    if (transformState[projectId]) {
+      // Toggle l'affichage de la description
+      setDescriptionVisible(prev => ({
+        ...prev,
+        [projectId]: !prev[projectId]
+      }));
+      return;
+    }
+
+    // Sinon, c'est une nouvelle sélection
+    const rect = card.getBoundingClientRect();
+    const appStoreRect = appStore.getBoundingClientRect();
+
+    const centerX = appStoreRect.left + appStoreRect.width / 2;
+    const centerY = window.innerHeight / 2;
+
+    const diffX = centerX - (rect.left + rect.width / 2);
+    const diffY = centerY - (rect.top + rect.height / 2);
+
+    const targetWidth = appStoreRect.width * 0.9;
+    const targetHeight = targetWidth * 0.65;
+
+    const scaleX = targetWidth / rect.width;
+    const scaleY = targetHeight / rect.height;
+    const scale = Math.min(scaleX, scaleY);
+
+    // Appliquer la transformation
+    setTransformState((prev) => ({
+      ...prev,
+      [projectId]: {
+        transform: `translate3d(${diffX}px, ${diffY}px, 0) scale(${scale})`,
+        zIndex: 900,
+        position: 'relative',
+        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)',
+        transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    }));
+
+    // Afficher la description par défaut quand on sélectionne une nouvelle carte
+    setDescriptionVisible(prev => ({
+      ...prev,
+      [projectId]: true
+    }));
+
+    setSelectedProject(project);
+    setOverlayVisible(true);
+  }, [transformState]);
+
+  const closeCard = useCallback((projectId) => {
+    setTransformState((prev) => {
+      const newState = { ...prev };
+      delete newState[projectId];
+      return newState;
+    });
+
+    setDescriptionVisible(prev => {
+      const newState = { ...prev };
+      delete newState[projectId];
+      return newState;
+    });
+
+    setOverlayVisible(false);
+    setSelectedProject(null);
+  }, []);
+
+  const handleOverlayClick = useCallback(() => {
+    if (selectedProject) {
+      const projectId = selectedProject.id || `project-${projects.findIndex((p) => p === selectedProject)}`;
+      closeCard(projectId);
+    }
+  }, [selectedProject, projects, closeCard]);
 
   return (
-    <div className={`gallery-grid ${isAnimating ? 'animating' : ''}`}>
-      {projects.map((project, index) => (
-        <React.Fragment key={index}>
-          {renderCard(project, index)}
-          {selectedCard === project && displayClone && renderCard(project, index, true)}
-        </React.Fragment>
-      ))}
+    <div id="app-store" ref={appStoreRef}>
+      <ul className="card-list">
+        <div
+          ref={overlayRef}
+          className={`gallery-overlay ${overlayVisible ? 'visible' : 'hiding'}`}
+          onClick={handleOverlayClick}
+        ></div>
+
+        {projects.map((project, index) => {
+          const projectId = project.id || `project-${index}`;
+          const cardStyle = transformState[projectId] || {};
+          const isDescriptionVisible = descriptionVisible[projectId];
+
+          return (
+            <li
+              className={`card ${selectedProject === project ? 'selected' : ''}`}
+              key={index}
+              ref={(el) => (cardsRef.current[index] = el)}
+              onClick={(e) => captureAndTransform(project, index, e)}
+              style={cardStyle}
+            >
+              <div className="card-content">
+                <div className="card-image-container">
+                  {getMediaElement(project)}
+                </div>
+                
+                <div className={`expanded-description ${isDescriptionVisible ? 'visible' : ''}`}>
+                  <p>{project.title != '#' ? project.title : ''}</p>
+                  {project && (
+                    <div className="tech-stack">
+                      {project.icons.map((icon, iconIndex) => (
+                        <span className="tech-icon" key={iconIndex}>
+                          {RenderIcon(icon.icon, '24px')}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

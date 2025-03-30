@@ -7,9 +7,7 @@ import Skills from '@components/Skills';
 import Projects from '@components/Projects';
 import Layout from '@/components/ui/Layout';
 import Footer from '@/components/ui/Footer';
-import BackgroundAnimation from '@components/BackgroundAnimation';
 import Contact from '@components/ContactForm';
-import Shapes from '@/components/ui/Shapes';
 
 // Créer un contexte pour l'observer
 export const ScrollObserverContext = createContext(null);
@@ -42,15 +40,7 @@ function App() {
           </div>
         ) : (
           <Layout>
-            <Shapes variant="colorful" count={4} />
-            <BackgroundAnimation
-              gridSize={60}
-              pointColor={'rgb(44, 44, 44)'}
-              lineColor={'rgb(48, 48, 48)'}
-              connectionDistance={80}
-              interactionRadius={210}
-              interactionForce={-22}
-            />
+
             <Header />
             <main>
               <Hero />

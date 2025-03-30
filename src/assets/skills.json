@@ -9,7 +9,7 @@
       { "name": "Tailwind CSS", "icon": "devicon-tailwindcss-plain colored", "level": 85 },
       { "name": "Material UI", "icon": "devicon-materialui-plain colored", "level": 85 },
       { "name": "Figma", "icon": "devicon-figma-plain colored", "level": 70 },
-      { "name": "Three.js", "icon": "/icons/threejs.png", "level": 55, "isImage": true }
+      { "name": "Three.js", "icon": "/icons/threejs.png", "level": 55 }
     ],
   
   "backendSkills": [
@@ -29,13 +29,13 @@
     { "name": "Jest", "icon": "devicon-jest-plain colored", "level": 55 },
     { "name": "Vitest", "icon": "devicon-vitest-plain colored", "level": 65 },
     { "name": "Selenium", "icon": "devicon-selenium-plain colored", "level": 25 },
-    { "name": "Cursor", "icon": "/icons/th.png", "level": 85, "isImage": true },
+    { "name": "Cursor", "icon": "/icons/th.png", "level": 85 },
     { "name": "Git", "icon": "devicon-git-plain colored", "level": 65 },
     { "name": "GitHub", "icon": "devicon-github-plain colored", "level": 70 },
     { "name": "CI/CD", "icon": "devicon-gitlab-plain colored", "level": 70 },
     { "name": "Docker", "icon": "devicon-docker-plain colored", "level": 60 },
     { "name": "Jira", "icon": "devicon-jira-plain colored", "level": 80 },
-    { "name": "Monday", "icon": "/icons/monday-icon-icon-md.png", "level": 75, "isImage": true },
+    { "name": "Monday", "icon": "/icons/monday-icon-icon-md.png", "level": 75 },
     { "name": "Postman", "icon": "devicon-postman-plain colored", "level": 85 }
   ]
 }

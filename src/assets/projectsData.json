@@ -1,606 +1,584 @@
-[
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Blender", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-blender-original colored"
-      }
-    ],
-    "sub": ["/media/icons/blender-3d.svg"],
-    "image": "/media/3D/Navart_Circle.mp4",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Blender", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-blender-original colored"
-      }
-    ],
-    "sub": ["/media/icons/blender-3d.svg"],
-    "image": "/media/3D/Cuby.mp4",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Blender", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-blender-original colored"
-      }
-    ],
-    "sub": ["/media/icons/blender-3d.svg"],
-    "image": "/media/3D/Super Sparrow.png",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Blender", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-blender-original colored"
-      }
-    ],
-    "sub": ["/media/icons/blender-3d.svg"],
-    "image": "/media/3D/Box_1.png",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Blender", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-blender-original colored"
-      }
-    ],
-    "sub": ["/media/icons/blender-3d.svg"],
-    "image": "/media/3D/Armory.png",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Blender", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-blender-original colored"
-      }
-    ],
-    "sub": ["/media/icons/blender-3d.svg"],
-    "image": "/media/3D/mecanique_2.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Maya", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-maya-original colored"
-      }
-    ],
-    "sub": ["/media/icons/maya.svg"],
-    "image": "/media/3D/Tasse.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Maya", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-maya-original colored"
-      }
-    ],
-    "sub": ["/media/icons/maya.svg"],
-    "image": "/media/3D/goku.png",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Maya", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-maya-original colored"
-      }
-    ],
-    "sub": ["/media/icons/maya.svg"],
-    "image": "/media/3D/test.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Maya", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-maya-original colored"
-      }
-    ],
-    "sub": ["/media/icons/maya.svg"],
-    "image": "/media/3D/bg_scene.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "infographie",
-    "tags": ["Maya", "3D", "Animation"],
-    "icons": [
-      {
-        "icon": "devicon-maya-original colored"
-      }
-    ],
-    "sub": ["/media/icons/maya.svg"],
-    "image": "/media/3D/ship.jpg",
-    "link": "#"
-  },
+{
+  "infographie": [
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Blender", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "devicon-blender-original colored"
+        }
+      ],
+      "sub": ["/media/icons/blender-3d.svg"],
+      "image": "/media/3D/Navart_Circle.mp4",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Blender", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "devicon-blender-original colored"
+        }
+      ],
+      "sub": ["/media/icons/blender-3d.svg"],
+      "image": "/media/3D/Cuby.mp4",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Blender", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "devicon-blender-original colored"
+        }
+      ],
+      "sub": ["/media/icons/blender-3d.svg"],
+      "image": "/media/3D/Super Sparrow.png",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Blender", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "devicon-blender-original colored"
+        }
+      ],
+      "sub": ["/media/icons/blender-3d.svg"],
+      "image": "/media/3D/Box_1.png",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Blender", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "devicon-blender-original colored"
+        }
+      ],
+      "sub": ["/media/icons/blender-3d.svg"],
+      "image": "/media/3D/Armory.png",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Blender", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "devicon-blender-original colored"
+        }
+      ],
+      "sub": ["/media/icons/blender-3d.svg"],
+      "image": "/media/3D/mecanique_2.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Maya", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "/icons/maya.png"
+        }
+      ],
+      "sub": ["/media/icons/maya.svg"],
+      "image": "/media/3D/Tasse.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Maya", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "devicon-blender-original colored"
+        }
+      ],
+      "sub": ["/media/icons/maya.png"],
+      "image": "/media/3D/goku.png",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Maya", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "/icons/maya.png"
+        }
+      ],
+      "sub": ["/media/icons/maya.svg"],
+      "image": "/media/3D/test.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Maya", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "devicon-maya-original colored"
+        }
+      ],
+      "sub": ["/media/icons/maya.svg"],
+      "image": "/media/3D/bg_scene.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Maya", "3D", "Animation"],
+      "icons": [
+        {
+          "icon": "devicon-maya-original colored"
+        }
+      ],
+      "sub": ["/media/icons/maya.svg"],
+      "image": "/media/3D/ship.jpg",
+      "link": "#"
+    }
+  ],
 
+  "design": [
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Figma"],
+      "icons": [
+        {
+          "icon": "devicon-figma-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/figma.svg"],
+      "image": "/media/design/Checkout_Process.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Illustrator"],
+      "icons": [
+        {
+          "icon": "devicon-illustrator-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ai.png"],
+      "image": "/media/design/Design-Orange.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Illustrator", "XD", "Photoshop"],
+      "icons": [
+        {
+          "icon": "devicon-illustrator-plain colored"
+        },
+        {
+          "icon": "devicon-xd-plain colored"
+        },
+        {
+          "icon": "devicon-photoshop-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ai.png", "/media/icons/xd.png", "/media/icons/ps.png"],
+      "image": "/media/design/Meteo.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Photoshop"],
+      "icons": [
+        {
+          "icon": "devicon-photoshop-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ps.png"],
+      "image": "/media/design/Femme-Soie.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Illustrator"],
+      "icons": [
+        {
+          "icon": "devicon-illustrator-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ai.png"],
+      "image": "/media/design/Wave-Purple.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Illustrator"],
+      "icons": [
+        {
+          "icon": "devicon-illustrator-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ai.png"],
+      "image": "/media/design/Robot.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Illustrator", "XD", "Photoshop"],
+      "icons": [
+        {
+          "icon": "devicon-illustrator-plain colored"
+        },
+        {
+          "icon": "devicon-xd-plain colored"
+        },
+        {
+          "icon": "devicon-photoshop-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ai.png", "/media/icons/xd.png", "/media/icons/ps.png"],
+      "image": "/media/design/Street.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Illustrator"],
+      "icons": [
+        {
+          "icon": "devicon-illustrator-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ai.png"],
+      "image": "/media/design/Planete-Illustration.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Illustrator"],
+      "icons": [
+        {
+          "icon": "devicon-illustrator-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ai.png"],
+      "image": "/media/design/SPACE_ONE.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Photoshop"],
+      "icons": [
+        {
+          "icon": "devicon-photoshop-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ps.png"],
+      "image": "/media/design/egle-Destructure.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Illustrator"],
+      "icons": [
+        {
+          "icon": "devicon-illustrator-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ai.png"],
+      "image": "/media/design/Background-Illustration.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Photoshop"],
+      "icons": [
+        {
+          "icon": "devicon-photoshop-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ps.png"],
+      "image": "/media/design/404.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Photoshop"],
+      "icons": [
+        {
+          "icon": "devicon-photoshop-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ps.png"],
+      "image": "/media/design/automne.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Photoshop"],
+      "icons": [
+        {
+          "icon": "devicon-photoshop-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ps.png"],
+      "image": "/media/design/Text-Destructuré.jpg",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "design",
+      "tags": ["Illustrator"],
+      "icons": [
+        {
+          "icon": "devicon-illustrator-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/ai.png"],
+      "image": "/media/design/3CSI-Carte-visite.jpg",
+      "link": "#"
+    }
+  ],
 
-
-
-
-
-
-
-
-
-
-
-
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Figma"],
-    "icons": [
-      {
-        "icon": "devicon-figma-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/figma.svg"],
-    "image": "/media/design/Checkout_Process.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Illustrator"],
-    "icons": [
-      {
-        "icon": "devicon-illustrator-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ai.png"],
-    "image": "/media/design/Design-Orange.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Illustrator", "XD", "Photoshop"],
-    "icons": [
-      {
-        "icon": "devicon-illustrator-plain colored"
-      },
-      {
-        "icon": "devicon-xd-plain colored"
-      },
-      {
-        "icon": "devicon-photoshop-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ai.png", "/media/icons/xd.png", "/media/icons/ps.png"],
-    "image": "/media/design/Meteo.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Photoshop"],
-    "icons": [
-      {
-        "icon": "devicon-photoshop-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ps.png"],
-    "image": "/media/design/Femme-Soie.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Illustrator"],
-    "icons": [
-      {
-        "icon": "devicon-illustrator-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ai.png"],
-    "image": "/media/design/Wave-Purple.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Illustrator"],
-    "icons": [
-      {
-        "icon": "devicon-illustrator-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ai.png"],
-    "image": "/media/design/Robot.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Illustrator", "XD", "Photoshop"],
-    "icons": [
-      {
-        "icon": "devicon-illustrator-plain colored"
-      },
-      {
-        "icon": "devicon-xd-plain colored"
-      },
-      {
-        "icon": "devicon-photoshop-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ai.png", "/media/icons/xd.png", "/media/icons/ps.png"],
-    "image": "/media/design/Street.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Illustrator"],
-    "icons": [
-      {
-        "icon": "devicon-illustrator-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ai.png"],
-    "image": "/media/design/Planete-Illustration.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Illustrator"],
-    "icons": [
-      {
-        "icon": "devicon-illustrator-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ai.png"],
-    "image": "/media/design/SPACE_ONE.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Photoshop"],
-    "icons": [
-      {
-        "icon": "devicon-photoshop-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ps.png"],
-    "image": "/media/design/egle-Destructure.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Illustrator"],
-    "icons": [
-      {
-        "icon": "devicon-illustrator-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ai.png"],
-    "image": "/media/design/Background-Illustration.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Photoshop"],
-    "icons": [
-      {
-        "icon": "devicon-photoshop-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ps.png"],
-    "image": "/media/design/404.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Photoshop"],
-    "icons": [
-      {
-        "icon": "devicon-photoshop-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ps.png"],
-    "image": "/media/design/automne.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Photoshop"],
-    "icons": [
-      {
-        "icon": "devicon-photoshop-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ps.png"],
-    "image": "/media/design/Text-Destructuré.jpg",
-    "link": "#"
-  },
-  {
-    "title": "#",
-    "category": "design",
-    "tags": ["Illustrator"],
-    "icons": [
-      {
-        "icon": "devicon-illustrator-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/ai.png"],
-    "image": "/media/design/3CSI-Carte-visite.jpg",
-    "link": "#"
-  },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  {
-    "title": "Petit Plats",
-    "category": "web",
-    "tags": ["HTML", "CSS", "JavaScript"],
-    "icons": [
-      {
-        "icon": "devicon-html5-plain colored"
-      },
-      {
-        "icon": "devicon-css3-plain colored"
-      },
-      {
-        "icon": "devicon-javascript-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/Html.svg", "/media/icons/Css.svg", "/media/icons/Js.svg"],
-    "image": "/media/web/petitsPlats.png",
-    "link": "https://benji-devw.github.io/p7-petits-plats/",
-    "github": "https://github.com/Benji-devw/p7-petits-plats"
-  },
-  {
-    "title": "StouflyDoc",
-    "category": "web",
-    "tags": ["Next.js", "Node.js", "MongoDB", "TypeScript", "Tailwind"],
-    "icons": [
-      {
-        "icon": "devicon-nextjs-plain colored"
-      },
-      {
-        "icon": "devicon-nodejs-plain colored"
-      },
-      {
-        "icon": "devicon-mongodb-plain colored"
-      },
-      {
-        "icon": "devicon-typescript-plain colored"
-      },
-      {
-        "icon": "devicon-tailwindcss-plain colored"
-      }
-    ],
-    "sub": [
-      "/media/icons/next-js.svg",
-      "/media/icons/Nodejs.svg",
-      "/media/icons/mongo.png",
-      "/media/icons/ts.svg",
-      "/media/icons/Tailwind.svg"
-    ],
-    "image": "/media/web/StouflyDocPreview_fg.png",
-    "link": "https://stoufly-doc.vercel.app/",
-    "github": "https://github.com/Benji-devw/stoufly_doc"
-  },
-  {
-    "title": "Speedo",
-    "category": "web",
-    "tags": ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    "icons": [
-      {
-        "icon": "devicon-html5-plain colored"
-      },
-      {
-        "icon": "devicon-css3-plain colored"
-      },
-      {
-        "icon": "devicon-javascript-plain colored"
-      },
-      {
-        "icon": "devicon-bootstrap-plain colored"
-      }
-    ],
-    "sub": ["/media/icons/Html.svg", "/media/icons/Css.svg", "/media/icons/Js.svg", "/media/icons/bootstrap.svg"],
-    "image": "/media/web/speedo-bis.jpg",
-    "link": "aqua"
-  },
-  {
-    "title": "Aleph",
-    "category": "web",
-    "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
-    "icons": [
-      {
-        "icon": "devicon-wordpress-plain colored"
-      },
-      {
-        "icon": "devicon-php-plain colored"
-      },
-      {
-        "icon": "devicon-javascript-plain colored"
-      },
-      {
-        "icon": "devicon-jquery-plain colored"
-      }
-    ],
-    "sub": [
-      "/media/icons/wordpress.svg",
-      "/media/icons/php.svg",
-      "/media/icons/Js.svg",
-      "/media/icons/jquery-icon.svg"
-    ],
-    "image": "/media/web/aleph.jpg",
-    "link": "https://www.aleph-ecriture.fr/"
-  },
-  {
-    "title": "Aquapulse",
-    "category": "web",
-    "tags": ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap"],
-    "icons": [
-      {
-        "icon": "devicon-html5-plain colored"
-      },
-      {
-        "icon": "devicon-css3-plain colored"
-      },
-      {
-        "icon": "devicon-javascript-plain colored"
-      },
-      {
-        "icon": "devicon-php-plain colored"
-      },
-      {
-        "icon": "devicon-bootstrap-plain colored"
-      }
-    ],
-    "sub": [
-      "/media/icons/Html.svg",
-      "/media/icons/Css.svg",
-      "/media/icons/Js.svg",
-      "/media/icons/php.svg",
-      "/media/icons/bootstrap.svg"
-    ],
-    "image": "/media/web/Aquapulse2.jpg",
-    "link": "speedo"
-  },
-  {
-    "title": "FFMI",
-    "category": "web",
-    "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
-    "icons": [
-      {
-        "icon": "devicon-wordpress-plain colored"
-      },
-      {
-        "icon": "devicon-php-plain colored"
-      },
-      {
-        "icon": "devicon-javascript-plain colored"
-      },
-      {
-        "icon": "devicon-jquery-plain colored"
-      }
-    ],
-    "sub": [
-      "/media/icons/wordpress.svg",
-      "/media/icons/php.svg",
-      "/media/icons/Js.svg",
-      "/media/icons/jquery-icon.svg"
-    ],
-    "image": "/media/web/ffmi.jpg",
-    "link": "https://www.ffmi.asso.fr/"
-  },
-  {
-    "title": "Vallena",
-    "category": "web",
-    "tags": ["React", "Node.js", "MongoDB", "Sass", "Bootstrap"],
-    "icons": [
-      {
-        "icon": "devicon-react-plain colored"
-      },
-      {
-        "icon": "devicon-nodejs-plain colored"
-      },
-      {
-        "icon": "devicon-mongodb-plain colored"
-      },
-      {
-        "icon": "devicon-sass-plain colored"
-      },
-      {
-        "icon": "devicon-bootstrap-plain colored"
-      }
-    ],
-    "sub": [
-      "/media/icons/react_logo.svg",
-      "/media/icons/Nodejs.svg",
-      "/media/icons/mongo.png",
-      "/media/icons/Sass.svg",
-      "/media/icons/bootstrap.svg"
-    ],
-    "image": "/media/web/vallena-1.jpg",
-    "link": "#",
-    "github": "https://github.com/Benji-devw/Vallena"
-  },
-  {
-    "title": "3D porfolio",
-    "category": "web",
-    "tags": ["Next.js", "Three.js"],
-    "icons": [
-      {
-        "icon": "devicon-nextjs-plain colored"
-      },
-      {
-        "icon": "devicon-threejs-original colored"
-      }
-    ],
-    "sub": ["/media/icons/next-js.svg", "/media/icons/Threejs-logo.svg"],
-    "image": "/media/web/spacefolio.png",
-    "link": "https://bn-3d.vercel.app/"
-  },
-  {
-    "title": "3D porfolio",
-    "category": "web",
-    "tags": ["Next.js", "Three.js"],
-    "icons": [
-      {
-        "icon": "devicon-nextjs-plain colored"
-      },
-      {
-        "icon": "devicon-threejs-original colored"
-      }
-    ],
-    "sub": ["/media/icons/next-js.svg", "/media/icons/Threejs-logo.svg"],
-    "image": "/media/web/Folio_Preview.jpg",
-    "link": "https://navarro-benjamin.vercel.app/",
-    "github": "https://github.com/Benji-devw/folio-threejs"
-  }
-]
+  "web": [
+    {
+      "title": "Petit Plats",
+      "category": "web",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "icons": [
+        {
+          "icon": "devicon-html5-plain colored"
+        },
+        {
+          "icon": "devicon-css3-plain colored"
+        },
+        {
+          "icon": "devicon-javascript-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/Html.svg", "/media/icons/Css.svg", "/media/icons/Js.svg"],
+      "image": "/media/web/petitsPlats.png",
+      "link": "https://benji-devw.github.io/p7-petits-plats/",
+      "github": "https://github.com/Benji-devw/p7-petits-plats"
+    },
+    {
+      "title": "StouflyDoc",
+      "category": "web",
+      "tags": ["Next.js", "Node.js", "MongoDB", "TypeScript", "Tailwind"],
+      "icons": [
+        {
+          "icon": "devicon-nextjs-plain colored"
+        },
+        {
+          "icon": "devicon-nodejs-plain colored"
+        },
+        {
+          "icon": "devicon-mongodb-plain colored"
+        },
+        {
+          "icon": "devicon-typescript-plain colored"
+        },
+        {
+          "icon": "devicon-tailwindcss-plain colored"
+        }
+      ],
+      "sub": [
+        "/media/icons/next-js.svg",
+        "/media/icons/Nodejs.svg",
+        "/media/icons/mongo.png",
+        "/media/icons/ts.svg",
+        "/media/icons/Tailwind.svg"
+      ],
+      "image": "/media/web/StouflyDocPreview_fg.png",
+      "link": "https://stoufly-doc.vercel.app/",
+      "github": "https://github.com/Benji-devw/stoufly_doc"
+    },
+    {
+      "title": "Speedo",
+      "category": "web",
+      "tags": ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      "icons": [
+        {
+          "icon": "devicon-html5-plain colored"
+        },
+        {
+          "icon": "devicon-css3-plain colored"
+        },
+        {
+          "icon": "devicon-javascript-plain colored"
+        },
+        {
+          "icon": "devicon-bootstrap-plain colored"
+        }
+      ],
+      "sub": ["/media/icons/Html.svg", "/media/icons/Css.svg", "/media/icons/Js.svg", "/media/icons/bootstrap.svg"],
+      "image": "/media/web/speedo-bis.jpg",
+      "link": "aqua"
+    },
+    {
+      "title": "Aleph",
+      "category": "web",
+      "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
+      "icons": [
+        {
+          "icon": "devicon-wordpress-plain colored"
+        },
+        {
+          "icon": "devicon-php-plain colored"
+        },
+        {
+          "icon": "devicon-javascript-plain colored"
+        },
+        {
+          "icon": "devicon-jquery-plain colored"
+        }
+      ],
+      "sub": [
+        "/media/icons/wordpress.svg",
+        "/media/icons/php.svg",
+        "/media/icons/Js.svg",
+        "/media/icons/jquery-icon.svg"
+      ],
+      "image": "/media/web/aleph.jpg",
+      "link": "https://www.aleph-ecriture.fr/"
+    },
+    {
+      "title": "Aquapulse",
+      "category": "web",
+      "tags": ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap"],
+      "icons": [
+        {
+          "icon": "devicon-html5-plain colored"
+        },
+        {
+          "icon": "devicon-css3-plain colored"
+        },
+        {
+          "icon": "devicon-javascript-plain colored"
+        },
+        {
+          "icon": "devicon-php-plain colored"
+        },
+        {
+          "icon": "devicon-bootstrap-plain colored"
+        }
+      ],
+      "sub": [
+        "/media/icons/Html.svg",
+        "/media/icons/Css.svg",
+        "/media/icons/Js.svg",
+        "/media/icons/php.svg",
+        "/media/icons/bootstrap.svg"
+      ],
+      "image": "/media/web/Aquapulse2.jpg",
+      "link": "speedo"
+    },
+    {
+      "title": "FFMI",
+      "category": "web",
+      "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
+      "icons": [
+        {
+          "icon": "devicon-wordpress-plain colored"
+        },
+        {
+          "icon": "devicon-php-plain colored"
+        },
+        {
+          "icon": "devicon-javascript-plain colored"
+        },
+        {
+          "icon": "devicon-jquery-plain colored"
+        }
+      ],
+      "sub": [
+        "/media/icons/wordpress.svg",
+        "/media/icons/php.svg",
+        "/media/icons/Js.svg",
+        "/media/icons/jquery-icon.svg"
+      ],
+      "image": "/media/web/ffmi.jpg",
+      "link": "https://www.ffmi.asso.fr/"
+    },
+    {
+      "title": "Vallena",
+      "category": "web",
+      "tags": ["React", "Node.js", "MongoDB", "Sass", "Bootstrap"],
+      "icons": [
+        {
+          "icon": "devicon-react-plain colored"
+        },
+        {
+          "icon": "devicon-nodejs-plain colored"
+        },
+        {
+          "icon": "devicon-mongodb-plain colored"
+        },
+        {
+          "icon": "devicon-sass-plain colored"
+        },
+        {
+          "icon": "devicon-bootstrap-plain colored"
+        }
+      ],
+      "sub": [
+        "/media/icons/react_logo.svg",
+        "/media/icons/Nodejs.svg",
+        "/media/icons/mongo.png",
+        "/media/icons/Sass.svg",
+        "/media/icons/bootstrap.svg"
+      ],
+      "image": "/media/web/vallena-1.jpg",
+      "link": "#",
+      "github": "https://github.com/Benji-devw/Vallena"
+    },
+    {
+      "title": "3D porfolio",
+      "category": "web",
+      "tags": ["Next.js", "Three.js"],
+      "icons": [
+        {
+          "icon": "devicon-nextjs-plain colored"
+        },
+        {
+          "icon": "devicon-threejs-original colored"
+        }
+      ],
+      "sub": ["/media/icons/next-js.svg", "/media/icons/Threejs-logo.svg"],
+      "image": "/media/web/spacefolio.png",
+      "link": "https://bn-3d.vercel.app/"
+    },
+    {
+      "title": "3D porfolio",
+      "category": "web",
+      "tags": ["Next.js", "Three.js"],
+      "icons": [
+        {
+          "icon": "devicon-nextjs-plain colored"
+        },
+        {
+          "icon": "devicon-threejs-original colored"
+        }
+      ],
+      "sub": ["/media/icons/next-js.svg", "/media/icons/Threejs-logo.svg"],
+      "image": "/media/web/Folio_Preview.jpg",
+      "link": "https://navarro-benjamin.vercel.app/",
+      "github": "https://github.com/Benji-devw/folio-threejs"
+    }
+  ]
+}
