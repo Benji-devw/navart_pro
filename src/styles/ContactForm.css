@@ -21,17 +21,6 @@
   user-select: none !important;
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(var(--primary-rgb), 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0);
-  }
-}
 
 .floating-contact-btn:hover {
   transform: translateY(-8px) scale(1.05);
@@ -96,18 +85,6 @@
 .contact-container::-webkit-scrollbar-thumb:hover {
   background: var(--gradient-color);
 }
-
-/* Animation d'entrée pour le formulaire */
-/* @keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-} */
 
 .contact-title {
   grid-column: 1 / -1;
@@ -255,18 +232,7 @@
   border-radius: 8px;
   text-align: center;
   /* font-weight: 500; */
-  animation: fadeInUp 0.5s ease;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  animation: fadeIn 0.5s ease;
 }
 
 .form-status.success {
@@ -324,20 +290,20 @@
     bottom: 10px;
     right: 10px;
   }
-  
+
   .contact-container {
     padding: 1.5rem;
   }
-  
+
   .contact-title {
     font-size: 1.8rem;
   }
-  
+
   .contact-description {
     font-size: 1rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .contact-form {
     padding: 1.2rem;
   }
@@ -364,11 +330,11 @@
     height: 35px;
     font-size: 1rem;
   }
-  
+
   .contact-container {
     padding: 1rem;
   }
-  
+
   .contact-title {
     font-size: 1.5rem;
   }

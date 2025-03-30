@@ -32,15 +32,6 @@ section {
   animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .loading {
   overflow: hidden;
 }
@@ -49,11 +40,4 @@ section {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+

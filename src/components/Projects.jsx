@@ -1,9 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import '@styles/Projects.css';
 import Gallery from '@components/Gallery/Gallery';
 import projectsData from '@assets/projectsData.json';
 import Button from '@components/ui/Button';
+import { ScrollObserverContext } from '@/App';
+import { useInView } from 'react-intersection-observer';
 
 export default function Projects() {
+  const { defaultInViewOptions } = useContext(ScrollObserverContext);
+  const [ref, inView] = useInView(defaultInViewOptions);
+
   // Combiner toutes les catégories dans un seul tableau
   const allProjects = [
     ...projectsData.web || [],
@@ -40,7 +46,7 @@ export default function Projects() {
     <section id="projects">
       <h2 className="section-title">Portfolio</h2>
 
-      <div className="projects-container">
+      <div className={`projects-content ${inView ? 'animate' : ''}`} ref={ref}>
         <div className="bnt-tabs">
           {uniqueCategories.map((category, index) => (
             <Button

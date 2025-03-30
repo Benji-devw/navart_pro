@@ -91,17 +91,6 @@
   animation: roleChange 5s infinite ease;
 }
 
-@keyframes roleChange {
-  0%, 40% {
-    transform: translateY(0);
-  }
-  50%, 90% {
-    transform: translateY(-3rem);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
 
 .hero-role {
   font-size: 2rem;
@@ -207,14 +196,7 @@
   animation: float 2s infinite ease-in-out;
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
+
 
 /* Background Shapes */
 .hero-shapes {
@@ -270,20 +252,7 @@
   animation: floatShape 14s infinite ease-in-out 1s;
 }
 
-@keyframes floatShape {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-20px, 20px);
-  }
-  50% {
-    transform: translate(20px, 40px);
-  }
-  75% {
-    transform: translate(40px, -20px);
-  }
-}
+
 
 /* Responsive Design */
 @media screen and (max-width: 992px) {
