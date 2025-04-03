@@ -1,0 +1,47 @@
+.model-viewer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: auto;
+}
+
+/* Appliquer un filtre pour assombrir légèrement le modèle et améliorer la lisibilité du texte */
+.model-viewer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background: linear-gradient(135deg, rgba(19, 21, 25, 0.8) 0%, rgba(5, 8, 22, 0.95) 100%); */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.model-viewer canvas {
+  position: relative;
+  z-index: 0;
+}
+
+/* Effet de brillance pour certains éléments du globe */
+@keyframes glow {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3) blur(2px);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+/* Media queries pour rendre le modèle 3D responsive */
+@media screen and (max-width: 992px) {
+  .model-viewer {
+    height: 100%;
+  }
+} 

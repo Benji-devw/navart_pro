@@ -1,0 +1,192 @@
+{
+  "web": [
+    {
+      "title": "Petit Plats",
+      "category": "web",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "icons": [
+        {
+          "icon": "devicon-html5-plain colored"
+        },
+        {
+          "icon": "devicon-css3-plain colored"
+        },
+        {
+          "icon": "devicon-javascript-plain colored"
+        }
+      ],
+      "image": "/media/web/petitsPlats.png",
+      "link": "https://benji-devw.github.io/p7-petits-plats/",
+      "github": "https://github.com/Benji-devw/p7-petits-plats"
+    },
+    {
+      "title": "StouflyDoc",
+      "category": "web",
+      "tags": ["Next.js", "Node.js", "MongoDB", "TypeScript", "Tailwind"],
+      "icons": [
+        {
+          "icon": "devicon-nextjs-plain colored"
+        },
+        {
+          "icon": "devicon-nodejs-plain colored"
+        },
+        {
+          "icon": "devicon-mongodb-plain colored"
+        },
+        {
+          "icon": "devicon-typescript-plain colored"
+        },
+        {
+          "icon": "devicon-tailwindcss-plain colored"
+        }
+      ],
+      "image": "/media/web/StouflyDocPreview_fg.png",
+      "link": "https://stoufly-doc.vercel.app/",
+      "github": "https://github.com/Benji-devw/stoufly_doc"
+    },
+    {
+      "title": "Speedo",
+      "category": "web",
+      "tags": ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      "icons": [
+        {
+          "icon": "devicon-html5-plain colored"
+        },
+        {
+          "icon": "devicon-css3-plain colored"
+        },
+        {
+          "icon": "devicon-javascript-plain colored"
+        },
+        {
+          "icon": "devicon-bootstrap-plain colored"
+        }
+      ],
+      "image": "/media/web/speedo2.jpg",
+      "link": "#"
+    },
+    {
+      "title": "Aleph",
+      "category": "web",
+      "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
+      "icons": [
+        {
+          "icon": "devicon-wordpress-plain colored"
+        },
+        {
+          "icon": "devicon-php-plain colored"
+        },
+        {
+          "icon": "devicon-javascript-plain colored"
+        },
+        {
+          "icon": "devicon-jquery-plain colored"
+        }
+      ],
+      "image": "/media/web/aleph.jpg",
+      "link": "https://www.aleph-ecriture.fr/"
+    },
+    {
+      "title": "Aquapulse",
+      "category": "web",
+      "tags": ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap"],
+      "icons": [
+        {
+          "icon": "devicon-html5-plain colored"
+        },
+        {
+          "icon": "devicon-css3-plain colored"
+        },
+        {
+          "icon": "devicon-javascript-plain colored"
+        },
+        {
+          "icon": "devicon-php-plain colored"
+        },
+        {
+          "icon": "devicon-bootstrap-plain colored"
+        }
+      ],
+      "image": "/media/web/Aquapulse3.jpg",
+      "link": "#"
+    },
+    {
+      "title": "FFMI",
+      "category": "web",
+      "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
+      "icons": [
+        {
+          "icon": "devicon-wordpress-plain colored"
+        },
+        {
+          "icon": "devicon-php-plain colored"
+        },
+        {
+          "icon": "devicon-javascript-plain colored"
+        },
+        {
+          "icon": "devicon-jquery-plain colored"
+        }
+      ],
+      "image": "/media/web/ffmi.jpg",
+      "link": "https://www.ffmi.asso.fr/"
+    },
+    {
+      "title": "Vallena",
+      "category": "web",
+      "tags": ["React", "Node.js", "MongoDB", "Sass", "Bootstrap"],
+      "icons": [
+        {
+          "icon": "devicon-react-plain colored"
+        },
+        {
+          "icon": "devicon-nodejs-plain colored"
+        },
+        {
+          "icon": "devicon-mongodb-plain colored"
+        },
+        {
+          "icon": "devicon-sass-plain colored"
+        },
+        {
+          "icon": "devicon-bootstrap-plain colored"
+        }
+      ],
+      "image": "/media/web/vallena-1.jpg",
+      "link": "#",
+      "github": "https://github.com/Benji-devw/Vallena"
+    },
+    {
+      "title": "3D porfolio",
+      "category": "web",
+      "tags": ["Next.js", "Three.js"],
+      "icons": [
+        {
+          "icon": "devicon-nextjs-plain colored"
+        },
+        {
+          "icon": "devicon-threejs-original colored"
+        }
+      ],
+      "image": "/media/web/spacefolio.png",
+      "link": "https://bn-3d.vercel.app/",
+      "github": "https://github.com/Benji-devw/folio-threejs"
+    },
+    {
+      "title": "3D porfolio",
+      "category": "web",
+      "tags": ["Next.js", "Three.js"],
+      "icons": [
+        {
+          "icon": "devicon-nextjs-plain colored"
+        },
+        {
+          "icon": "devicon-threejs-original colored"
+        }
+      ],
+      "image": "/media/web/Folio_Preview.jpg",
+      "link": "https://navarro-benjamin.vercel.app/",
+      "github": "https://github.com/Benji-devw/folio-threejs"
+    }
+  ]
+}

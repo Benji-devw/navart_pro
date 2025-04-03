@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import './Gallery.css';
 import RenderIcon from '@hooks/RenderIcon';
 import Button from '../ui/Button';
@@ -8,9 +8,26 @@ const Gallery = ({ projects }) => {
   const [transformState, setTransformState] = useState({});
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [descriptionVisible, setDescriptionVisible] = useState({});
+  const [isMobile, setIsMobile] = useState(false);
   const appStoreRef = useRef(null);
   const cardsRef = useRef([]);
   const overlayRef = useRef(null);
+
+  // Détecter si l'appareil est mobile
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Vérifier au chargement
+    checkIfMobile();
+    
+    // Vérifier lors du redimensionnement de la fenêtre
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Nettoyer
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
 
   const getMediaElement = (project) => {
     if (project.image?.endsWith('.mp4')) {
@@ -57,32 +74,44 @@ const Gallery = ({ projects }) => {
         return;
       }
 
-      const { left, width, top, height } = card.getBoundingClientRect();
-      const { left: appLeft, width: appWidth } = appStore.getBoundingClientRect();
+      // Pour les appareils mobiles, ne pas appliquer la transformation scale/position
+      if (isMobile) {
+        setTransformState((prev) => ({
+          ...prev,
+          [projectId]: {
+            zIndex: 900,
+            position: 'relative',
+            transition: 'all 0.3s ease',
+          },
+        }));
+      } else {
+        // Pour les desktop, appliquer la transformation complète
+        const { left, width, top, height } = card.getBoundingClientRect();
+        const { left: appLeft, width: appWidth } = appStore.getBoundingClientRect();
 
-      const centerX = appLeft + appWidth / 2;
-      const centerY = window.innerHeight / 2;
+        const centerX = appLeft + appWidth / 2;
+        const centerY = window.innerHeight / 2;
 
-      const scale = Math.min(appWidth / width, (appWidth * 0.50) / height);
+        const scale = Math.min(appWidth / width, (appWidth * 0.5) / height);
 
-      setTransformState((prev) => ({
-        ...prev,
-        [projectId]: {
-          transform: `translate3d(${centerX - (left + width / 2)}px, ${
-            centerY - (top + height / 2)
-          }px, 0) scale(${scale})`,
-          zIndex: 900,
-          position: 'relative',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)',
-          transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-        },
-      }));
+        setTransformState((prev) => ({
+          ...prev,
+          [projectId]: {
+            transform: `translate3d(${centerX - (left + width / 2)}px, ${
+              centerY - (top + height / 2)
+            }px, 0) scale(${scale})`,
+            zIndex: 900,
+            position: 'relative',
+            transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+          },
+        }));
+      }
 
       setDescriptionVisible((prev) => ({ ...prev, [projectId]: true }));
       setSelectedProject(project);
       setOverlayVisible(true);
     },
-    [transformState]
+    [transformState, isMobile]
   );
 
   const closeCard = useCallback((projectId) => {
@@ -110,22 +139,18 @@ const Gallery = ({ projects }) => {
   }, [selectedProject, projects, closeCard]);
 
   const visite = (event) => {
-    event.preventDefault();
+    event.stopPropagation();
     window.open(event.target.href, '_blank');
-  }
+  };
 
-  const code = (event) => {
-    event.preventDefault();
-  }
   return (
     <div id="app-store" ref={appStoreRef}>
-        <div
-          ref={overlayRef}
-          className={`gallery-overlay ${overlayVisible ? 'visible' : 'hiding'}`}
-          onClick={handleOverlayClick}
-        ></div>
+      <div
+        ref={overlayRef}
+        className={`gallery-overlay ${overlayVisible ? 'visible' : 'hiding'}`}
+        onClick={handleOverlayClick}
+      ></div>
       <ul className="card-list">
-
         {projects.map((project, index) => {
           const projectId = project.id || `project-${index}`;
           const cardStyle = transformState[projectId] || {};
@@ -145,24 +170,34 @@ const Gallery = ({ projects }) => {
                 <div className={`expanded-description ${isDescriptionVisible ? 'visible' : ''}`}>
                   <div className="expanded-content">
                     <div className="left-content">
-                      <h4>{project.title != '#' ? project.title : ''}</h4>
-                    {project && (
-                      <div className="tech-stack">
-                        {project.icons.map((icon, iconIndex) => (
-                          <span className="tech-icon" key={iconIndex}>
-                            {RenderIcon(icon.icon, '12px')}
-                          </span>
-                        ))}
-                      </div>
+                      {project.title != '#' && (
+                        <h4>{project.title}</h4>
+                      )}
+                      {project && (
+                        <div className="tech-stack">
+                          {project.icons.map((icon, iconIndex) => (
+                            <span className="tech-icon" key={iconIndex}>
+                              {RenderIcon(icon.icon, '12px')}
+                            </span>
+                          ))}
+                        </div>
                       )}
                     </div>
                     <div className="right-content">
-                      <Button className="bnt-tab active" fullWidth={true} onClick={visite}>
-                        <a href={project.link} target="_blank" rel="noopener noreferrer">Visiter</a>
-                      </Button>
-                      <Button className="bnt-tab active" fullWidth={true} onClick={code}>
-                        <a href={project.github} target="_blank" rel="noopener noreferrer">Voir le code</a>
-                      </Button>
+                      {project.link !== '#' && (
+                        <Button className="bnt-tab active" fullWidth={true} onClick={visite}>
+                          <a href={project.link} target="_blank" rel="noopener noreferrer">
+                            Visiter
+                          </a>
+                        </Button>
+                      )}
+                      {project.github && (
+                        <Button className="bnt-tab active" fullWidth={true} onClick={visite}>
+                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            Voir le code
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </div>

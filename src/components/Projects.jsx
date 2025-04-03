@@ -1,7 +1,9 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useMemo } from 'react';
 import '@styles/Projects.css';
 import Gallery from '@components/Gallery/Gallery';
-import projectsData from '@assets/projectsData.json';
+import webDataFile from '@assets/projectsData/webData.json';
+import designDataFile from '@assets/projectsData/designData.json';
+import infographieDataFile from '@assets/projectsData/infographieData.json';
 import Button from '@components/ui/Button';
 import { ScrollObserverContext } from '@/App';
 import { useInView } from 'react-intersection-observer';
@@ -10,35 +12,41 @@ export default function Projects() {
   const { defaultInViewOptions } = useContext(ScrollObserverContext);
   const [ref, inView] = useInView(defaultInViewOptions);
 
-  // Combiner toutes les catégories dans un seul tableau
-  const allProjects = [
-    ...projectsData.web || [],
-    ...projectsData.design || [],
-    ...projectsData.infographie || []
-  ];
+  // Extraire les données de chaque fichier
+  const webData = webDataFile.web || [];
+  const designData = designDataFile.design || [];
+  const infographieData = infographieDataFile.infographie || [];
+
+  // Organiser les projets par catégorie - utiliser useMemo pour éviter les recalculs inutiles
+  const allProjects = useMemo(() => ({
+    web: webData,
+    design: designData,
+    infographie: infographieData
+  }), []);
+  
+  // Préparer les projets "all" une seule fois
+  const allCombinedProjects = useMemo(() => 
+    Object.values(allProjects).flat()
+  , [allProjects]);
 
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [activeTab, setActiveTab] = useState('web');
 
   // Extraire dynamiquement les catégories disponibles
-  const uniqueCategories = ['all', ...new Set(Object.keys(projectsData).reverse())];
+  const uniqueCategories = useMemo(() => 
+    ['all', ...Object.keys(allProjects)]
+  , [allProjects]);
 
   useEffect(() => {
     // Initialiser avec les projets de la catégorie active
     if (activeTab === 'all') {
-      setFilteredProjects(allProjects);
+      setFilteredProjects(allCombinedProjects);
     } else {
-      setFilteredProjects(projectsData[activeTab] || []);
+      setFilteredProjects(allProjects[activeTab] || []);
     }
-  }, [activeTab]);
+  }, [activeTab, allProjects, allCombinedProjects]);
 
   const filterProjects = (category) => {
-    if (category === 'all') {
-      setFilteredProjects(allProjects);
-    } else {
-      // Utiliser directement la catégorie du JSON sans filtrer par propriété category
-      setFilteredProjects(projectsData[category] || []);
-    }
     setActiveTab(category);
   };
 
