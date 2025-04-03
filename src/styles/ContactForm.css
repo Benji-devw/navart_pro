@@ -16,7 +16,7 @@
   font-size: 1.5rem;
   box-shadow: var(--box-shadow);
   transition: all 0.3s var(--animation-bezier);
-  z-index: 1202;
+  z-index: 300;
   animation: pulse 1s infinite;
   user-select: none !important;
 }
@@ -311,9 +311,11 @@
   .floating-contact-backdrop {
     padding: 1rem;
   }
+
   .floating-contact-content {
     padding: 1rem;
   }
+
   .contact-form {
     order: 1;
   }

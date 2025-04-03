@@ -23,8 +23,15 @@
   transition: all 0.3s ease;
   /* will-change: transform, opacity, z-index, box-shadow; */
   transform-origin: center center;
-  flex: 0 0 calc(50% - 15px);
+  flex: 0 0 calc(33% - 15px);
   overflow: hidden;
+}
+
+.card.selected img {
+  max-width: 100%;
+  max-height: 100%;
+  /* transform: scale(1.2); */
+  /* z-index: 900; */
 }
 
 .card-content {
@@ -76,6 +83,13 @@
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   pointer-events: none;
   padding: 10px;
+  transform: scale(1) !important; /* Force scale 1 */
+}
+
+.expanded-description h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .expanded-description.visible {
@@ -85,23 +99,59 @@
   max-height: 300px;
   transition-delay: 0.1s;
   pointer-events: auto;
+  transform: scale(1) !important; /* Force scale 1 */
+}
+
+.card.selected .expanded-description {
+  transform: scale(1) !important; /* Force scale 1 */
+  font-size: 14px; /* Taille de police fixe */
+}
+
+.expanded-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transform: scale(1) !important; /* Force scale 1 */
+}
+
+.right-content .bnt-tab {
+  /* width: 100%; */
+  /* height: 100%; */
+  border-radius: 4px !important;
+  font-size: 8px !important;
+  transform: none !important;
+  border: none !important;
+  padding: 6px !important;
+  margin-bottom: 8px !important;
+  transform: scale(0.8) !important;
+}
+
+.right-content .bnt-tab a {
+  color: var(--light-color) !important;
 }
 
 .tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 20px;
+  margin-top: 12px;
 }
 
 .tech-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: var(--border-radius);
+  width: 20px;
+  height: 20px;
+  background: var(--light-color-transparent);
+  border-radius: 10px;
+  padding: 2px;
+}
+
+.tech-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* Styles pour l'overlay */
@@ -109,8 +159,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 400;
   opacity: 0;

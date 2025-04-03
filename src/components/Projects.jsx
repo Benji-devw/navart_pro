@@ -16,12 +16,12 @@ export default function Projects() {
     ...projectsData.design || [],
     ...projectsData.infographie || []
   ];
-  
+
   const [filteredProjects, setFilteredProjects] = useState([]);
-  const [activeTab, setActiveTab] = useState('design');
-  
+  const [activeTab, setActiveTab] = useState('web');
+
   // Extraire dynamiquement les catégories disponibles
-  const uniqueCategories = ['all', ...new Set(Object.keys(projectsData))];
+  const uniqueCategories = ['all', ...new Set(Object.keys(projectsData).reverse())];
 
   useEffect(() => {
     // Initialiser avec les projets de la catégorie active
@@ -46,7 +46,7 @@ export default function Projects() {
     <section id="projects">
       <h2 className="section-title">Portfolio</h2>
 
-      <div className={`projects-content ${inView ? 'animate' : ''}`} ref={ref}>
+      {/* <div className={`projects-content ${inView ? 'animate' : ''}`} ref={ref}> */}
         <div className="bnt-tabs">
           {uniqueCategories.map((category, index) => (
             <Button
@@ -60,7 +60,7 @@ export default function Projects() {
           ))}
         </div>
         <Gallery projects={filteredProjects} />
-      </div>
+      {/* </div> */}
     </section>
   );
 }
