@@ -20,7 +20,7 @@
     { "name": "PostgreSQL", "icon": "devicon-postgresql-plain colored", "level": 60 },
     { "name": "Prisma", "icon": "devicon-prisma-plain colored", "level": 55 },
     { "name": "Vercel", "icon": "devicon-vercel-plain colored", "level": 80 },
-    { "name": "AWS", "icon": "dev icon-amazonwebservices-plain colored", "level": 50 },
+    { "name": "AWS", "icon": "devicon-amazonwebservices-plain colored", "level": 50 },
     { "name": "Linux", "icon": "devicon-linux-plain colored", "level": 65 }
   ],
   

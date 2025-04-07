@@ -11,7 +11,7 @@ const About = () => {
   const [ref, inView] = useInView(defaultInViewOptions);
 
   return (
-    <section id="about" className="about">
+    <section id="about" className="about-section">
       <h2 className="section-title">À propos de moi</h2>
       <div className={`about-content ${inView ? 'animate' : ''}`} ref={ref}>
         <div className="about-image">

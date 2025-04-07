@@ -8,28 +8,37 @@
 .card-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
-  position: relative;
+  align-content: flex-start;
+  gap: 20px;
 }
 
 .card {
+  box-sizing: border-box;
   position: relative;
-  height: 200px;
-  border-radius: var(--border-radius);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-med-shadow);
   cursor: pointer;
   transition: all 0.3s ease;
-  /* will-change: transform, opacity, z-index, box-shadow; */
-  transform-origin: center center;
-  flex: 0 0 calc(33% - 15px);
-  overflow: hidden;
+  /* transform-origin: center center; */
+  flex: 0 0 calc(50.3% - 15px);
+  max-height: 320px;
+
 }
 
-/* .card.selected {
-  width: 100px !important;
-  height: 100%;
-} */
+.card.selected img {
+  object-fit: cover;
+  object-position: top;
+}
+
+.card.selected  {
+  border-radius: var(--border-radius);
+  transition: all 0.1s ease;
+  transition-delay: 0s !important;
+}
+.card.selected .card-image {
+  pointer-events: auto !important;
+}
 
 .card-content {
   position: relative;
@@ -61,8 +70,16 @@
   transform: translateY(-5px);
 }
 
+.card-description {
+  font-size: 8px;
+  color: var(--light-color);
+}
+
 /* Désactiver les effets de scale/hover sur mobile */
 @media (max-width: 768px) {
+  .card {
+    max-height: 260px;
+  }
   .card:hover:not(.selected) .card-image {
     transform: scale(1);
   }
@@ -91,12 +108,11 @@
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   pointer-events: none;
   padding: 10px;
-  transform: scale(1) !important; /* Force scale 1 */
 }
 
 .expanded-description h4 {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   padding-bottom: 12px;
 }
@@ -108,11 +124,9 @@
   max-height: 300px;
   transition-delay: 0.1s;
   pointer-events: auto;
-  transform: scale(1) !important;
 }
 
 .card.selected .expanded-description {
-  transform: scale(1) !important;
   font-size: 14px;
 }
 
@@ -123,22 +137,20 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  transform: scale(1) !important;
 }
 
 .right-content {
-  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  min-width: 130px;
+  gap: 10px;
 }
 .right-content .bnt-tab {
-  /* width: 100%; */
-  /* height: 100%; */
   border-radius: 4px !important;
-  font-size: 8px !important;
+  font-size: 10px !important;
   transform: none !important;
   border: none !important;
-  padding: 6px !important;
-  /* margin-bottom: 8px !important; */
-  transform: scale(0.8) !important;
+  padding: 6px !important
 }
 
 .right-content .bnt-tab a {
@@ -150,33 +162,59 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 6px;
-  /* margin-top: 12px; */
 }
 
 .tech-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background: var(--light-color-transparent);
   border-radius: 10px;
-  padding: 2px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.tech-icon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
+.tech-icon:hover {
+  transform: translateY(-3px);
+  background: var(--light-color);
+  z-index: 1100;
 }
+
+/* Styles pour les tooltips */
+.tech-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  z-index: 1202;
+  bottom: -30px;
+  left: 100%;
+  /* transform: translateX(-50%); */
+  background: var(--dark-color);
+  color: var(--light-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.tech-icon:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: 0px;
+}
+
 
 /* Styles pour l'overlay */
 .gallery-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
@@ -196,32 +234,6 @@
   pointer-events: none;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .card-list {
-    /* Utiliser flex-direction à la place pour les écrans mobiles */
-    flex-direction: column;
-  }
-  
-  .card {
-    /* flex: 0 0 100% !important; */
-    /* max-width: 100%; */
-    height: 280px;
-  }
-  
-  .section-title {
-    font-size: 28px;
-  }
-
-  .gallery-overlay {
-    display: none;
-  }
-  
-  /* .selected {
-    max-width: 100%;
-    max-height: 100vh;
-  } */
-}
 
 .video-wrapper {
   position: relative;
@@ -231,6 +243,44 @@
 }
 
 
-.card.selected .card-image {
-  pointer-events: auto !important;
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-list {
+    /* Utiliser flex-direction à la place pour les écrans mobiles */
+    flex-direction: column;
+  }
+  
+  .card-image-container {
+    /* flex: 0 0 100% !important; */
+    /* max-width: 100%; */
+    height: 220px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+
+  .gallery-overlay {
+    /* display: none; */
+  }
+  
+  .selected {
+    width: 100% !important;
+    height: 100vh !important;
+  }
 }
+
+/* Animation pour l'apparition des cartes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

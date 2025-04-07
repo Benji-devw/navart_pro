@@ -6,6 +6,7 @@
       "tags": ["Figma"],
       "icons": [
         {
+          "name": "Figma",
           "icon": "devicon-figma-plain colored"
         }
       ],
@@ -18,6 +19,7 @@
       "tags": ["Illustrator"],
       "icons": [
         {
+          "name": "Illustrator",
           "icon": "devicon-illustrator-plain colored"
         }
       ],
@@ -30,12 +32,15 @@
       "tags": ["Illustrator", "XD", "Photoshop"],
       "icons": [
         {
+          "name": "Illustrator",
           "icon": "devicon-illustrator-plain colored"
         },
         {
+          "name": "Adobe XD",
           "icon": "devicon-xd-plain colored"
         },
         {
+          "name": "Photoshop",
           "icon": "devicon-photoshop-plain colored"
         }
       ],
@@ -48,6 +53,7 @@
       "tags": ["Photoshop"],
       "icons": [
         {
+          "name": "Photoshop",
           "icon": "devicon-photoshop-plain colored"
         }
       ],
@@ -60,6 +66,7 @@
       "tags": ["Illustrator"],
       "icons": [
         {
+          "name": "Illustrator",
           "icon": "devicon-illustrator-plain colored"
         }
       ],
@@ -72,6 +79,7 @@
       "tags": ["Illustrator"],
       "icons": [
         {
+          "name": "Illustrator",
           "icon": "devicon-illustrator-plain colored"
         }
       ],
@@ -84,12 +92,15 @@
       "tags": ["Illustrator", "XD", "Photoshop"],
       "icons": [
         {
+          "name": "Illustrator",
           "icon": "devicon-illustrator-plain colored"
         },
         {
+          "name": "Adobe XD",
           "icon": "devicon-xd-plain colored"
         },
         {
+          "name": "Photoshop",
           "icon": "devicon-photoshop-plain colored"
         }
       ],
@@ -102,6 +113,7 @@
       "tags": ["Illustrator"],
       "icons": [
         {
+          "name": "Illustrator",
           "icon": "devicon-illustrator-plain colored"
         }
       ],
@@ -114,6 +126,7 @@
       "tags": ["Illustrator"],
       "icons": [
         {
+          "name": "Illustrator",
           "icon": "devicon-illustrator-plain colored"
         }
       ],
@@ -126,6 +139,7 @@
       "tags": ["Photoshop"],
       "icons": [
         {
+          "name": "Photoshop",
           "icon": "devicon-photoshop-plain colored"
         }
       ],
@@ -138,6 +152,7 @@
       "tags": ["Illustrator"],
       "icons": [
         {
+          "name": "Illustrator",
           "icon": "devicon-illustrator-plain colored"
         }
       ],
@@ -150,6 +165,7 @@
       "tags": ["Photoshop"],
       "icons": [
         {
+          "name": "Photoshop",
           "icon": "devicon-photoshop-plain colored"
         }
       ],
@@ -162,6 +178,7 @@
       "tags": ["Photoshop"],
       "icons": [
         {
+          "name": "Photoshop",
           "icon": "devicon-photoshop-plain colored"
         }
       ],
@@ -174,6 +191,7 @@
       "tags": ["Photoshop"],
       "icons": [
         {
+          "name": "Photoshop",
           "icon": "devicon-photoshop-plain colored"
         }
       ],
@@ -186,6 +204,7 @@
       "tags": ["Illustrator"],
       "icons": [
         {
+          "name": "Illustrator",
           "icon": "devicon-illustrator-plain colored"
         }
       ],

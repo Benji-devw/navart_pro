@@ -51,7 +51,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects">
+    <section id="projects" className="projects-section">
       <h2 className="section-title">Portfolio</h2>
 
       {/* <div className={`projects-content ${inView ? 'animate' : ''}`} ref={ref}> */}
@@ -59,6 +59,7 @@ export default function Projects() {
           {uniqueCategories.map((category, index) => (
             <Button
               key={index}
+              size="small"
               className={`bnt-tab ${activeTab === category ? 'active' : ''}`}
               variant="transparent"
               onClick={() => filterProjects(category)}

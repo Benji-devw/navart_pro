@@ -12,25 +12,22 @@ const Gallery = ({ projects }) => {
   const appStoreRef = useRef(null);
   const cardsRef = useRef([]);
   const overlayRef = useRef(null);
-
-  // Détecter si l'appareil est mobile
+  const videoRefs = useRef({});
+  
+  // Check if the device is mobile
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
-    // Vérifier au chargement
     checkIfMobile();
-    
-    // Vérifier lors du redimensionnement de la fenêtre
     window.addEventListener('resize', checkIfMobile);
-    
-    // Nettoyer
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
+  // Get the media element
   const getMediaElement = (project) => {
     if (project.image?.endsWith('.mp4')) {
+      const projectId = project.id || `project-${projects.findIndex((p) => p === project)}`;
       return (
         <div className="video-wrapper">
           <video
@@ -40,9 +37,8 @@ const Gallery = ({ projects }) => {
             muted={true}
             playsInline={true}
             controls={true}
+            ref={(el) => (videoRefs.current[projectId] = el)}
             onClick={(e) => {
-              const projectId = project.id || `project-${projects.findIndex((p) => p === project)}`;
-              // Si la carte est déjà transformée, permettre aux contrôles de fonctionner
               if (transformState[projectId]) {
                 e.stopPropagation();
               }
@@ -56,6 +52,16 @@ const Gallery = ({ projects }) => {
     return <img src={project.image} alt={project.title} className="card-image" />;
   };
 
+  // Pause when overlay is closed
+  const pauseAllVideosExcept = useCallback((exceptProjectId) => {
+    Object.entries(videoRefs.current).forEach(([projectId, videoElement]) => {
+      if (projectId !== exceptProjectId && videoElement && !videoElement.paused) {
+        videoElement.pause();
+      }
+    });
+  }, []);
+
+  // Capture and transform the card
   const captureAndTransform = useCallback(
     (project, index, event) => {
       const projectId = project.id || `project-${index}`;
@@ -74,6 +80,9 @@ const Gallery = ({ projects }) => {
         return;
       }
 
+      // Mettre en pause toutes les autres vidéos
+      pauseAllVideosExcept(projectId);
+
       // Pour les appareils mobiles, ne pas appliquer la transformation scale/position
       if (isMobile) {
         setTransformState((prev) => ({
@@ -85,24 +94,32 @@ const Gallery = ({ projects }) => {
           },
         }));
       } else {
-        // Pour les desktop, appliquer la transformation complète
-        const { left, width, top, height } = card.getBoundingClientRect();
-        const { left: appLeft, width: appWidth } = appStore.getBoundingClientRect();
+        // Sinon, c'est une nouvelle sélection
+        const rect = card.getBoundingClientRect();
+        const appStoreRect = appStore.getBoundingClientRect();
 
-        const centerX = appLeft + appWidth / 2;
+        const centerX = appStoreRect.left + appStoreRect.width / 2;
         const centerY = window.innerHeight / 2;
 
-        const scale = Math.min(appWidth / width, (appWidth * 0.5) / height);
+        const diffX = centerX - (rect.left + rect.width / 2);
+        const diffY = centerY - (rect.top + rect.height / 2);
+
+        const targetWidth = appStoreRect.width * 0.8;
+        const targetHeight = targetWidth * .8;
+
+        const scaleX = targetWidth / rect.width;
+        const scaleY = targetHeight / rect.height;
+        const scale = Math.min(scaleX, scaleY);
 
         setTransformState((prev) => ({
           ...prev,
           [projectId]: {
-            transform: `translate3d(${centerX - (left + width / 2)}px, ${
-              centerY - (top + height / 2)
-            }px, 0) scale(${scale})`,
+            transform: `translate3d(${diffX}px, ${diffY}px, 0) scale(${scale})`,
             zIndex: 900,
             position: 'relative',
-            transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+            minWidth: `${rect.width}px`, // On garde la largeur d'origine
+            minHeight: `${rect.height}px`, // On garde la hauteur d'origine
+            transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
           },
         }));
       }
@@ -114,7 +131,14 @@ const Gallery = ({ projects }) => {
     [transformState, isMobile]
   );
 
+  // Pause the video and remove the transform state
   const closeCard = useCallback((projectId) => {
+    // Mettre en pause la vidéo courante si c'est une vidéo
+    const videoElement = videoRefs.current[projectId];
+    if (videoElement) {
+      videoElement.pause();
+    }
+    
     setTransformState((prev) => {
       const newState = { ...prev };
       delete newState[projectId];
@@ -134,6 +158,8 @@ const Gallery = ({ projects }) => {
   const handleOverlayClick = useCallback(() => {
     if (selectedProject) {
       const projectId = selectedProject.id || `project-${projects.findIndex((p) => p === selectedProject)}`;
+      
+      // La mise en pause de la vidéo se fait dans closeCard
       closeCard(projectId);
     }
   }, [selectedProject, projects, closeCard]);
@@ -145,12 +171,7 @@ const Gallery = ({ projects }) => {
 
   return (
     <div id="app-store" ref={appStoreRef}>
-      <div
-        ref={overlayRef}
-        className={`gallery-overlay ${overlayVisible ? 'visible' : 'hiding'}`}
-        onClick={handleOverlayClick}
-      ></div>
-      <ul className="card-list">
+      <ul className={`card-list`}>
         {projects.map((project, index) => {
           const projectId = project.id || `project-${index}`;
           const cardStyle = transformState[projectId] || {};
@@ -170,14 +191,18 @@ const Gallery = ({ projects }) => {
                 <div className={`expanded-description ${isDescriptionVisible ? 'visible' : ''}`}>
                   <div className="expanded-content">
                     <div className="left-content">
-                      {project.title != '#' && (
-                        <h4>{project.title}</h4>
-                      )}
+                      {project.title != '#' && <h4>{project.title}</h4>}
+                      {project.description && <p className="card-description">{project.description}</p>}
                       {project && (
                         <div className="tech-stack">
                           {project.icons.map((icon, iconIndex) => (
-                            <span className="tech-icon" key={iconIndex}>
-                              {RenderIcon(icon.icon, '12px')}
+                            <span
+                              className="tech-icon"
+                              key={iconIndex}
+                              title={icon.name || icon.icon}
+                              data-tooltip={icon.name || icon.icon}
+                            >
+                              {RenderIcon(icon.icon, '16px')}
                             </span>
                           ))}
                         </div>
@@ -185,14 +210,14 @@ const Gallery = ({ projects }) => {
                     </div>
                     <div className="right-content">
                       {project.link !== '#' && (
-                        <Button className="bnt-tab active" fullWidth={true} onClick={visite}>
+                        <Button className="bnt-tab active" size="small" fullWidth={true} onClick={visite}>
                           <a href={project.link} target="_blank" rel="noopener noreferrer">
                             Visiter
                           </a>
                         </Button>
                       )}
                       {project.github && (
-                        <Button className="bnt-tab active" fullWidth={true} onClick={visite}>
+                        <Button className="bnt-tab active" size="small" fullWidth={true} onClick={visite}>
                           <a href={project.github} target="_blank" rel="noopener noreferrer">
                             Voir le code
                           </a>
@@ -206,6 +231,11 @@ const Gallery = ({ projects }) => {
           );
         })}
       </ul>
+      <div
+        ref={overlayRef}
+        className={`gallery-overlay ${overlayVisible ? 'visible' : 'hiding'}`}
+        onClick={handleOverlayClick}
+      ></div>
     </div>
   );
 };
