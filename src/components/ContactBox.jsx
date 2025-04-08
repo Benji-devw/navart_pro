@@ -34,7 +34,7 @@ export const ContactBox = () => {
       <Button
         className="bnt-tab active download-btn"
         variant="primary"
-        size="large"
+        size="small"
         onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
       >
         {/* <a href="/cv.pdf" className="btn download-btn" target="_blank" rel="noopener noreferrer"> */}

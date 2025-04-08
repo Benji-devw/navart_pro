@@ -56,6 +56,7 @@
   margin-bottom: 1.5rem;
   color: var(--text-light);
   line-height: 1.7;
+  /* font-size: 1.2rem; */
 }
 
 .about-contact-box {
@@ -71,6 +72,28 @@
   width: 90%;
   margin: 0 auto;
 }
+
+/* View mode button */
+/* ************************** */
+.view-mode-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: all 0.2s ease;
+  font-size: 1.4rem;
+}
+
+.view-mode-btn.active {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+/* .view-mode-btn:hover:not(.active) {
+  background-color: rgba(0, 0, 0, 0.05);
+} */
+ 
 
 @media screen and (max-width: 992px) {
   .about-content {

@@ -1,64 +1,96 @@
 import React, { useState } from 'react';
 import '@styles/TimelineCV.css';
 
-const TimelineCV = ({ experiences }) => {
-  const [viewMode, setViewMode] = useState('timeline'); // 'timeline' ou 'list'
+const TimelineCV = ({ experiences, viewMode }) => {
+  const [openDropdowns, setOpenDropdowns] = useState({});
 
-  const changeViewMode = (mode) => {
-    setViewMode(mode);
+  const toggleCollapse = (index) => {
+    setOpenDropdowns((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
   };
 
   return (
     <article className="experience-timeline-container">
-      <div className="timeline-header">
-        <h3>Mon parcours professionnel</h3>
-        <div className="timeline-controls">
-          <div className="view-mode-toggle">
-            <button
-              className={`view-mode-btn ${viewMode === 'timeline' ? 'active' : ''}`}
-              onClick={() => changeViewMode('timeline')}
-              aria-label="Afficher en mode timeline"
-            >
-              <i className="fa-solid fa-timeline fa-rotate-90"></i>
-            </button>
-            <button
-              className={`view-mode-btn ${viewMode === 'list' ? 'active' : ''}`}
-              onClick={() => changeViewMode('list')}
-              aria-label="Afficher en mode liste"
-            >
-              <i className="fa-solid fa-th-list"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
       {viewMode === 'timeline' ? (
         <div className={`experience-timeline ${viewMode ? 'horizontal' : 'vertical'}`}>
           {viewMode === 'timeline' && <div className="timeline-center-line"></div>}
 
           {experiences.map((experience, index) => (
-            <div
-              className={`timeline-item ${viewMode ? (index % 2 === 0 ? 'right' : 'left') : ''}`}
-              key={experience.id}
-            >
+            <div className={`timeline-item ${viewMode ? (index % 2 === 0 ? 'right' : 'left') : ''}`} key={index}>
               <div className="timeline-content">
                 <div className="timeline-date">{experience.date}</div>
                 <h4>{experience.title}</h4>
-                <h5>{experience.company}</h5>
+                <h5>
+                  {' '}
+                  <i className="fa-solid fa-building"></i> {experience.company}
+                </h5>
+                <h5>
+                  {' '}
+                  <i className="fa-solid fa-location-dot"></i> {experience.location}
+                </h5>
+                <a href={experience.link} target="_blank" rel="noopener noreferrer">
+                  <img src={`/logos/${experience.logo}`} alt={experience.company} />
+                </a>
                 <p>{experience.description}</p>
+                {experience.case && experience.case.length > 0 && (
+                  <div className="stack-list">
+                    <h5
+                      className={`stack-list-toggle ${openDropdowns[index] ? 'open' : ''}`}
+                      onClick={() => toggleCollapse(index)}
+                      aria-expanded={openDropdowns[index] ? 'true' : 'false'}
+                    >
+                      Détails
+                      <i className="fa-solid fa-chevron-down"></i>
+                    </h5>
+                    <ul className={`stack-list-collapse ${openDropdowns[index] ? 'open' : ''}`}>
+                      {experience.case.map((item, itemIndex) => (
+                        <li key={itemIndex}>- {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
           ))}
         </div>
       ) : (
         <div className="experience-list">
-          {experiences.map((experience) => (
-            <div className="list-item" key={experience.id}>
+          {experiences.map((experience, index) => (
+            <div className="list-item" key={index}>
               <div className="list-date">{experience.date}</div>
               <div className="list-content">
+                <a href={experience.link} target="_blank" rel="noopener noreferrer">
+                  <img src={`/logos/${experience.logo}`} alt={experience.company} />
+                </a>
                 <h4>{experience.title}</h4>
-                <h5>{experience.company}</h5>
+                <h5>
+                  {' '}
+                  <i className="fa-solid fa-building"></i> {experience.company}
+                </h5>
+                <h5>
+                  {' '}
+                  <i className="fa-solid fa-location-dot"></i> {experience.location}
+                </h5>
                 <p>{experience.description}</p>
+                {experience.case && experience.case.length > 0 && (
+                  <div className="stack-list">
+                    <h5
+                      className={`stack-list-toggle ${openDropdowns[index] ? 'open' : ''}`}
+                      onClick={() => toggleCollapse(index)}
+                      aria-expanded={openDropdowns[index] ? 'true' : 'false'}
+                    >
+                      Détails
+                      <i className="fa-solid fa-chevron-down"></i>
+                    </h5>
+                    <ul className={`stack-list-collapse ${openDropdowns[index] ? 'open' : ''}`}>
+                      {experience.case.map((item, itemIndex) => (
+                        <li key={itemIndex}>- {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
           ))}
