@@ -20,11 +20,11 @@ const Hero = () => {
           <span className="hero-title-sub">Bonjour, je suis</span>
           <h1 className="hero-title">Benjamin Navarro</h1>
           <p className="hero-subtitle">Développeur web full stack</p>
-          <div className="bnt-tabs">
+          {/* <div className="bnt-tabs">
             <Button variant="transparent" size="small" className={`bnt-tab`}>
               Contactez-moi
             </Button>
-          </div>
+          </div> */}
         </div>
 
         <DraggableScroll 

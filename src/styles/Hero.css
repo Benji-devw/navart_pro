@@ -107,9 +107,12 @@
 }
 
 @media (max-width: 768px) {
-  /* .hero-content {
-    padding: 2rem;
-  } */
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.6rem;
+  }
   .hero-stack-container {
     width: 100vw;
     top: 0;

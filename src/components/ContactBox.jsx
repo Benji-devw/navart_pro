@@ -15,6 +15,10 @@ export const ContactBox = () => {
     }
   };
 
+  const downloadCV = () => {
+    window.open('/CV_Numerique.pdf', '_blank');
+  };
+
   return (
     <div className="contact-box contact-details">
       <div className="detail">
@@ -31,15 +35,8 @@ export const ContactBox = () => {
         <i className="fas fa-graduation-cap"></i>
         <span>Master en Développement Web</span>
       </div>
-      <Button
-        className="bnt-tab active download-btn"
-        variant="primary"
-        size="small"
-        onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
-      >
-        {/* <a href="/cv.pdf" className="btn download-btn" target="_blank" rel="noopener noreferrer"> */}
+      <Button className="bnt-tab active download-btn" variant="primary" size="small" onClick={() => downloadCV()}>
         Télécharger mon CV <i className="fas fa-download"></i>
-        {/* </a> */}
       </Button>
     </div>
   );

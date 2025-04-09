@@ -7,7 +7,6 @@
   width: 100%;
 }
 
-
 .detail {
   display: flex;
   align-items: center;
@@ -44,6 +43,15 @@
   margin-left: 10px;
   color: var(--primary-color);
   transition: opacity 0.2s ease;
+}
+
+a {
+  text-decoration: none;
+  color: var(--light-color);
+}
+
+a:hover {
+  color: var(--primary-color);
 }
 
 @media screen and (max-width: 768px) {

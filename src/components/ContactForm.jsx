@@ -74,6 +74,11 @@ const Contact = () => {
           info: { error: false, msg: null },
         });
       }, 5000);
+      
+      // Fermer la modal après succès
+      setTimeout(() => {
+        closeModal();
+      }, 2000);
     } catch (error) {
       console.log(error);
       setStatus({
@@ -101,11 +106,8 @@ const Contact = () => {
       
       {/* Modal de contact */}
       <Modal isOpen={isModalOpen} onClose={closeModal} size="medium" showHeader={false} title="Me contacter">
-        <div className="contact-container" id="contact">
-          <h2 className="contact-title">Me contacter</h2>
-          <p className="contact-description">N'hésitez pas à me contacter !</p>
-
-          <form className="contact-form" onSubmit={handleSubmit}>
+        <div className="form-container">
+          <form className="form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Nom</label>
               <input
@@ -145,25 +147,16 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <button type="submit" className="submit-btn" disabled={status.submitting}>
-              {status.submitting ? 'Envoi en cours...' : 'Envoyer'}
+            <button type="submit" className="form-submit-btn" disabled={status.submitting}>
+              {status.submitting ? 'Envoi...' : 'Envoyer'}
             </button>
 
             {status.info.msg && (
-              <div className={`form-status ${status.info.error ? 'error' : 'success'}`}>{status.info.msg}</div>
+              <div className={`form-status ${status.info.error ? 'error' : 'success'}`}>
+                {status.info.msg}
+              </div>
             )}
           </form>
-
-          {/* <div className="contact-info">
-          <div className="contact-item">
-            <i className="fas fa-envelope"></i>
-            <span>contact@example.com</span>
-          </div>
-          <div className="contact-item">
-            <i className="fas fa-map-marker-alt"></i>
-            <span>Paris, France</span>
-          </div>
-        </div> */}
         </div>
       </Modal>
     </>
