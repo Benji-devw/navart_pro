@@ -20,7 +20,7 @@
   height: 100%;
   object-fit: cover;
 
-  opacity: 1;
+  opacity: .7;
   /* background-image: url('@/assets/earth4.mkv');
   background-size: cover;
   background-position: center;

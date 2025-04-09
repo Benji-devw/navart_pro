@@ -205,7 +205,8 @@ const Gallery = ({ projects }) => {
                             <span
                               className="tech-icon"
                               key={iconIndex}
-                              title={icon.name || icon.icon}
+                              // title={icon.name || icon.icon}
+                              alt={icon.name || icon.icon}
                               data-tooltip={icon.name || icon.icon}
                             >
                               {RenderIcon(icon.icon, '16px')}

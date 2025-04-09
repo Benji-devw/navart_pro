@@ -9,9 +9,10 @@ const Layout = ({ children, onFilterChange, activeComponent }) => {
     <div className="layout">
       <Header onFilterChange={onFilterChange} />
 
-      {activeComponent === 'hero' ? (
+      {activeComponent === 'hero' && (
         <video src={video} autoPlay muted loop className="hero-video" />
-      ) : (
+      )}
+
         <BackgroundAnimation
           gridSize={60}
           pointColor={activeComponent === 'hero' ? 'rgb(0, 0, 0)' : 'rgb(158, 158, 158)'}
@@ -20,7 +21,7 @@ const Layout = ({ children, onFilterChange, activeComponent }) => {
           interactionRadius={210}
           interactionForce={-22}
         />
-      )}
+
       <div className="layout-container">{children}</div>
     </div>
   );

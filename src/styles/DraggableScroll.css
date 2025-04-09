@@ -1,0 +1,32 @@
+.draggable-scroll-container {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Masquer la barre de défilement pour les navigateurs WebKit */
+.draggable-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.draggable-scroll-content {
+  display: flex;
+  width: max-content;
+  padding: 1rem 4rem;
+}
+
+/* Style par défaut pour les éléments enfants */
+.draggable-scroll-content > * {
+  flex-shrink: 0;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Désactiver les événements de pointeur sur les images et SVG pour éviter l'interférence */
+.draggable-scroll-content img,
+.draggable-scroll-content svg {
+  pointer-events: none;
+} 

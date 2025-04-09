@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import '@styles/Skills.css';
-import { frontendSkills, backendSkills, toolsSkills } from '@assets/skills.json';
+import { frontendSkills, backendSkills, toolsSkills } from '@assets/skillsData.json';
 import RenderIcon from '@hooks/RenderIcon';
 import { ScrollObserverContext } from '@/App';
 import { useInView } from 'react-intersection-observer';
