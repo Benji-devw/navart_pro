@@ -61,9 +61,9 @@ const TimelineCV = ({ experiences, viewMode }) => {
             <div className="list-item" key={index}>
               <div className="list-date">{experience.date}</div>
               <div className="list-content">
-                <a href={experience.link} target="_blank" rel="noopener noreferrer">
+                {/* <a className="list-item-logo" href={experience.link} target="_blank" rel="noopener noreferrer"> */}
                   <img src={`/logos/${experience.logo}`} alt={experience.company} />
-                </a>
+                {/* </a> */}
                 <h4>{experience.title}</h4>
                 <h5>
                   {' '}
@@ -74,6 +74,7 @@ const TimelineCV = ({ experiences, viewMode }) => {
                   <i className="fa-solid fa-location-dot"></i> {experience.location}
                 </h5>
                 <p>{experience.description}</p>
+
                 {experience.case && experience.case.length > 0 && (
                   <div className="stack-list">
                     <h5

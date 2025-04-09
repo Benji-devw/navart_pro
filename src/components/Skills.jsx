@@ -30,7 +30,7 @@ const Skills = () => {
   return (
     <section id="skills" className="skills-section">
       <h2 className="section-title">Ma Stack</h2>
-      <div className={`skills-content ${inView ? 'animate' : ''}`} ref={ref}>
+      <div className={` skills-content ${inView ? 'animate' : 'not-active'}`} ref={ref}>
         <div className="skills-description">
           <p>
             J'ai acquis une variété de compétences techniques au cours de mon parcours, me permettant de mener à bien

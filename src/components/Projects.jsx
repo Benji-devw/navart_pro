@@ -5,13 +5,8 @@ import webDataFile from '@assets/projectsData/webData.json';
 import designDataFile from '@assets/projectsData/designData.json';
 import infographieDataFile from '@assets/projectsData/infographieData.json';
 import Button from '@components/ui/Button';
-import { ScrollObserverContext } from '@/App';
-import { useInView } from 'react-intersection-observer';
 
 export default function Projects() {
-  const { defaultInViewOptions } = useContext(ScrollObserverContext);
-  const [ref, inView] = useInView(defaultInViewOptions);
-
   // Extraire les données de chaque fichier
   const webData = webDataFile.web || [];
   const designData = designDataFile.design || [];
@@ -68,7 +63,7 @@ export default function Projects() {
             </Button>
           ))}
         </div>
-        <Gallery projects={filteredProjects} />
+        <Gallery key={activeTab} projects={filteredProjects} />
       {/* </div> */}
     </section>
   );

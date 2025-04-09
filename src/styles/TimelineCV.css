@@ -50,6 +50,11 @@
   font-weight: 500;
 }
 
+/* Ajustement pour les items alignés à gauche */
+.timeline-item.left .stack-list-toggle {
+  justify-content: end;
+}
+
 .stack-list-toggle i {
   transition: transform 0.3s ease;
 }
@@ -60,16 +65,31 @@
 
 .stack-list-collapse {
   list-style: none;
+  text-align: left;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-in-out, opacity 0.3s ease;
   opacity: 0;
 }
 
+/* Ajustement pour les items alignés à gauche */
+.timeline-item.left .stack-list-collapse {
+  text-align: right;
+}
+
 .stack-list-collapse.open {
   max-height: 500px;
   opacity: 1;
   margin-top: 0.5rem;
+}
+
+.timeline-content ul,
+.list-content ul {
+  /* font-size: 1.1rem; */
+  margin-bottom: 0;
+  line-height: 1.5;
+  list-style-type: none;
+  color: var(--text-light);
 }
 
 .stack-list-collapse li {
@@ -79,6 +99,17 @@
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
   transition-delay: 0s;
+}
+
+/* Ajustement padding pour les items alignés à gauche */
+.timeline-item.left .stack-list-collapse li {
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
+/* Ajustement padding pour les items alignés à droite */
+.timeline-item.right .stack-list-collapse li {
+  padding-left: 0.5rem;
+  padding-right: 0;
 }
 
 .stack-list-collapse.open li {
@@ -132,12 +163,12 @@
 
 .list-date {
   position: absolute;
-  top: -.5rem;
+  top: -.6rem;
   min-width: 120px;
   padding: 0.5rem 1rem;
   background-color: var(--primary-color);
   border-radius: 4px;
-  /* font-size: 1.1rem; */
+  font-size: 1.1rem;
   font-weight: 600;
   height: fit-content;
   text-align: center;
@@ -183,14 +214,25 @@
 }
 
 .timeline-date {
-  display: inline-block;
   padding: 5px 10px;
   background-color: var(--primary-color);
   border-radius: 4px;
-  /* font-size: 1rem; */
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
+  position: relative;
+  top: -.3rem;
+  display: inline-block;
+
 }
+.timeline-item.right .timeline-date {
+  left: -2rem;
+}
+
+.timeline-item.left .timeline-date {
+  left: 2rem;
+}
+
 
 .timeline-center-line {
   position: absolute;
@@ -251,7 +293,7 @@
   height: 20px;
   background: var(--primary-color);
   border-radius: 50%;
-  top: 20px;
+  top: 37px;
 }
 
 .timeline-item.left .timeline-content::after {
@@ -268,7 +310,7 @@
   width: 30px;
   height: 2px;
   background: var(--primary-color);
-  top: 29px;
+  top: 45px;
   right: -30px;
 }
 
@@ -278,7 +320,7 @@
   width: 30px;
   height: 2px;
   background: var(--primary-color);
-  top: 29px;
+  top: 45px;
   left: -30px;
 }
 
@@ -294,13 +336,7 @@
   line-height: 1.5;
 }
 
-.timeline-content ul {
-  /* font-size: 1.1rem; */
-  margin-bottom: 0;
-  line-height: 1.5;
-  list-style-type: none;
-  color: var(--text-light);
-}
+
 
 /* .timeline-content ul li::before {
   content: '';

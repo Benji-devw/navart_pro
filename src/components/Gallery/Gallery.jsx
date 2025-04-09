@@ -1,9 +1,14 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect, useContext } from 'react';
 import './Gallery.css';
 import RenderIcon from '@hooks/RenderIcon';
 import Button from '../ui/Button';
+import { useInView } from 'react-intersection-observer';
+import { ScrollObserverContext } from '@/App';
 
 const Gallery = ({ projects }) => {
+  const { defaultInViewOptions } = useContext(ScrollObserverContext);
+  const [ref, inView] = useInView(defaultInViewOptions);
+
   const [selectedProject, setSelectedProject] = useState(null);
   const [transformState, setTransformState] = useState({});
   const [overlayVisible, setOverlayVisible] = useState(false);
@@ -63,15 +68,15 @@ const Gallery = ({ projects }) => {
 
   // Capture and transform the card
   const captureAndTransform = useCallback(
-    (project, index, event) => {
+    (project, index, e) => {
       const projectId = project.id || `project-${index}`;
       const card = cardsRef.current[index];
       const appStore = appStoreRef.current;
 
-      if (!card || !appStore || event.target.closest('.video-controls')) return;
+      if (!card || !appStore || e.target.closest('.video-controls')) return;
 
-      if (event.target.tagName === 'VIDEO' && transformState[projectId]) {
-        event.stopPropagation();
+      if (e.target.tagName === 'VIDEO' && transformState[projectId]) {
+        e.stopPropagation();
         return;
       }
 
@@ -80,10 +85,10 @@ const Gallery = ({ projects }) => {
         return;
       }
 
-      // Mettre en pause toutes les autres vidéos
+      // Pause all other videos
       pauseAllVideosExcept(projectId);
 
-      // Pour les appareils mobiles, ne pas appliquer la transformation scale/position
+      // Mobile behavior
       if (isMobile) {
         setTransformState((prev) => ({
           ...prev,
@@ -94,7 +99,7 @@ const Gallery = ({ projects }) => {
           },
         }));
       } else {
-        // Sinon, c'est une nouvelle sélection
+        // Desktop behavior
         const rect = card.getBoundingClientRect();
         const appStoreRect = appStore.getBoundingClientRect();
 
@@ -105,11 +110,14 @@ const Gallery = ({ projects }) => {
         const diffY = centerY - (rect.top + rect.height / 2);
 
         const targetWidth = appStoreRect.width * 0.8;
-        const targetHeight = targetWidth * .8;
+        const targetHeight = targetWidth * .8; 
 
         const scaleX = targetWidth / rect.width;
         const scaleY = targetHeight / rect.height;
-        const scale = Math.min(scaleX, scaleY);
+        
+        // Calculer le scale et le limiter à 2
+        let scale = Math.min(scaleX, scaleY);
+        scale = Math.min(scale, 2); // Limite maximale ajoutée ici
 
         setTransformState((prev) => ({
           ...prev,
@@ -117,8 +125,8 @@ const Gallery = ({ projects }) => {
             transform: `translate3d(${diffX}px, ${diffY}px, 0) scale(${scale})`,
             zIndex: 900,
             position: 'relative',
-            minWidth: `${rect.width}px`, // On garde la largeur d'origine
-            minHeight: `${rect.height}px`, // On garde la hauteur d'origine
+            minWidth: `${rect.width}px`,
+            minHeight: `${rect.height}px`,
             transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
           },
         }));
@@ -128,12 +136,11 @@ const Gallery = ({ projects }) => {
       setSelectedProject(project);
       setOverlayVisible(true);
     },
-    [transformState, isMobile]
+    [transformState, isMobile, pauseAllVideosExcept]
   );
 
-  // Pause the video and remove the transform state
   const closeCard = useCallback((projectId) => {
-    // Mettre en pause la vidéo courante si c'est une vidéo
+    // Pause the video and remove the transform state
     const videoElement = videoRefs.current[projectId];
     if (videoElement) {
       videoElement.pause();
@@ -155,11 +162,10 @@ const Gallery = ({ projects }) => {
     setSelectedProject(null);
   }, []);
 
+  // Close the card when the overlay is clicked
   const handleOverlayClick = useCallback(() => {
     if (selectedProject) {
       const projectId = selectedProject.id || `project-${projects.findIndex((p) => p === selectedProject)}`;
-      
-      // La mise en pause de la vidéo se fait dans closeCard
       closeCard(projectId);
     }
   }, [selectedProject, projects, closeCard]);
@@ -170,8 +176,8 @@ const Gallery = ({ projects }) => {
   };
 
   return (
-    <div id="app-store" ref={appStoreRef}>
-      <ul className={`card-list`}>
+    <div id={`app-store`} ref={appStoreRef}>
+      <ul className={`card-list gallery-content ${inView ? 'animate' : 'not-active'}`} ref={ref}>
         {projects.map((project, index) => {
           const projectId = project.id || `project-${index}`;
           const cardStyle = transformState[projectId] || {};

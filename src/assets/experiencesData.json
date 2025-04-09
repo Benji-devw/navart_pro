@@ -9,19 +9,19 @@
       "level": "Alternance",
       "location": "Bagnolet",
       "link": "https://www.reality-academy.fr/",
-      "description": "En tant que Testeur QA, j'ai assuré la rédaction des User Stories et des Cas de Test avec Jira RTM, réalisé des tests fonctionnels pour le SaaS et l'appVR, et intégré des tests automatisés avec Cypress et GitLab CI/CD. ",
+      "description": "En tant que Testeur QA, j'ai rédigé les User Stories et les Cas de Test avec Jira RTM, réalisé des tests fonctionnels pour le SaaS et l'app VR, et intégré des tests automatisés avec Cypress au pipeline CI/CD.",
       "case": [
         "Rédaction des User Stories et des Cas de Test avec Jira RTM",
         "Assurance qualité et tests fonctionnels pour le SaaS et l'application VR",
-        "Intégration de Cypress et tests End-to-End (E2E) dans un projet Vue.js",
-        "Intégration de la couverture et du statut des tests dans GitLab CI/CD",
+        "Intégration de Cypress et tests End-to-End (E2E) au projet 'Vue.js'",
+        "Intégration de la couverture et du statut des tests au jobs sur 'Gitlab'",
         "Chasse aux bugs et analyse des logs pour le SaaS et l'application VR",
         "Ajout de mocks au backend Laravel/Docker"
       ]
     },
     {
       "type": "experience",
-      "date": "2020 - 2mois",
+      "date": "2020 (2 mois)",
       "title": "Développeur Web (Stage)",
       "logo": "kokmoka.png",
       "company": "Kokmoka",
@@ -45,18 +45,18 @@
     "date": "2023 - 2025",
     "logo": "logo_open_classroom.png",
     "title": "Développeur d'application - JavaScript React",
-    "company": "OpenClassrooms",
+    "company": "OpenClassrooms - Reality Academy",
     "level": "Diplôme de niveau 6 (bac +3/4)",
     "location": "Distance",
     "link": "https://openclassrooms.com/fr/",
     "description": "Formation en alternance avec 16 projets et soutenance tout au long de la formation",
     "case": [
-      "HTML/CSS, JavaScript, React, Node.js, Express, MongoDB, SQL, Git, GitHub, Docker, figma, cahier des charges, User Stories, Diagrammes, Wireframes, Scrum, Agile, Kanban, Scrum, Agile"
+      "HTML/CSS, JavaScript, React, Node.js, Express, MongoDB, SQL, Git, GitHub, Docker, figma, cahier des charges, User Stories, Diagrammes, Wireframes, Agile, Kanban, Scrum, Agile"
       ]
     },
     {
       "type": "formation",
-      "date": "2019 - 6mois",
+      "date": "08/2019 - 10/2020",
       "logo": "WEBFORCE3.png",
       "title": "Développeur Web et web mobile",
       "company": "WEB FORCE 3",
@@ -70,7 +70,7 @@
     },
     {
       "type": "formation",
-      "date": "2013 - 6mois",
+      "date": "06/2013 - 12/2013",
       "logo": "etribartLogo.png",
       "title": "Formation Infographie 3D",
       "company": "E-tribart",

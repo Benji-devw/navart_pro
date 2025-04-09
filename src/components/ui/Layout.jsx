@@ -9,17 +9,18 @@ const Layout = ({ children, onFilterChange, activeComponent }) => {
     <div className="layout">
       <Header onFilterChange={onFilterChange} />
 
-      <BackgroundAnimation
-        gridSize={60}
-        pointColor={activeComponent === 'hero' ? 'rgb(0, 0, 0)' : 'rgb(158, 158, 158)'}
-        lineColor={activeComponent === 'hero' ? 'rgb(0, 0, 0)' : 'rgb(95, 95, 95)'}
-        connectionDistance={80}
-        interactionRadius={210}
-        interactionForce={-22}
+      {activeComponent === 'hero' ? (
+        <video src={video} autoPlay muted loop className="hero-video" />
+      ) : (
+        <BackgroundAnimation
+          gridSize={60}
+          pointColor={activeComponent === 'hero' ? 'rgb(0, 0, 0)' : 'rgb(158, 158, 158)'}
+          lineColor={activeComponent === 'hero' ? 'rgb(0, 0, 0)' : 'rgb(95, 95, 95)'}
+          connectionDistance={80}
+          interactionRadius={210}
+          interactionForce={-22}
         />
-        {activeComponent === 'hero' && (
-          <video src={video} autoPlay muted loop className="hero-video" />
-        )}
+      )}
       <div className="layout-container">{children}</div>
     </div>
   );
