@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import '@styles/Projects.css';
 import Gallery from '@components/Gallery/Gallery';
 import webDataFile from '@assets/projectsData/webData.json';

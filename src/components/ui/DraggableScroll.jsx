@@ -41,14 +41,14 @@ const DraggableScroll = ({
   // Gérer le début du glissement
   const handleDragStart = (e) => {
     if (!scrollContainerRef.current) return;
-    
+
     // Différencier les événements de souris et tactiles
     const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-    
+
     setIsDragging(true);
     setStartX(clientX);
     setScrollLeft(scrollContainerRef.current.scrollLeft);
-    
+
     // Changer le curseur pendant le glissement
     scrollContainerRef.current.style.cursor = "grabbing";
   };
@@ -56,14 +56,14 @@ const DraggableScroll = ({
   // Gérer le déplacement pendant le glissement
   const handleDragMove = (e) => {
     if (!isDragging || !scrollContainerRef.current) return;
-    
+
     // Empêcher le comportement par défaut (sélection de texte, défilement de page)
     e.preventDefault();
-    
+
     // Calculer la position et le déplacement
     const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
     const walk = (clientX - startX) * dragSpeed;
-    
+
     // Appliquer le défilement
     scrollContainerRef.current.scrollLeft = scrollLeft - walk;
   };
@@ -81,14 +81,14 @@ const DraggableScroll = ({
   useEffect(() => {
     const handleGlobalMove = (e) => handleDragMove(e);
     const handleGlobalEnd = () => handleDragEnd();
-    
+
     if (isDragging) {
       document.addEventListener('mousemove', handleGlobalMove);
       document.addEventListener('touchmove', handleGlobalMove, { passive: false });
       document.addEventListener('mouseup', handleGlobalEnd);
       document.addEventListener('touchend', handleGlobalEnd);
     }
-    
+
     return () => {
       document.removeEventListener('mousemove', handleGlobalMove);
       document.removeEventListener('touchmove', handleGlobalMove);
@@ -98,7 +98,7 @@ const DraggableScroll = ({
   }, [isDragging, startX, scrollLeft]);
 
   return (
-    <div 
+    <div
       className={`draggable-scroll-container ${className}`}
       ref={scrollContainerRef}
       onMouseDown={handleDragStart}

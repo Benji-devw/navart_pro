@@ -18,7 +18,7 @@ const Gallery = ({ projects }) => {
   const cardsRef = useRef([]);
   const overlayRef = useRef(null);
   const videoRefs = useRef({});
-  
+
   // Check if the device is mobile
   useEffect(() => {
     const checkIfMobile = () => {
@@ -110,11 +110,11 @@ const Gallery = ({ projects }) => {
         const diffY = centerY - (rect.top + rect.height / 2);
 
         const targetWidth = appStoreRect.width * 0.8;
-        const targetHeight = targetWidth * .8; 
+        const targetHeight = targetWidth * .8;
 
         const scaleX = targetWidth / rect.width;
         const scaleY = targetHeight / rect.height;
-        
+
         // Calculer le scale et le limiter à 2
         let scale = Math.min(scaleX, scaleY);
         scale = Math.min(scale, 2); // Limite maximale ajoutée ici
@@ -145,7 +145,7 @@ const Gallery = ({ projects }) => {
     if (videoElement) {
       videoElement.pause();
     }
-    
+
     setTransformState((prev) => {
       const newState = { ...prev };
       delete newState[projectId];
@@ -190,6 +190,7 @@ const Gallery = ({ projects }) => {
               ref={(el) => (cardsRef.current[index] = el)}
               onClick={(e) => captureAndTransform(project, index, e)}
               style={cardStyle}
+              tabIndex={index}
             >
               <div className="card-content">
                 <div className="card-image-container">{getMediaElement(project)}</div>
@@ -217,18 +218,18 @@ const Gallery = ({ projects }) => {
                     </div>
                     <div className="right-content">
                       {project.link !== '#' && (
-                        <Button className="bnt-tab active" size="small" fullWidth={true} onClick={visite}>
-                          <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                          <Button className="bnt-tab active" size="small" fullWidth={true} onClick={visite}>
                             Visiter
-                          </a>
-                        </Button>
+                          </Button>
+                        </a>
                       )}
                       {project.github && (
-                        <Button className="bnt-tab active" size="small" fullWidth={true} onClick={visite}>
-                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Button className="bnt-tab active" size="small" fullWidth={true} onClick={visite}>
                             Voir le code
-                          </a>
-                        </Button>
+                          </Button>
+                        </a>
                       )}
                     </div>
                   </div>
@@ -242,6 +243,7 @@ const Gallery = ({ projects }) => {
         ref={overlayRef}
         className={`gallery-overlay ${overlayVisible ? 'visible' : 'hiding'}`}
         onClick={handleOverlayClick}
+        tabIndex="0"
       ></div>
     </div>
   );

@@ -27,15 +27,15 @@ const Hero = () => {
           </div> */}
         </div>
 
-        <DraggableScroll 
+        <DraggableScroll
           className="hero-stack-container"
           dragSpeed={2.5}
           maskGradient="linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
         >
           {techStack.map((tech, index) => (
-            <div 
-              className="stack-icon" 
-              key={index} 
+            <div
+              className="stack-icon"
+              key={index}
               data-tooltip={tech.name}
             >
               {RenderIcon(tech.icon, '50px')}
