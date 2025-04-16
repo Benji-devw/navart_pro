@@ -36,7 +36,7 @@ const Contact = () => {
       document.removeEventListener('keydown', handleEscapeKey);
     };
   }, [isModalOpen]);
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -74,7 +74,7 @@ const Contact = () => {
           info: { error: false, msg: null },
         });
       }, 5000);
-      
+
       // Fermer la modal après succès
       setTimeout(() => {
         closeModal();
@@ -103,9 +103,9 @@ const Contact = () => {
       >
         <i className={`fas ${isModalOpen ? 'fa-times' : 'fa-envelope'}`}></i>
       </button>
-      
+
       {/* Modal de contact */}
-      <Modal isOpen={isModalOpen} onClose={closeModal} size="medium" showHeader={false} title="Me contacter">
+      <Modal isOpen={isModalOpen} onClose={closeModal} size="medium" showHeader={true} title="Me contacter">
         <div className="form-container">
           <form className="form" onSubmit={handleSubmit}>
             <div className="form-group">

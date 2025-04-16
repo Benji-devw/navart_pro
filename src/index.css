@@ -37,7 +37,7 @@ body {
   font-family: "Genos", "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 20px;
+  font-size: 22px;
   /* line-height: 1.6; */
   /* color: var(--text-color); */
   /* min-height: 100vh; */
@@ -180,7 +180,7 @@ p {
 /* Responsive Design */
 @media screen and (max-width: 1440px) {
   body {
-    font-size: 18px;
+    font-size: 20px;
   }
   section {
     padding: 6rem 0;

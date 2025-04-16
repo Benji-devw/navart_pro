@@ -4,17 +4,9 @@ import './Header.css';
 const Header = ({ onFilterChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [activeIcon, setActiveIcon] = useState('hero'); // 'home', 'shop', 'projects', 'contact'
+  const [activeIcon, setActiveIcon] = useState(''); // 'home', 'shop', 'projects', 'contact'
   const navRef = useRef(null);
   const lastScrollY = useRef(0);
-
-  // Créer des refs pour chaque section
-  const sectionRefs = useRef({
-    hero: null,
-    about: null,
-    skills: null,
-    projects: null,
-  });
 
   // Array of items to link to
   const items = [
@@ -40,31 +32,28 @@ const Header = ({ onFilterChange }) => {
     },
   ];
 
-  // Effet pour initialiser les refs des sections
-  useEffect(() => {
-    // Initialiser les refs avec les éléments DOM
-    Object.keys(sectionRefs.current).forEach((section) => {
-      sectionRefs.current[section] = document.getElementById(section);
-    });
-  }, []);
-
-  // Fonction pour gérer le changement de vue
+  // Function to handle view change
   const handleFilterView = (sectionName) => {
+    localStorage.setItem('activeIcon', sectionName);    
     setActiveIcon(sectionName);
 
-    // Appeler la fonction de callback pour informer le parent du changement
+    // Call the callback function to inform the parent of the change
     if (onFilterChange) {
       onFilterChange(sectionName);
     }
   };
 
-  // Effet pour détecter le défilement et mettre à jour le header
+  // Effect to detect scrolling and update the header
   useEffect(() => {
+    if (localStorage.getItem('activeIcon')) {
+      setActiveIcon(localStorage.getItem('activeIcon'));
+    }
+
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 0);
 
-      // Logique pour masquer/afficher le header lors du défilement
+      // Logic to hide/show the header when scrolling
       const currentScrollY = window.scrollY;
       if (currentScrollY > 50) {
         setIsVisible(lastScrollY.current > currentScrollY);
@@ -88,7 +77,7 @@ const Header = ({ onFilterChange }) => {
               href={item.href}
               className={`menu-icon ${activeIcon === item.name ? 'active' : ''}`}
               onClick={(e) => {
-                e.preventDefault(); // Empêcher le comportement par défaut
+                e.preventDefault(); // Prevent default behavior
                 handleFilterView(item.name);
               }}
             >

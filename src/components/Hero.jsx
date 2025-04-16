@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import Button from './ui/Button';
+// import Button from './ui/Button';
 import '@styles/Hero.css';
 import { ScrollObserverContext } from '@/App';
 import { useInView } from 'react-intersection-observer';

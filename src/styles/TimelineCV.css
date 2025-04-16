@@ -34,6 +34,40 @@
   color: #555;
 }
 
+.status-icon {
+  margin-right: 0.8rem;
+  font-size: 1.4rem;
+}
+
+/* TODO: Create composant for tooltips */
+/* Tooltips style */
+.timeline-date::after,
+.list-date::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  z-index: 1202;
+  bottom: -50px;
+  left: 15%;
+  /* transform: translateX(-50%); */
+  background: var(--dark-color);
+  color: var(--light-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 16px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.timeline-date:hover::after,
+.list-date:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: -30px;
+}
+
 /* Stack collapse */
 /* ************************** */
 .stack-list-toggle {
@@ -232,7 +266,6 @@
 .timeline-item.left .timeline-date {
   left: 2rem;
 }
-
 
 .timeline-center-line {
   position: absolute;

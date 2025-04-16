@@ -11,7 +11,7 @@ import Contact from '@components/ContactForm';
 export const ScrollObserverContext = createContext(null);
 
 function App() {
-  const [activeView, setActiveView] = useState('hero');
+  const [activeView, setActiveView] = useState(localStorage.getItem('activeIcon') || '');
 
   const defaultInViewOptions = {
     threshold: 0.1,
@@ -21,6 +21,7 @@ function App() {
 
   // Function to change the active view
   const handleFilterChange = (sectionName) => {
+    localStorage.setItem('activeIcon', sectionName);
     setActiveView(sectionName);
   };
 

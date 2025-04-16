@@ -170,9 +170,9 @@ const Gallery = ({ projects }) => {
     }
   }, [selectedProject, projects, closeCard]);
 
-  const visite = (event) => {
+  const visite = (event, link) => {
     event.stopPropagation();
-    window.open(event.target.href, '_blank');
+    window.open(link, '_blank');
   };
 
   return (
@@ -218,11 +218,11 @@ const Gallery = ({ projects }) => {
                     </div>
                     <div className="right-content">
                       {project.link !== '#' && (
-                        <a href={project.link} target="_blank" rel="noopener noreferrer">
-                          <Button className="bnt-tab active" size="small" fullWidth={true} onClick={visite}>
-                            Visiter
-                          </Button>
-                        </a>
+                        <Button className="bnt-tab active" size="small" fullWidth={true} onClick={(e) => visite(e, project.link)}>
+                          {/* <a href={project.link} target="_blank" rel="noopener noreferrer"> */}
+                          Visiter
+                          {/* </a> */}
+                        </Button>
                       )}
                       {project.github && (
                         <a href={project.github} target="_blank" rel="noopener noreferrer">

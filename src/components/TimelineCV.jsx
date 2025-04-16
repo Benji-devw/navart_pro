@@ -20,7 +20,14 @@ const TimelineCV = ({ experiences, viewMode }) => {
           {experiences.map((experience, index) => (
             <div className={`timeline-item ${viewMode ? (index % 2 === 0 ? 'right' : 'left') : ''}`} key={index}>
               <div className="timeline-content">
-                <div className="timeline-date">{experience.date}</div>
+                <div className="timeline-date" data-tooltip={experience.type}>
+                  {experience.type === 'formation' ? (
+                    <i className="fas fa-graduation-cap status-icon"></i>
+                  ) : (
+                    <i className="fas fa-briefcase status-icon"></i>
+                  )}
+                  {experience.date}
+                </div>
                 <h4>{experience.title}</h4>
                 <h5>
                   {' '}
@@ -59,7 +66,14 @@ const TimelineCV = ({ experiences, viewMode }) => {
         <div className="experience-list">
           {experiences.map((experience, index) => (
             <div className="list-item" key={index}>
-              <div className="list-date">{experience.date}</div>
+              <div className="list-date" data-tooltip={experience.type}>
+                {experience.type === 'formation' ? (
+                  <i className="fas fa-graduation-cap status-icon"></i>
+                ) : (
+                  <i className="fas fa-briefcase status-icon"></i>
+                )}
+                {experience.date}
+              </div>
               <div className="list-content">
                 {/* <a className="list-item-logo" href={experience.link} target="_blank" rel="noopener noreferrer"> */}
                   <img src={`/logos/${experience.logo}`} alt={experience.company} />

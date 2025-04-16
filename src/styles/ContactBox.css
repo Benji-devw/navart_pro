@@ -3,8 +3,9 @@
   padding: 1rem;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  max-width: 100%;
   width: 100%;
+  min-width: 350px;
+
 }
 
 .detail {
@@ -24,7 +25,7 @@
 }
 
 .detail:hover {
-  box-shadow: var(--box-light-shadow) ;
+  box-shadow: var(--box-light-shadow);
 }
 
 .copy-icon {
@@ -59,8 +60,8 @@ a:hover {
     width: 100%;
     max-width: 100%;
   }
-  
+
   .detail {
     width: 100%;
   }
-} 
+}
