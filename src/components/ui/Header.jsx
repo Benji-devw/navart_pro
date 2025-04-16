@@ -12,21 +12,25 @@ const Header = ({ onFilterChange }) => {
   const items = [
     {
       name: 'hero',
+      subName: 'Accueil',
       icon: 'fas fa-home',
       href: '#hero',
     },
     {
       name: 'about',
+      subName: 'A Propos',
       icon: 'fas fa-user',
       href: '#about',
     },
     {
       name: 'skills',
+      subName: 'Compétences',
       icon: 'fas fa-cubes-stacked',
       href: '#skills',
     },
     {
       name: 'projects',
+      subName: 'Projets',
       icon: 'fas fa-folder-open',
       href: '#projects',
     },
@@ -76,6 +80,7 @@ const Header = ({ onFilterChange }) => {
               key={item.name}
               href={item.href}
               className={`menu-icon ${activeIcon === item.name ? 'active' : ''}`}
+              data-tooltip={`${item.subName}`}
               onClick={(e) => {
                 e.preventDefault(); // Prevent default behavior
                 handleFilterView(item.name);
