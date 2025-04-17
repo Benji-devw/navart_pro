@@ -4,7 +4,7 @@ import './Header.css';
 const Header = ({ onFilterChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [activeIcon, setActiveIcon] = useState(''); // 'home', 'shop', 'projects', 'contact'
+  const [activeIcon, setActiveIcon] = useState('hero'); // 'home', 'shop', 'projects', 'contact'
   const navRef = useRef(null);
   const lastScrollY = useRef(0);
 
