@@ -44,12 +44,11 @@ export default function Projects() {
   const filterProjects = (category) => {
     setActiveTab(category);
   };
-
+  
   return (
     <section id="projects" className="projects-section">
       <h2 className="section-title">Portfolio</h2>
 
-      {/* <div className={`projects-content ${inView ? 'animate' : ''}`} ref={ref}> */}
         <div className="bnt-tabs">
           {uniqueCategories.map((category, index) => (
             <Button
@@ -64,7 +63,6 @@ export default function Projects() {
           ))}
         </div>
         <Gallery key={activeTab} projects={filteredProjects} />
-      {/* </div> */}
     </section>
   );
 }
