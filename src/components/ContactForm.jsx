@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '@styles/ContactForm.css';
 import Modal from '@components/ui/Modal';
 import emailjs from '@emailjs/browser';
-
-const ReCAPTCHA = lazy(() => import('react-google-recaptcha'));
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -191,13 +190,12 @@ export const ContactForm = () => {
               </div>
             ) : (
               <div className="form-group">
-                <Suspense fallback={<div>Chargement...</div>}>
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                    onChange={handleRecaptchaChange}
-                  />
-                </Suspense>
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                  onChange={handleRecaptchaChange}
+                  // size="compact"
+                />
                 {recaptchaValue && (
                   <button type="submit" className="form-submit-btn" disabled={status.submitting}>
                     {status.submitting ? 'Envoi...' : 'Envoyer'}
