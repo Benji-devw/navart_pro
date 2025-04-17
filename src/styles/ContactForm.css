@@ -16,7 +16,7 @@
   font-size: 1.5rem;
   box-shadow: var(--box-shadow);
   transition: all 0.3s var(--animation-bezier);
-  z-index: 910;
+  z-index: 710;
   animation: pulse 1s infinite;
   user-select: none !important;
 }

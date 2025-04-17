@@ -13,6 +13,10 @@
   padding: 1rem;
 }
 
+/* .hero-content {
+  text-align: left;
+} */
+
 .hero-title-sub {
   font-size: 1.7rem;
   font-weight: 400;
@@ -25,6 +29,7 @@
   color: var(--dark-color);
   font-weight: 900;
   letter-spacing: 0.1em;
+  /* text-align: center; */
 }
 
 .hero-subtitle {
@@ -32,6 +37,7 @@
   font-weight: 400;
   position: relative;
   margin-bottom: 1.5rem;
+  /* text-align: center; */
 }
 
 .hero .bnt-tabs {

@@ -36,6 +36,7 @@
     { "name": "Docker", "icon": "devicon-docker-plain colored", "level": 60 },
     { "name": "Jira", "icon": "devicon-jira-plain colored", "level": 80 },
     { "name": "Monday", "icon": "/icons/monday-icon-icon-md.png", "level": 75 },
-    { "name": "Postman", "icon": "devicon-postman-plain colored", "level": 85 }
+    { "name": "Postman", "icon": "devicon-postman-plain colored", "level": 85 },
+    { "name": "Expo", "icon": "/icons/expo.png", "level": 70 }
   ]
 }

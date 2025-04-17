@@ -83,7 +83,7 @@ const BackgroundAnimation = ({
         }
       }
       
-      console.log(`Created ${state.points.length} points (target: ${maxPoints})`);
+      // console.log(`Created ${state.points.length} points (target: ${maxPoints})`);
     };
 
     // Fonction pour animer les points de manière optimisée
@@ -249,7 +249,7 @@ const BackgroundAnimation = ({
       // Libérer la mémoire
       state.points = [];
       
-      console.log('Animation cleaned up successfully');
+      // console.log('Animation cleaned up successfully');
     };
   }, [gridSize, pointColor, lineColor, connectionDistance, interactionRadius, interactionForce]);
 

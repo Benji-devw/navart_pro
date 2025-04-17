@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import '@styles/ContactForm.css';
 import Modal from '@components/ui/Modal';
+import emailjs from '@emailjs/browser';
 
-const Contact = () => {
+export const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,6 +15,11 @@ const Contact = () => {
     info: { error: false, msg: null },
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sendStatus, setSendStatus] = useState({
+    check: false,
+    valid: false,
+    error: false
+  });
 
   // Gérer le overflow du body
   useEffect(() => {
@@ -50,37 +56,48 @@ const Contact = () => {
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
 
     try {
-      // Simulation d'envoi (à remplacer par votre API d'envoi d'emails)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      setStatus({
-        submitted: true,
-        submitting: false,
-        info: { error: false, msg: 'Message envoyé avec succès!' },
-      });
-
-      // Réinitialiser le formulaire après envoi réussi
-      setFormData({
-        name: '',
-        email: '',
-        message: '',
-      });
-
-      // Réinitialiser le statut après 5 secondes
-      setTimeout(() => {
-        setStatus({
-          submitted: false,
-          submitting: false,
-          info: { error: false, msg: null },
-        });
-      }, 5000);
-
-      // Fermer la modal après succès
-      setTimeout(() => {
-        closeModal();
-      }, 2000);
+      emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.target,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      ).then(
+        () => {
+          setTimeout(() => {
+            setSendStatus({
+              check: true,
+              valid: true,
+              error: false
+            });
+            setFormData({ name: '', email: '', message: '' });
+            e.target.reset();
+            setStatus({
+              submitted: true,
+              submitting: false,
+              info: { error: false, msg: 'Message envoyé avec succès!' },
+            });
+            setTimeout(() => {
+              closeModal();
+            }, 2000);
+          }, 2000);
+        },
+        () => {
+          setTimeout(() => {
+            setSendStatus({
+              check: false,
+              valid: false,
+              error: true
+            });
+            setStatus({
+              submitted: false,
+              submitting: false,
+              info: { error: true, msg: "Une erreur s'est produite. Veuillez réessayer." },
+            });
+          }, 1000);
+        }
+      );
     } catch (error) {
-      console.log(error);
+      console.error('Erreur lors de l\'envoi du message:', error);
       setStatus({
         submitted: false,
         submitting: false,
@@ -151,9 +168,9 @@ const Contact = () => {
               {status.submitting ? 'Envoi...' : 'Envoyer'}
             </button>
 
-            {status.info.msg && (
-              <div className={`form-status ${status.info.error ? 'error' : 'success'}`}>
-                {status.info.msg}
+            {sendStatus.check && (
+              <div className={`form-status ${sendStatus.valid ? 'success' : 'error'}`}>
+                {sendStatus.valid ? 'Message envoyé avec succès!' : "Une erreur s'est produite"}
               </div>
             )}
           </form>
@@ -162,5 +179,3 @@ const Contact = () => {
     </>
   );
 };
-
-export default Contact;

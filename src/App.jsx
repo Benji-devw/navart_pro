@@ -5,7 +5,6 @@ import About from '@components/About';
 import Skills from '@components/Skills';
 import Projects from '@components/Projects';
 import Layout from '@/components/ui/Layout';
-import Contact from '@components/ContactForm';
 
 // Restore the context that was used elsewhere in the application
 export const ScrollObserverContext = createContext(null);
@@ -46,7 +45,6 @@ function App() {
       <div className="app">
         <Layout onFilterChange={handleFilterChange} activeComponent={renderActiveComponent().type}>
           <main className="main-content">{renderActiveComponent().component}</main>
-          <Contact />
         </Layout>
       </div>
     </ScrollObserverContext.Provider>
