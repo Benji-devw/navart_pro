@@ -267,13 +267,13 @@
     height: 220px;
   }
 
-  .section-title {
-    /* font-size: 28px; */
-  }
+  /* .section-title {
+    font-size: 28px;
+  } */
 
-  .gallery-overlay {
-    /* display: none; */
-  }
+  /* .gallery-overlay {
+    display: none;
+  } */
 
   .selected {
     width: 100% !important;
