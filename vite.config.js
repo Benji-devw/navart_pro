@@ -32,7 +32,9 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
       },
-      external: ['react-google-recaptcha'],
     },
+  },
+  optimizeDeps: {
+    include: ['react-google-recaptcha'],
   },
 })
