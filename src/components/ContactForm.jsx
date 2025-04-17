@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '@styles/ContactForm.css';
 import Modal from '@components/ui/Modal';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -18,8 +19,10 @@ export const ContactForm = () => {
   const [sendStatus, setSendStatus] = useState({
     check: false,
     valid: false,
-    error: false
+    error: false,
   });
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const recaptchaRef = useRef();
 
   // Gérer le overflow du body
   useEffect(() => {
@@ -53,51 +56,65 @@ export const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!recaptchaValue) {
+      setStatus({
+        submitted: false,
+        submitting: false,
+        info: { error: true, msg: 'Veuillez valider le reCAPTCHA' },
+      });
+      return;
+    }
+
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
 
     try {
-      emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        e.target,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      ).then(
-        () => {
-          setTimeout(() => {
-            setSendStatus({
-              check: true,
-              valid: true,
-              error: false
-            });
-            setFormData({ name: '', email: '', message: '' });
-            e.target.reset();
-            setStatus({
-              submitted: true,
-              submitting: false,
-              info: { error: false, msg: 'Message envoyé avec succès!' },
-            });
+      emailjs
+        .sendForm(
+          import.meta.env.VITE_EMAILJS_SID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          e.target,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        )
+        .then(
+          () => {
             setTimeout(() => {
-              closeModal();
+              setSendStatus({
+                check: true,
+                valid: true,
+                error: false,
+              });
+              setFormData({ name: '', email: '', message: '' });
+              e.target.reset();
+              recaptchaRef.current.reset();
+              setRecaptchaValue(null);
+              setStatus({
+                submitted: true,
+                submitting: false,
+                info: { error: false, msg: 'Message envoyé avec succès!' },
+              });
+              setTimeout(() => {
+                closeModal();
+              }, 2000);
             }, 2000);
-          }, 2000);
-        },
-        () => {
-          setTimeout(() => {
-            setSendStatus({
-              check: false,
-              valid: false,
-              error: true
-            });
-            setStatus({
-              submitted: false,
-              submitting: false,
-              info: { error: true, msg: "Une erreur s'est produite. Veuillez réessayer." },
-            });
-          }, 1000);
-        }
-      );
+          },
+          () => {
+            setTimeout(() => {
+              setSendStatus({
+                check: false,
+                valid: false,
+                error: true,
+              });
+              setStatus({
+                submitted: false,
+                submitting: false,
+                info: { error: true, msg: "Une erreur s'est produite. Veuillez réessayer." },
+              });
+            }, 1000);
+          }
+        );
     } catch (error) {
-      console.error('Erreur lors de l\'envoi du message:', error);
+      console.error("Erreur lors de l'envoi du message:", error);
       setStatus({
         submitted: false,
         submitting: false,
@@ -106,13 +123,16 @@ export const ContactForm = () => {
     }
   };
 
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
   return (
     <>
-      {/* Bouton flottant */}
       <button
         className={`floating-contact-btn ${isModalOpen ? 'active' : ''}`}
         onClick={() => setIsModalOpen(!isModalOpen)}
@@ -164,13 +184,23 @@ export const ContactForm = () => {
               ></textarea>
             </div>
 
-            <button type="submit" className="form-submit-btn" disabled={status.submitting}>
-              {status.submitting ? 'Envoi...' : 'Envoyer'}
-            </button>
-
-            {sendStatus.check && (
+            {sendStatus.check ? (
               <div className={`form-status ${sendStatus.valid ? 'success' : 'error'}`}>
                 {sendStatus.valid ? 'Message envoyé avec succès!' : "Une erreur s'est produite"}
+              </div>
+            ) : (
+              <div className="form-group">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                  onChange={handleRecaptchaChange}
+                  // size="compact"
+                />
+                {recaptchaValue && (
+                  <button type="submit" className="form-submit-btn" disabled={status.submitting}>
+                    {status.submitting ? 'Envoi...' : 'Envoyer'}
+                  </button>
+                )}
               </div>
             )}
           </form>
