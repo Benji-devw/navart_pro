@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import '@styles/Projects.css';
-import Gallery from '@components/Gallery/Gallery';
+import Gallery from '@/components/Gallery';
 import webDataFile from '@assets/projectsData/webData.json';
 import designDataFile from '@assets/projectsData/designData.json';
 import infographieDataFile from '@assets/projectsData/infographieData.json';

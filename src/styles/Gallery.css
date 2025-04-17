@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Gallery Component Styles
+   ========================================================================== */
+
+/* Gallery Container
+   ========================================================================== */
+.gallery-content {
+  min-height: 100vh;
+}
+
+.gallery-content.animate .card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card List Layout
+   ========================================================================== */
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Gallery Overlay
+   ========================================================================== */
+.gallery-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: var(--blur-6);
+  z-index: 850;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.gallery-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.gallery-overlay.hiding {
+  opacity: 0;
+  pointer-events: none;
+}
