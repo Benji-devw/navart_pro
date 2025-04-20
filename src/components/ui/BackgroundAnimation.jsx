@@ -1,6 +1,6 @@
 // Générer par l'IA
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '@styles/BackgroundAnimation.css';
 
 const BackgroundAnimation = ({ 
@@ -12,6 +12,8 @@ const BackgroundAnimation = ({
   interactionForce = 3
 }) => {
   const canvasRef = useRef(null);
+  const [isLowPerformance, setIsLowPerformance] = useState(false);
+  
   // Utiliser une seule référence pour stocker toutes les données liées à l'animation
   const animationState = useRef({
     mouse: { x: 0, y: 0, isActive: false },
@@ -21,8 +23,54 @@ const BackgroundAnimation = ({
     points: [],
     width: 0,
     height: 0,
-    isRunning: false
+    isRunning: false,
+    lastFrameTime: 0,
+    frameCount: 0,
+    fps: 0
   });
+
+  // Détecter si l'appareil est en mode basse performance
+  useEffect(() => {
+    // Vérifier si l'appareil est un ordinateur portable ou un appareil mobile
+    const isLaptop = window.matchMedia('(max-width: 1024px)').matches;
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Vérifier les performances de l'appareil
+    const checkPerformance = () => {
+      const state = animationState.current;
+      const now = performance.now();
+      const elapsed = now - state.lastFrameTime;
+      
+      if (elapsed > 0) {
+        state.fps = 1000 / elapsed;
+        state.frameCount++;
+        
+        // Si le FPS est trop bas pendant plus de 30 frames, passer en mode basse performance
+        if (state.fps < 30 && state.frameCount > 30) {
+          setIsLowPerformance(true);
+          // Réduire encore plus les ressources
+          if (state.autoAnimateId) {
+            clearInterval(state.autoAnimateId);
+            state.autoAnimateId = setInterval(autoAnimate, 500); // Réduire la fréquence d'animation
+          }
+        }
+      }
+      
+      state.lastFrameTime = now;
+    };
+    
+    // Ajouter un écouteur pour vérifier les performances
+    const performanceCheckInterval = setInterval(checkPerformance, 1000);
+    
+    // Si c'est un ordinateur portable ou un appareil mobile, commencer en mode basse performance
+    if (isLaptop || isMobile) {
+      setIsLowPerformance(true);
+    }
+    
+    return () => {
+      clearInterval(performanceCheckInterval);
+    };
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -31,7 +79,6 @@ const BackgroundAnimation = ({
     
     // S'assurer que nous ne démarrons pas plusieurs animations
     if (state.isRunning) {
-      // console.log('Animation already running, cleaning up first...');
       // Nettoyer toute animation précédente
       cancelAnimationFrame(state.animationId);
       clearInterval(state.autoAnimateId);
@@ -55,13 +102,16 @@ const BackgroundAnimation = ({
     // Initialiser les points de la grille - avec une densité plus faible pour la performance
     const initPoints = () => {
       state.points = [];
+      
       // Réduire la densité pour de meilleures performances
-      const density = 1.3; // Plus la valeur est grande, moins il y a de points
+      // Augmenter la densité en mode basse performance
+      const density = isLowPerformance ? 2.5 : 1.3;
       const cols = Math.floor(state.width / (gridSize * density)) + 2;
       const rows = Math.floor(state.height / (gridSize * density)) + 2;
       
       // Limiter le nombre total de points pour éviter les problèmes de performance
-      const maxPoints = 500;
+      // Réduire encore plus en mode basse performance
+      const maxPoints = isLowPerformance ? 200 : 500;
       const totalPoints = cols * rows;
       const skipFactor = totalPoints > maxPoints ? Math.ceil(totalPoints / maxPoints) : 1;
       
@@ -82,8 +132,6 @@ const BackgroundAnimation = ({
           pointCount++;
         }
       }
-      
-      // console.log(`Created ${state.points.length} points (target: ${maxPoints})`);
     };
 
     // Fonction pour animer les points de manière optimisée
@@ -91,7 +139,8 @@ const BackgroundAnimation = ({
       ctx.clearRect(0, 0, state.width, state.height);
       
       // Traitement par lots pour améliorer les performances
-      const batchSize = 10;
+      // Augmenter la taille des lots en mode basse performance
+      const batchSize = isLowPerformance ? 20 : 10;
       const totalPoints = state.points.length;
       
       // Traiter les points par lots
@@ -143,7 +192,10 @@ const BackgroundAnimation = ({
         ctx.fill();
 
         // Connecter les points proches, mais de manière optimisée
-        drawConnections(i, point);
+        // En mode basse performance, réduire le nombre de connexions
+        if (!isLowPerformance || i % 2 === 0) {
+          drawConnections(i, point);
+        }
       }
     };
     
@@ -152,9 +204,11 @@ const BackgroundAnimation = ({
       ctx.strokeStyle = lineColor;
       ctx.lineWidth = 0.5; // Ligne plus fine pour de meilleures performances
       
-      // Ne vérifier que les 30 points les plus proches pour améliorer les performances
-      const startCheck = Math.max(0, pointIndex - 15);
-      const endCheck = Math.min(state.points.length, pointIndex + 15);
+      // Ne vérifier que les points les plus proches pour améliorer les performances
+      // Réduire encore plus en mode basse performance
+      const maxConnections = isLowPerformance ? 10 : 15;
+      const startCheck = Math.max(0, pointIndex - maxConnections);
+      const endCheck = Math.min(state.points.length, pointIndex + maxConnections);
       
       for (let j = startCheck; j < endCheck; j++) {
         if (j === pointIndex) continue;
@@ -220,7 +274,9 @@ const BackgroundAnimation = ({
     animate();
 
     // Créer une animation automatique subtile, moins fréquente pour les performances
-    state.autoAnimateId = setInterval(autoAnimate, 100);
+    // Réduire la fréquence en mode basse performance
+    const autoAnimateInterval = isLowPerformance ? 500 : 100;
+    state.autoAnimateId = setInterval(autoAnimate, autoAnimateInterval);
 
     // Ajouter les écouteurs d'événements
     window.addEventListener('resize', resizeCanvas);
@@ -248,10 +304,8 @@ const BackgroundAnimation = ({
       
       // Libérer la mémoire
       state.points = [];
-      
-      // console.log('Animation cleaned up successfully');
     };
-  }, [gridSize, pointColor, lineColor, connectionDistance, interactionRadius, interactionForce]);
+  }, [gridSize, pointColor, lineColor, connectionDistance, interactionRadius, interactionForce, isLowPerformance]);
 
   return (
     <canvas

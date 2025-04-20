@@ -1,27 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Layout.css';
-import BackgroundAnimation from '@components/BackgroundAnimation';
+// import BackgroundAnimation from '@components/ui/BackgroundAnimation';
+import BackgroundParallax from '@/components/ui/backgroundParallax';
 import Header from '@/components/ui/Header';
-import video from '@assets/earth.mp4';
 import { ContactForm } from '@components/ContactForm';
+// import video from '@assets/earth.mp4';
+import onePlan from '@assets/images/one-plan-dark.png';
+import twoPlan from '@assets/images/two-plan-dark.png';
+import threePlan from '@assets/images/three-plan-dark.png';
+import fourPlan from '@assets/images/four-plan-dark.png';
 
 const Layout = ({ children, onFilterChange, activeComponent }) => {
+  const [medias, setMedias] = useState([
+    { media: onePlan, intensity: 50, blur: 2, opacity: .04, zIndex: -1 },
+    { media: twoPlan, intensity: 30, blur: 0, opacity: .03, zIndex: -2 },
+    { media: threePlan, intensity: 10, blur: 0, opacity: .1, zIndex: -3 },
+    { media: fourPlan, intensity: 1, blur: 0, opacity: .05, zIndex: -4 },
+  ]);
+
   return (
     <div className="layout">
       <Header onFilterChange={onFilterChange} />
 
-      {activeComponent === 'hero' && (
+      {/* {activeComponent === 'hero' && (
         <video src={video} autoPlay muted loop className="hero-video" />
-      )}
+      )} */}
 
-        <BackgroundAnimation
+      <BackgroundParallax medias={medias} forceTranslate={100} />
+
+        {/* <BackgroundAnimation
           gridSize={60}
           pointColor={activeComponent === 'hero' ? 'rgb(0, 0, 0)' : 'rgb(158, 158, 158)'}
           lineColor={activeComponent === 'hero' ? 'rgb(0, 0, 0)' : 'rgb(95, 95, 95)'}
           connectionDistance={80}
           interactionRadius={210}
           interactionForce={-22}
-        />
+        /> */}
 
       <div className="layout-container">{children}</div>
 
