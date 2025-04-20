@@ -14,19 +14,19 @@ const BackgroundParallax = ({ medias, forceTranslate }) => {
       // Calculer le centre de l'écran
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
-      
+
       // Calculer la distance entre la souris et le centre (en pourcentage)
       const mouseX = e.clientX;
       const mouseY = e.clientY;
-      
+
       // Utiliser forceTranslate pour définir l'intensité du mouvement
       // Si forceTranslate est 0, utiliser la valeur par défaut (-20)
       const intensity = forceTranslate || -20;
-      
+
       // Convertir la position en pourcentage et appliquer l'intensité
       const moveX = ((mouseX - centerX) / centerX) * intensity;
       const moveY = ((mouseY - centerY) / centerY) * intensity;
-      
+
       // Mettre à jour la position avec un léger délai pour un effet plus doux
       setPosition({ x: moveX, y: moveY });
     };
@@ -45,7 +45,7 @@ const BackgroundParallax = ({ medias, forceTranslate }) => {
     // Utiliser l'intensité fournie pour chaque média
     // Si l'intensité n'est pas définie, utiliser une valeur par défaut de 1 (100%)
     const intensityFactor = intensity ? intensity / 100 : 1;
-    
+
     return {
       transform: `translate(${position.x * intensityFactor}px, ${position.y * intensityFactor}px)`,
       filter: `blur(${blur}px)`,
@@ -56,18 +56,18 @@ const BackgroundParallax = ({ medias, forceTranslate }) => {
 
   return (
     <>
-    {/* <div className="background-aura" /> */}
-    <div className="background-parallax" ref={parallaxRef}>
-      {medias.map(({ media, intensity, blur, opacity, zIndex }, index) => (
-        <div 
-          key={index} 
-          className={`parallax-image layer-${index}`} 
-          style={getParallaxStyle(intensity, blur, opacity, zIndex)}
-        >
-          <img src={media} alt={`parallax-layer-${index}`} />
-        </div>
-      ))}
-    </div>
+      {/* <div className="background-aura" /> */}
+      <div className="background-parallax" ref={parallaxRef}>
+        {medias.map(({ media, intensity, blur, opacity, zIndex }, index) => (
+          <div
+            key={index}
+            className={`parallax-image layer-${index}`}
+            style={getParallaxStyle(intensity, blur, opacity, zIndex)}
+          >
+            <img src={media} alt={`parallax-layer-${index}`} />
+          </div>
+        ))}
+      </div>
     </>
   );
 };
