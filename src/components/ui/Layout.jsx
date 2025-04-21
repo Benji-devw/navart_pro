@@ -23,7 +23,7 @@ const Layout = ({ children, onFilterChange, activeComponent }) => {
   
 
   return (
-    <div className="layout">
+    <div className="layout" title={activeComponent}>
       <Header onFilterChange={onFilterChange}/>
 
       {/* {activeComponent === 'hero' && (

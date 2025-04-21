@@ -6,8 +6,6 @@ import Skills from '@components/Skills';
 import Projects from '@components/Projects';
 import Layout from '@/components/ui/Layout';
 import CookieConsent from '@/components/ui/CookieConsent';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
-import SchemaData from '@/components/ui/SchemaData';
 
 // Context for managing scroll and cookie consent
 export const ScrollObserverContext = createContext(null);
@@ -62,71 +60,40 @@ function App() {
     }
   };
 
-  // Générer le titre et la description basés sur la vue active
-  const getMetaTitle = () => {
+  // Met à jour le titre du document basé sur la vue active
+  useEffect(() => {
+    // Mettre à jour le titre de la page en fonction de la vue active
     switch (renderActiveComponent().type) {
       case 'hero':
-        return 'Navart | Accueil - Portfolio de développement web';
+        document.title = 'Navart | Accueil - Portfolio de développement web';
+        break;
       case 'about':
-        return 'Navart | À propos - Portfolio de développement web';
+        document.title = 'Navart | À propos - Portfolio de développement web';
+        break;
       case 'skills':
-        return 'Navart | Compétences - Portfolio de développement web';
+        document.title = 'Navart | Compétences - Portfolio de développement web';
+        break;
       case 'projects':
-        return 'Navart | Projets - Portfolio de développement web';
+        document.title = 'Navart | Projets - Portfolio de développement web';
+        break;
       default:
-        return 'Navart | Portfolio de développement web';
+        document.title = 'Navart | Portfolio de développement web';
     }
-  };
-
-  const getMetaDescription = () => {
-    switch (renderActiveComponent().type) {
-      case 'hero':
-        return 'Portfolio de Navarro Benjamin - Développeur web créatif spécialisé en React et technologies modernes';
-      case 'about':
-        return 'Découvrez le parcours et l\'expérience de Navarro Benjamin, développeur web passionné par les technologies web modernes';
-      case 'skills':
-        return 'Explorez les compétences techniques et domaines d\'expertise de Navarro Benjamin en développement frontend et backend';
-      case 'projects':
-        return 'Découvrez les projets réalisés par Navarro Benjamin, présentant ses compétences en développement web et design';
-      default:
-        return 'Portfolio de développement web de Navarro Benjamin - Spécialiste en React, Node.js et design responsive';
-    }
-  };
+  }, [activeView]);
 
   return (
-    <HelmetProvider>
-      <CookieConsentContext.Provider value={{ cookieConsent, setConsent: handleConsentChange }}>
-        <ScrollObserverContext.Provider value={{ defaultInViewOptions }}>
-          <div className="app">
-            <Helmet>
-              <title>{getMetaTitle()}</title>
-              <meta name="description" content={getMetaDescription()} />
-              <meta name="keywords" content="développeur web, portfolio, React, frontend, backend, Navarro Benjamin" />
-              <meta name="author" content="Navarro Benjamin" />
-              <meta property="og:title" content={getMetaTitle()} />
-              <meta property="og:description" content={getMetaDescription()} />
-              <meta property="og:type" content="website" />
-              <meta property="og:url" content="https://navart.dev" />
-              <meta property="og:image" content="/logo.png" />
-              <meta name="twitter:card" content="summary_large_image" />
-              <meta name="twitter:title" content={getMetaTitle()} />
-              <meta name="twitter:description" content={getMetaDescription()} />
-              <meta name="twitter:image" content="/logo.png" />
-              <link rel="canonical" href="https://navart.dev" />
-            </Helmet>
-            
-            <SchemaData />
-            
-            <Layout onFilterChange={handleFilterChange} activeComponent={renderActiveComponent().type}>
-              <main className="main-content">{renderActiveComponent().component}</main>
-            </Layout>
+    <CookieConsentContext.Provider value={{ cookieConsent, setConsent: handleConsentChange }}>
+      <ScrollObserverContext.Provider value={{ defaultInViewOptions }}>
+        <div className="app">
+          <Layout onFilterChange={handleFilterChange} activeComponent={renderActiveComponent().type}>
+            <main className="main-content">{renderActiveComponent().component}</main>
+          </Layout>
 
-            {/* Bannière de consentement des cookies au niveau de l'application */}
-            <CookieConsent onConsentChange={handleConsentChange} />
-          </div>
-        </ScrollObserverContext.Provider>
-      </CookieConsentContext.Provider>
-    </HelmetProvider>
+          {/* Bannière de consentement des cookies au niveau de l'application */}
+          <CookieConsent onConsentChange={handleConsentChange} />
+        </div>
+      </ScrollObserverContext.Provider>
+    </CookieConsentContext.Provider>
   );
 }
 
