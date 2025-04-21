@@ -99,7 +99,11 @@ const BackgroundParallax = ({ medias, forceTranslate }) => {
             className={`parallax-image layer-${index}`}
             style={getParallaxStyle(intensity, blur, opacity, zIndex)}
           >
-            <img src={media} alt={`parallax-layer-${index}`} />
+            <img src={media}
+             alt={`parallax-layer-${index}`}
+             loading="lazy"
+            />
+
           </div>
         ))}
       </div>

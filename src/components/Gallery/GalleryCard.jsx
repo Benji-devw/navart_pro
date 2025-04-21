@@ -23,7 +23,7 @@ const GalleryCard = ({
 
   const getMediaElement = () => {
     if (!project.image) {
-      return <img src={placeholderImage} alt="Placeholder" className="card-image" />;
+      return <img src={placeholderImage} alt={`Image de présentation du projet ${project.title || 'sans titre'}`} className="card-image" />;
     }
     
     if (project.image?.endsWith('.mp4')) {
@@ -44,7 +44,7 @@ const GalleryCard = ({
             }}
           >
             <source src={project.image} type="video/mp4" loading="lazy"/>
-            <img src={placeholderImage} alt="Video fallback" className="card-image" />
+            <img src={placeholderImage} alt={`Vidéo de présentation du projet ${project.title || 'sans titre'}`} className="card-image" />
           </video>
         </div>
       );
@@ -55,7 +55,7 @@ const GalleryCard = ({
         src={placeholderImage}
         data-src={project.image}
         data-id={projectId}
-        alt={project.title}
+        alt={`Projet: ${project.title}${project.description ? ` - ${project.description.substring(0, 50)}${project.description.length > 50 ? '...' : ''}` : ''}`}
         className={`card-image ${loadedImages[projectId] ? 'loaded' : ''}`}
       />
     );
@@ -73,6 +73,7 @@ const GalleryCard = ({
       style={cardStyle}
       tabIndex={index}
       ref={(el) => (cardsRef.current[index] = el)}
+      aria-label={`Projet: ${project.title}`}
     >
       <div className="card-content">
         <div className="card-image-container">{getMediaElement()}</div>
@@ -104,12 +105,13 @@ const GalleryCard = ({
                   size="small" 
                   fullWidth={true} 
                   onClick={handleVisitClick}
+                  aria-label={`Visiter le projet ${project.title}`}
                 >
                   Visiter
                 </Button>
               )}
               {project.github && (
-                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`Voir le code source du projet ${project.title}`}>
                   <Button className="bnt-tab active" size="small" fullWidth={true}>
                     Voir le code
                   </Button>
