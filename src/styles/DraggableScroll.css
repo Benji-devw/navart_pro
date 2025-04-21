@@ -30,3 +30,11 @@
 .draggable-scroll-content svg {
   pointer-events: none;
 } 
+
+@media (max-width: 768px) {
+  .draggable-scroll-content {
+    padding: 1rem 2rem;
+  }
+}
+
+

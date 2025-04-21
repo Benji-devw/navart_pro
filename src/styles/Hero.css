@@ -54,7 +54,6 @@
   max-width: 60vw;
   height: 140px;
   margin: 0 auto;
-
 }
 
 /* Icon style */
@@ -126,7 +125,7 @@
   }
 
   .hero-stack-container {
-    width: 100vw;
+    max-width: 90vw;
     top: 0;
   }
 }

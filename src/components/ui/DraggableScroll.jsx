@@ -25,6 +25,13 @@ const DraggableScroll = ({
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  // Détecter si l'appareil est tactile
+  useEffect(() => {
+    const isTouchEnabled = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(isTouchEnabled);
+  }, []);
 
   // Style pour le masque
   const maskStyle = maskGradient ? {
@@ -57,8 +64,10 @@ const DraggableScroll = ({
   const handleDragMove = (e) => {
     if (!isDragging || !scrollContainerRef.current) return;
 
-    // Empêcher le comportement par défaut (sélection de texte, défilement de page)
-    e.preventDefault();
+    // Ne pas essayer d'annuler l'événement tactile pendant le défilement natif
+    if (e.type !== 'touchmove' || e.cancelable) {
+      e.preventDefault();
+    }
 
     // Calculer la position et le déplacement
     const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
@@ -84,7 +93,15 @@ const DraggableScroll = ({
 
     if (isDragging) {
       document.addEventListener('mousemove', handleGlobalMove);
-      document.addEventListener('touchmove', handleGlobalMove, { passive: false });
+      
+      // Modifier pour les appareils tactiles
+      if (isTouchDevice) {
+        // Utiliser { passive: true } pour les appareils tactiles pour éviter l'avertissement
+        document.addEventListener('touchmove', handleGlobalMove, { passive: true });
+      } else {
+        document.addEventListener('touchmove', handleGlobalMove, { passive: false });
+      }
+      
       document.addEventListener('mouseup', handleGlobalEnd);
       document.addEventListener('touchend', handleGlobalEnd);
     }
@@ -95,20 +112,33 @@ const DraggableScroll = ({
       document.removeEventListener('mouseup', handleGlobalEnd);
       document.removeEventListener('touchend', handleGlobalEnd);
     };
-  }, [isDragging, startX, scrollLeft]);
+  }, [isDragging, startX, scrollLeft, isTouchDevice]);
+
+  // Configuration du conteneur pour défilement horizontal natif sur mobile
+  const containerProps = isTouchDevice ? {
+    className: `draggable-scroll-container ${className}`,
+    ref: scrollContainerRef,
+    style: {
+      cursor,
+      ...maskStyle,
+      ...scrollbarStyle,
+      overflowX: 'auto',
+      WebkitOverflowScrolling: 'touch', // Pour une meilleure inertie sur iOS
+    }
+  } : {
+    className: `draggable-scroll-container ${className}`,
+    ref: scrollContainerRef,
+    onMouseDown: handleDragStart,
+    onTouchStart: handleDragStart,
+    style: {
+      cursor,
+      ...maskStyle,
+      ...scrollbarStyle
+    }
+  };
 
   return (
-    <div
-      className={`draggable-scroll-container ${className}`}
-      ref={scrollContainerRef}
-      onMouseDown={handleDragStart}
-      onTouchStart={handleDragStart}
-      style={{
-        cursor,
-        ...maskStyle,
-        ...scrollbarStyle
-      }}
-    >
+    <div {...containerProps}>
       <div className="draggable-scroll-content">
         {children}
       </div>

@@ -11,7 +11,12 @@ import DraggableScroll from '@components/ui/DraggableScroll';
 const Hero = () => {
   const { defaultInViewOptions } = useContext(ScrollObserverContext);
   const [ref, inView] = useInView(defaultInViewOptions);
-  const techStack = [...frontendSkills, ...backendSkills, ...toolsSkills];
+  
+  // Limiter le nombre de compétences affichées pour optimiser les performances
+  const limitedFrontend = frontendSkills.slice(0, 8);
+  const limitedBackend = backendSkills.slice(0, 6);
+  const limitedTools = toolsSkills.slice(0, 6);
+  const techStack = [...limitedFrontend, ...limitedBackend, ...limitedTools];
 
   return (
     <section id="hero" className="hero">
@@ -30,7 +35,7 @@ const Hero = () => {
 
         <DraggableScroll
           className="hero-stack-container"
-          dragSpeed={2.5}
+          dragSpeed={1.5} // Réduire la vitesse pour plus de stabilité
           maskGradient="linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
         >
           {techStack.map((tech, index) => (
