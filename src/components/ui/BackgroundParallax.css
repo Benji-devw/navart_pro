@@ -70,13 +70,6 @@
 }
 
 @media (max-width: 768px) {
-  /* Optimisations supplémentaires pour mobile */
-  .background-aura {
-    /* Réduire la qualité de l'image de fond sur mobile */
-    background-image: url('@/assets/images/portfolio-bg-scene-small.png');
-    background-attachment: scroll;
-  }
-  
   /* Désactiver les effets de parallax sur mobile */
   .parallax-image {
     transition: none;
