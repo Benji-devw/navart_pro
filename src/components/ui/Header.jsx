@@ -38,7 +38,7 @@ export const Header = ({ onFilterChange }) => {
 
   // Function to handle view change
   const handleFilterView = (sectionName) => {
-    localStorage.setItem('activeIcon', sectionName);
+    // localStorage.setItem('activeIcon', sectionName);
     setActiveIcon(sectionName);
 
     // Call the callback function to inform the parent of the change
