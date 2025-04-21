@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
-const Header = ({ onFilterChange }) => {
+export const Header = ({ onFilterChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [activeIcon, setActiveIcon] = useState('hero'); // 'home', 'shop', 'projects', 'contact'
@@ -38,7 +38,7 @@ const Header = ({ onFilterChange }) => {
 
   // Function to handle view change
   const handleFilterView = (sectionName) => {
-    localStorage.setItem('activeIcon', sectionName);    
+    localStorage.setItem('activeIcon', sectionName);
     setActiveIcon(sectionName);
 
     // Call the callback function to inform the parent of the change
@@ -95,4 +95,3 @@ const Header = ({ onFilterChange }) => {
   );
 };
 
-export default Header;

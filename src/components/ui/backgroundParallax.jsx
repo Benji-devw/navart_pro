@@ -56,7 +56,7 @@ const BackgroundParallax = ({ medias, forceTranslate }) => {
 
   return (
     <>
-      {/* <div className="background-aura" /> */}
+      <div className="background-aura" />
       <div className="background-parallax" ref={parallaxRef}>
         {medias.map(({ media, intensity, blur, opacity, zIndex }, index) => (
           <div

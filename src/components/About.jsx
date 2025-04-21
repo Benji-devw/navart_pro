@@ -43,7 +43,7 @@ const About = () => {
             <h3>Mon parcours</h3>
             <p>
               Avec 5 ans de background en programmation web, dont <b>2 ans d'expériences</b> en alternance en tant que Testeur
-              QA et <b>2 mois de stage</b> comme Intégrateur web, je suis toujours aussi passionnée et motivée par ce domaine.
+              QA et <b>2 mois de stage</b> comme Intégrateur web, je suis toujours aussi passionné et motivé par ce domaine.
             </p>
           </div>
 
