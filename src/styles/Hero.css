@@ -54,6 +54,7 @@
   max-width: 60vw;
   height: 140px;
   margin: 0 auto;
+  margin-top: 200px;
 }
 
 /* Icon style */
@@ -127,5 +128,8 @@
   .hero-stack-container {
     max-width: 90vw;
     top: 0;
+  }
+  .hero-stack-container {
+    margin-top: 70px;
   }
 }

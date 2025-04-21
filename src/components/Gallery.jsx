@@ -40,24 +40,24 @@ const Gallery = ({ projects }) => {
         if (entry.isIntersecting) {
           const img = entry.target;
           const actualSrc = img.dataset.src;
-          
+
           const tempImage = new Image();
           tempImage.onload = () => {
             img.src = actualSrc;
-            setLoadedImages(prev => ({
+            setLoadedImages((prev) => ({
               ...prev,
-              [img.dataset.id]: true
+              [img.dataset.id]: true,
             }));
           };
           tempImage.src = actualSrc;
-          
+
           imageObserver.unobserve(img);
         }
       });
     });
 
     const lazyImages = document.querySelectorAll('img[data-src]');
-    lazyImages.forEach(img => imageObserver.observe(img));
+    lazyImages.forEach((img) => imageObserver.observe(img));
 
     return () => {
       imageObserver.disconnect();
@@ -70,30 +70,32 @@ const Gallery = ({ projects }) => {
   };
 
   return (
-    <div id="app-store" ref={appStoreRef}>
-      <ul className={`card-list gallery-content ${inView ? 'animate' : 'not-active'}`} ref={ref}>
-        {projects.map((project, index) => (
-          <GalleryCard
-            key={index}
-            project={project}
-            index={index}
-            transformState={transformState}
-            descriptionVisible={descriptionVisible}
-            videoRefs={videoRefs}
-            loadedImages={loadedImages}
-            selectedProject={selectedProject}
-            cardsRef={cardsRef}
-            onCardClick={(project, index, e) => captureAndTransform(project, index, e, isMobile)}
-            onVisitClick={handleVisitClick}
-          />
-        ))}
-      </ul>
+    <>
+      <div id="app-store" ref={appStoreRef}>
+        <ul className={`card-list gallery-content ${inView ? 'animate' : 'not-active'}`} ref={ref}>
+          {projects.map((project, index) => (
+            <GalleryCard
+              key={index}
+              project={project}
+              index={index}
+              transformState={transformState}
+              descriptionVisible={descriptionVisible}
+              videoRefs={videoRefs}
+              loadedImages={loadedImages}
+              selectedProject={selectedProject}
+              cardsRef={cardsRef}
+              onCardClick={(project, index, e) => captureAndTransform(project, index, e, isMobile)}
+              onVisitClick={handleVisitClick}
+            />
+          ))}
+        </ul>
+      </div>
       <div
         className={`gallery-overlay ${overlayVisible ? 'visible' : 'hiding'}`}
         onClick={handleOverlayClick}
         tabIndex="0"
       />
-    </div>
+    </>
   );
 };
 
