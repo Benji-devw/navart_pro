@@ -7,14 +7,14 @@ import { ContactForm } from '@components/ContactForm';
 import onePlan from '@assets/images/one-plan-color.png';
 import twoPlan from '@assets/images/two-plan-color.png';
 import threePlan from '@assets/images/three-plan-dark.png';
-import fourPlan from '@assets/images/four-plan-dark.png';
+// import fourPlan from '@assets/images/four-plan-dark.png';
 
 const Layout = ({ children, onFilterChange, activeComponent }) => {
   const medias = [
-    { media: onePlan, intensity: 100, blur: 1, opacity: .07, zIndex: -1 },
-    { media: twoPlan, intensity: 30, blur: 0, opacity: .5, zIndex: -2 },
-    { media: threePlan, intensity: 0, blur: 1, opacity: .3, zIndex: -3 },
-    { media: fourPlan, intensity: 10, blur: 2, opacity: .05, zIndex: -4 },
+    { media: onePlan, intensity: 100, blur: 1, opacity: 0.07, zIndex: -1 },
+    { media: twoPlan, intensity: 50, blur: 0, opacity: 0.3, zIndex: -2 },
+    { media: threePlan, intensity: 20, blur: 2, opacity: 0.3, zIndex: -3 },
+    // { media: fourPlan, intensity: 10, blur: 2, opacity: 0.3, zIndex: -4 },
   ];
 
   return (

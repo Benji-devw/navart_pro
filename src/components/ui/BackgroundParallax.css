@@ -50,10 +50,35 @@
   /* Légèrement agrandi pour couvrir toute la zone pendant le mouvement */
 }
 
-@media (max-width: 768px) {
+/* Optimisations pour mobile */
+.background-parallax.mobile .parallax-image {
+  /* Désactiver les transitions et animations pour optimiser les performances */
+  transition: none;
+  will-change: auto;
+}
 
-  /* Réduire l'effet sur les appareils mobiles */
+.background-parallax.mobile .parallax-image img {
+  /* Réduire la taille légèrement pour des performances optimales */
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+}
+
+/* Images fixes sur mobile pour économiser les ressources */
+.background-aura.mobile {
+  background-attachment: scroll;
+}
+
+@media (max-width: 768px) {
+  /* Optimisations supplémentaires pour mobile */
+  .background-aura {
+    /* Réduire la qualité de l'image de fond sur mobile */
+    background-image: url('@/assets/images/portfolio-bg-scene-small.png');
+    background-attachment: scroll;
+  }
+  
+  /* Désactiver les effets de parallax sur mobile */
   .parallax-image {
-    transition: transform 0.2s ease-out;
+    transition: none;
   }
 }
