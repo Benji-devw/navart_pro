@@ -8,7 +8,19 @@
   overflow: hidden;
   pointer-events: none;
 }
-
+.background-scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -8;
+  background-image: url('@/assets/images/portfolio-bg-scene2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 .background-aura {
   position: fixed;
   top: 0;
@@ -16,16 +28,11 @@
   width: 100%;
   height: 100%;
   z-index: -8;
-  background-image: url('@/assets/images/portfolio-bg-scene.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 
-  /* background: radial-gradient(circle at center, var(--primary-color) 0%, rgba(0, 0, 0, 0) 70%),
-    radial-gradient(circle at top, var(--secondary-color) 0%, rgba(0, 0, 0, 0) 70%),
-    radial-gradient(circle at center, var(--accent-color) 0%, rgba(0, 0, 0, 0) 70%); */
-  /* mix-blend-mode: overlay; */
+  background: radial-gradient(circle at left, var(--primary-color) 0%, rgba(0, 0, 0, 0) 70%),
+    radial-gradient(circle at center, var(--secondary-color) 0%, rgba(0, 0, 0, 0) 70%),
+    radial-gradient(circle at right, var(--accent-color) 0%, rgba(0, 0, 0, 0) 70%);
+  mix-blend-mode: overlay;
   /* pointer-events: none; */
 }
 

@@ -14,6 +14,7 @@ export const CookieConsentContext = createContext(null);
 function App() {
   const [activeView, setActiveView] = useState(localStorage.getItem('activeIcon') || '');
   const [cookieConsent, setCookieConsent] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Default options for scroll observation
   const defaultInViewOptions = {
@@ -29,6 +30,16 @@ function App() {
     if (savedConsent === 'accepted') {
       setCookieConsent(true);
     }
+  }, []);
+
+  // Effect to simulate loading time
+  useEffect(() => {
+    // Simuler un temps de chargement pour le loader
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   // Function to handle the consent change
@@ -84,13 +95,21 @@ function App() {
   return (
     <CookieConsentContext.Provider value={{ cookieConsent, setConsent: handleConsentChange }}>
       <ScrollObserverContext.Provider value={{ defaultInViewOptions }}>
-        <div className="app">
-          <Layout onFilterChange={handleFilterChange} activeComponent={renderActiveComponent().type}>
-            <main className="main-content">{renderActiveComponent().component}</main>
-          </Layout>
+        <div className={`app ${isLoading ? 'loading' : 'loaded'}`}>
+          {isLoading ? (
+            <div className="loader">
+              <div className="loader-spinner"></div>
+            </div>
+          ) : (
+            <>
+              <Layout onFilterChange={handleFilterChange} activeComponent={renderActiveComponent().type}>
+                <main className="main-content">{renderActiveComponent().component}</main>
+              </Layout>
 
-          {/* Bannière de consentement des cookies au niveau de l'application */}
-          <CookieConsent onConsentChange={handleConsentChange} />
+              {/* Bannière de consentement des cookies au niveau de l'application */}
+              <CookieConsent onConsentChange={handleConsentChange} />
+            </>
+          )}
         </div>
       </ScrollObserverContext.Provider>
     </CookieConsentContext.Provider>

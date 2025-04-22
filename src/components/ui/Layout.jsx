@@ -1,23 +1,23 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './Layout.css';
 import BackgroundParallax from '@/components/ui/backgroundParallax';
 import { Header } from '@/components/ui/Header';
 import { ContactForm } from '@components/ContactForm';
-import { CookieConsentContext } from '@/App';
 // import video from '@assets/earth.mp4';
 import onePlan from '@assets/images/one-plan-color.png';
 import twoPlan from '@assets/images/two-plan-color.png';
 import threePlan from '@assets/images/three-plan-dark.png';
 // import fourPlan from '@assets/images/four-plan-dark.png';
+// import logoPlan1 from '@assets/images/logo-plan-1.png';
+// import logoPlan2 from '@assets/images/logo-plan-2.png';
 
 const Layout = ({ children, onFilterChange, activeComponent }) => {
-  // Utiliser le contexte pour accéder au statut du consentement
-  const { cookieConsent } = useContext(CookieConsentContext);
-  
   const medias = [
-    { media: onePlan, intensity: 100, blur: 1, opacity: 0.07, zIndex: -1 },
-    { media: twoPlan, intensity: 50, blur: 0, opacity: 0.3, zIndex: -2 },
-    { media: threePlan, intensity: 20, blur: 2, opacity: 0.3, zIndex: -3 },
+    // { media: logoPlan1, intensity: 0, blur: 0, opacity: .1, zIndex: -1 },
+    // { media: logoPlan2, intensity: 0, blur: 0, opacity: .1, zIndex: -2 },
+    { media: onePlan, intensity: 100, blur: 1, opacity: .1, zIndex: -2 },
+    { media: twoPlan, intensity: 50, blur: 0, opacity: 0.3, zIndex: -4 },
+    { media: threePlan, intensity: 20, blur: 2, opacity: 0.3, zIndex: -5 },
     // { media: fourPlan, intensity: 10, blur: 2, opacity: 0.3, zIndex: -4 },
   ];
   
@@ -33,18 +33,11 @@ const Layout = ({ children, onFilterChange, activeComponent }) => {
       <BackgroundParallax medias={medias} forceTranslate={50} />
 
       <div className="layout-container">
-        {/* Vous pouvez utiliser clientConsent pour conditionner l'affichage de certains éléments */}
         {children}
       </div>
 
       <ContactForm />
       
-      {/* Services conditionnels basés sur le consentement */}
-      {cookieConsent && (
-        <div className="consent-required-features" style={{ display: 'none' }}>
-          {/* Services d'analyse, publicités, etc. */}
-        </div>
-      )}
     </div>
   );
 };

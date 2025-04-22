@@ -43,7 +43,7 @@ const BackgroundParallax = ({ medias, forceTranslate }) => {
       
       // Define the intensity of the movement
       // If forceTranslate is 0, use the default value (-20)
-      const intensity = forceTranslate || -20;
+      const intensity = forceTranslate;
       
       // Convert the position to a percentage and apply the intensity
       const moveX = ((mouseX - centerX) / centerX) * intensity;
@@ -77,6 +77,11 @@ const BackgroundParallax = ({ medias, forceTranslate }) => {
       return baseStyle;
     }
 
+    // Si l'intensité est 0, ne pas appliquer de transformation
+    if (intensity === 0) {
+      return baseStyle;
+    }
+
     // If desktop, add parallax transformation
     const intensityFactor = intensity ? intensity / 100 : 1;
     return {
@@ -91,7 +96,8 @@ const BackgroundParallax = ({ medias, forceTranslate }) => {
 
   return (
     <>
-      <div className={`background-aura ${isMobile ? 'mobile' : ''}`} />
+      <div className={`background-scene`} />
+      {/* <div className={`background-aura`} /> */}
       <div className={`background-parallax ${isMobile ? 'mobile' : ''}`} ref={parallaxRef}>
         {medias.map(({ media, intensity, blur, opacity, zIndex }, index) => (
           <div

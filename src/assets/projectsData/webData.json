@@ -61,7 +61,7 @@
     },
     {
       "title": "Vallena",
-      "description": "Projet personnel - Site web de vente de vêtements.",
+      "description": "Projet personnel - Atelier de couture. - Site web de vente de vêtements.",
       "category": "web",
       "status": "In progress",
       "tags": ["React", "Node.js", "MongoDB", "Sass", "Bootstrap"],
