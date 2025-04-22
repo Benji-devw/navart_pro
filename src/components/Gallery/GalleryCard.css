@@ -48,9 +48,16 @@
   pointer-events: none;
 }
 
+.card:hover .card-image {
+  transform: scale(1.05);
+}
+.card.selected:hover .card-image {
+  transform: none;
+}
+
 .card-image:not(.loaded) {
   filter: opacity(0.5);
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .card-image.loaded,
