@@ -26,16 +26,18 @@
   ],
 
   "toolsSkills": [
-    { "name": "Jest", "icon": "devicon-jest-plain colored", "level": 55 },
-    { "name": "Vitest", "icon": "devicon-vitest-plain colored", "level": 65 },
-    { "name": "Cursor", "icon": "/icons/th.png", "level": 85 },
-    { "name": "NoeVim", "icon": "devicon-neovim-plain colored", "level": 85 },
     { "name": "Git", "icon": "devicon-git-plain colored", "level": 65 },
     { "name": "GitHub", "icon": "devicon-github-plain colored", "level": 70 },
-    { "name": "CI/CD", "icon": "devicon-gitlab-plain colored", "level": 70 },
-    { "name": "Docker", "icon": "devicon-docker-plain colored", "level": 60 },
     { "name": "Jira", "icon": "devicon-jira-plain colored", "level": 80 },
+    { "name": "CI/CD", "icon": "devicon-gitlab-plain colored", "level": 70 },
+    { "name": "Notion", "icon": "/icons/notion.png", "level": 80 },
+    { "name": "Cursor", "icon": "/icons/th.png", "level": 85 },
+    { "name": "NoeVim", "icon": "devicon-neovim-plain colored", "level": 85 },
+    { "name": "Jest", "icon": "devicon-jest-plain colored", "level": 55 },
+    { "name": "Vitest", "icon": "devicon-vitest-plain colored", "level": 65 },
+    { "name": "Docker", "icon": "devicon-docker-plain colored", "level": 60 },
     { "name": "Monday", "icon": "/icons/monday-icon-icon-md.png", "level": 75 },
+    { "name": "Excalidraw", "icon": "/icons/excalidraw.png", "level": 75 },
     { "name": "Postman", "icon": "devicon-postman-plain colored", "level": 85 },
     { "name": "Expo", "icon": "/icons/expo.png", "level": 70 }
   ]

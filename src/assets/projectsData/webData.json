@@ -1,9 +1,40 @@
 {
   "web": [
     {
-      "title": "My Stats",
-      "description": "Projet personnel - Statistiques sportives.",
+      "title": "Learn@Home",
+      "description": "Projet Etudiant - ⭐️ Objectifs pédagogiques ⭐️, - User Stories, Diagrammes, Kanban, Maquette , - Créer une maquette pour un client, - Identifier les besoins de l'application à partir d'un cahier des charges, - Modéliser une solution technique pour un client, - Contribuer à un projet en utilisant une méthodologie agile.",
       "category": "web",
+      "status": "In progress",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "icons": [
+        { "name": "Figma", "icon": "devicon-figma-plain colored" },
+        { "name": "Notion", "icon": "/icons/notion.png" },
+        { "name": "Excalidraw", "icon": "/icons/excalidraw.png" }
+      ],
+      "image": "/media/web/Learn@Home.png",
+      "link": "#",
+      "source_code": "#",
+      "maquette": "https://www.figma.com/community/file/1496465375256167758/learnhome-web-platform"
+    },
+    {
+      "title": "Bien être à la campagne",
+      "description": "Projet client, - Reservation de gîte en ligne",
+      "category": "web",
+      "status": "In progress",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "icons": [
+        { "name": "Figma", "icon": "devicon-figma-plain colored" },
+        { "name": "React", "icon": "devicon-react-plain colored" }],
+      "image": "/media/web/Gite_Canu.png",
+      "link": "#",
+      "source_code": "#",
+      "maquette": "https://www.figma.com/community/file/1496457132357622089/mesnil-amand"
+    },
+    {
+      "title": "My Stats",
+      "description": "Projet personnel - Statistiques sportives. - Version 1.1.0, seulement pour le Foot en salle 'five'.",
+      "category": "web",
+      "status": "Online",
       "tags": ["HTML", "CSS", "JavaScript"],
       "icons": [
         {
@@ -25,118 +56,14 @@
       ],
       "image": "/media/web/myStats.png",
       "link": "https://my-stats-web.vercel.app/",
-      "github": "https://github.com/Benji-devw/my-stats-web"
-    },
-    {
-      "title": "Petit Plats",
-      "description": "Projet Formation OpenClassrooms - Site web de recettes de cuisine.",
-      "category": "web",
-      "tags": ["HTML", "CSS", "JavaScript"],
-      "icons": [
-        {
-          "name": "HTML5",
-          "icon": "devicon-html5-plain colored"
-        },
-        {
-          "name": "CSS3",
-          "icon": "devicon-css3-plain colored"
-        },
-        {
-          "name": "JavaScript",
-          "icon": "devicon-javascript-plain colored"
-        }
-      ],
-      "image": "/media/web/petitsPlats.png",
-      "link": "https://benji-devw.github.io/p7-petits-plats/",
-      "github": "https://github.com/Benji-devw/p7-petits-plats"
-    },
-    {
-      "title": "StouflyDoc",
-      "description": "Projet personnel - Base de données de samples 'Musique'.",
-      "category": "web",
-      "tags": ["Next.js", "Node.js", "MongoDB", "TypeScript", "Tailwind"],
-      "icons": [
-        {
-          "name": "Next.js",
-          "icon": "devicon-nextjs-plain colored"
-        },
-        {
-          "name": "Node.js",
-          "icon": "devicon-nodejs-plain colored"
-        },
-        {
-          "name": "MongoDB",
-          "icon": "devicon-mongodb-plain colored"
-        },
-        {
-          "name": "TypeScript",
-          "icon": "devicon-typescript-plain colored"
-        },
-        {
-          "name": "Tailwind CSS",
-          "icon": "devicon-tailwindcss-plain colored"
-        }
-      ],
-      "image": "/media/web/StouflyDocPreview_fg.png",
-      "link": "https://stoufly-doc.vercel.app/",
-      "github": "https://github.com/Benji-devw/stoufly_doc"
-    },
-    {
-      "title": "Aleph Ecriture",
-      "description": "Contribution chez Kokmoka - Site web école d'écriture.",
-      "category": "web",
-      "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
-      "icons": [
-        {
-          "name": "WordPress",
-          "icon": "devicon-wordpress-plain colored"
-        },
-        {
-          "name": "PHP",
-          "icon": "devicon-php-plain colored"
-        },
-        {
-          "name": "JavaScript",
-          "icon": "devicon-javascript-plain colored"
-        },
-        {
-          "name": "jQuery",
-          "icon": "devicon-jquery-plain colored"
-        }
-      ],
-      "image": "/media/web/aleph.jpg",
-      "link": "https://www.aleph-ecriture.fr/"
-    },
-    {
-      "title": "FFMI",
-      "description": "Contribution chez Kokmoka - Site web de l'association FFMI.",
-      "category": "web",
-      "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
-      "icons": [
-        {
-          "name": "WordPress",
-          "icon": "devicon-wordpress-plain colored"
-        },
-        {
-          "name": "PHP",
-          "icon": "devicon-php-plain colored"
-        },
-        {
-          "name": "JavaScript",
-          "icon": "devicon-javascript-plain colored"
-        },
-        {
-          "name": "jQuery",
-          "icon": "devicon-jquery-plain colored"
-        }
-      ],
-      "image": "/media/web/ffmi.jpg",
-      "link": "https://www.ffmi.asso.fr/"
+      "source_code": "https://gitlab.com/Benji-devw/my-stats-web",
+      "maquette": "#"
     },
     {
       "title": "Vallena",
       "description": "Projet personnel - Site web de vente de vêtements.",
       "category": "web",
+      "status": "In progress",
       "tags": ["React", "Node.js", "MongoDB", "Sass", "Bootstrap"],
       "icons": [
         {
@@ -162,31 +89,134 @@
       ],
       "image": "/media/web/vallena_.png",
       "link": "#",
-      "github": "https://github.com/Benji-devw/Vallena"
+      "source_code": "https://github.com/Benji-devw/Vallena",
+      "maquette": "https://www.figma.com/community/file/1496459444479350091/vallena-project"
     },
     {
-      "title": "3D porfolio",
-      "description": "Projet personnel - Portfolio 3D.",
+      "title": "Petit Plats",
+      "description": "Projet Etudiant - ⭐️ Objectifs pédagogiques ⭐️, - Analyser un problème informatique, - Développer un algorithme pour résoudre un problème, - Web integration",
       "category": "web",
-      "tags": ["Next.js", "Three.js"],
+      "status": "Online",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "icons": [
+        {
+          "name": "Figma",
+          "icon": "devicon-figma-plain colored"
+        },
+        {
+          "name": "HTML5",
+          "icon": "devicon-html5-plain colored"
+        },
+        {
+          "name": "CSS3",
+          "icon": "devicon-css3-plain colored"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "devicon-javascript-plain colored"
+        }
+      ],
+      "image": "/media/web/petitsPlats.png",
+      "link": "https://benji-devw.github.io/p7-petits-plats/",
+      "source_code": "https://github.com/Benji-devw/p7-petits-plats",
+      "maquette": "#"
+    },
+    {
+      "title": "StouflyDoc",
+      "description": "Projet personnel - Base de données de samples 'Musique'.",
+      "category": "web",
+      "status": "Online",
+      "tags": ["Next.js", "Node.js", "MongoDB", "TypeScript", "Tailwind"],
       "icons": [
         {
           "name": "Next.js",
           "icon": "devicon-nextjs-plain colored"
         },
         {
-          "name": "Three.js",
-          "icon": "devicon-threejs-original colored"
+          "name": "Node.js",
+          "icon": "devicon-nodejs-plain colored"
+        },
+        {
+          "name": "MongoDB",
+          "icon": "devicon-mongodb-plain colored"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "devicon-typescript-plain colored"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "devicon-tailwindcss-plain colored"
         }
       ],
-      "image": "/media/web/spacefolio.png",
-      "link": "https://bn-3d.vercel.app/",
-      "github": "https://github.com/Benji-devw/folio-threejs"
+      "image": "/media/web/StouflyDocPreview_fg.png",
+      "link": "https://stoufly-doc.vercel.app/",
+      "source_code": "https://github.com/Benji-devw/stoufly_doc",
+      "maquette": "#"
+    },
+    {
+      "title": "Aleph Ecriture",
+      "description": "Contribution chez Kokmoka - Site web école d'écriture.",
+      "category": "web",
+      "status": "Online",
+      "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
+      "icons": [
+        {
+          "name": "WordPress",
+          "icon": "devicon-wordpress-plain colored"
+        },
+        {
+          "name": "PHP",
+          "icon": "devicon-php-plain colored"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "devicon-javascript-plain colored"
+        },
+        {
+          "name": "jQuery",
+          "icon": "devicon-jquery-plain colored"
+        }
+      ],
+      "image": "/media/web/aleph.jpg",
+      "link": "https://www.aleph-ecriture.fr/",
+      "source_code": "#",
+      "maquette": "#"
+    },
+    {
+      "title": "FFMI",
+      "description": "Contribution chez Kokmoka - Site web de l'association FFMI.",
+      "category": "web",
+      "status": "Online",
+      "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
+      "icons": [
+        {
+          "name": "WordPress",
+          "icon": "devicon-wordpress-plain colored"
+        },
+        {
+          "name": "PHP",
+          "icon": "devicon-php-plain colored"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "devicon-javascript-plain colored"
+        },
+        {
+          "name": "jQuery",
+          "icon": "devicon-jquery-plain colored"
+        }
+      ],
+      "image": "/media/web/ffmi.jpg",
+      "link": "https://www.ffmi.asso.fr/",
+      "source_code": "#",
+      "maquette": "#"
     },
     {
       "title": "3D porfolio",
       "description": "Projet personnel - Portfolio 3D.",
       "category": "web",
+      "status": "Online",
       "tags": ["Next.js", "Three.js"],
       "icons": [
         {
@@ -200,7 +230,29 @@
       ],
       "image": "/media/web/Folio_Preview.jpg",
       "link": "https://navarro-benjamin.vercel.app/",
-      "github": "https://github.com/Benji-devw/folio-threejs"
+      "source_code": "https://github.com/Benji-devw/folio-threejs",
+      "maquette": "#"
+    },
+    {
+      "title": "3D porfolio",
+      "description": "Projet personnel - Portfolio 3D.",
+      "category": "web",
+      "status": "Online",
+      "tags": ["Next.js", "Three.js"],
+      "icons": [
+        {
+          "name": "Next.js",
+          "icon": "devicon-nextjs-plain colored"
+        },
+        {
+          "name": "Three.js",
+          "icon": "devicon-threejs-original colored"
+        }
+      ],
+      "image": "/media/web/spacefolio.png",
+      "link": "https://bn-3d.vercel.app/",
+      "source_code": "https://github.com/Benji-devw/folio-threejs",
+      "maquette": "#"
     }
   ]
 }

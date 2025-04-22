@@ -239,10 +239,10 @@
 
 .timeline-content img {
   position: absolute;
-  top: -1.7rem;
+  top: -2rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
+  width: 250px;
   object-fit: contain;
   background: transparent;
 }

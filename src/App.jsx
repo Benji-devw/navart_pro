@@ -65,19 +65,19 @@ function App() {
     // Mettre à jour le titre de la page en fonction de la vue active
     switch (renderActiveComponent().type) {
       case 'hero':
-        document.title = 'Navart | Accueil - Portfolio de développement web';
+        document.title = 'Navart | Accueil - Portfolio Benjamin Navarro';
         break;
       case 'about':
-        document.title = 'Navart | À propos - Portfolio de développement web';
+        document.title = 'Navart | À propos - Portfolio Benjamin Navarro';
         break;
       case 'skills':
-        document.title = 'Navart | Compétences - Portfolio de développement web';
+        document.title = 'Navart | Compétences - Portfolio Benjamin Navarro';
         break;
       case 'projects':
-        document.title = 'Navart | Projets - Portfolio de développement web';
+        document.title = 'Navart | Projets - Portfolio Benjamin Navarro';
         break;
       default:
-        document.title = 'Navart | Portfolio de développement web';
+        document.title = 'Navart | Portfolio Benjamin Navarro';
     }
   }, [activeView]);
 

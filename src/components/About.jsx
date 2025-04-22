@@ -35,15 +35,19 @@ const About = () => {
           <div className="about-text">
             <h3>Qui suis-je ?</h3>
             <p>
-              Je suis Benjamin, un développeur passionné par l’informatique, sa conception et son évolution, je suis
-              très ambitieux et constamment en recherche de connaissances dans ce que j'entreprends avec le métier de
-              <b> développeur web</b>. Je suis à la <b>recherche de nouvelles opportunités</b> pour continuer à évoluer
-              et contribuer.
+              Je suis Benjamin, un développeur passionné par l’informatique, sa conception et son évolution.
+              <br />
+              Je suis très ambitieux et constamment en recherche de connaissances dans ce que j'entreprends avec le
+              métier de
+              <b> développeur web</b>.
+              <br />
+              Je suis à la <b>recherche de nouvelles opportunités</b> pour continuer à évoluer et contribuer.
             </p>
             <h3>Mon parcours</h3>
             <p>
-              Avec 5 ans de background en programmation web, dont <b>2 ans d'expériences</b> en alternance en tant que Testeur
-              QA et <b>2 mois de stage</b> comme Intégrateur web, je suis toujours aussi passionné et motivé par ce domaine.
+              Avec 5 ans de background en programmation web, dont <b>2 ans d'expériences</b> en alternance en tant que
+              Testeur QA et <b>2 mois de stage</b> comme Intégrateur web, je suis toujours aussi passionné et motivé par
+              ce domaine.
             </p>
           </div>
 

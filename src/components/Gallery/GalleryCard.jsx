@@ -21,11 +21,31 @@ const GalleryCard = ({
   const isDescriptionVisible = descriptionVisible[projectId];
   const isSelected = selectedProject === project;
 
+  // Fonction pour formater la description avec des sauts de ligne
+  const formatDescription = (description) => {
+    if (!description) return null;
+    
+    // Remplacer les tirets suivis d'un espace par des sauts de ligne
+    const formattedText = description.split('- ').map((part, i) => {
+      // Le premier élément n'a pas de tiret, donc on ne l'affiche pas avec un saut de ligne
+      if (i === 0) return part;
+      return <React.Fragment key={i}><br />- {part}</React.Fragment>;
+    });
+    
+    return formattedText;
+  };
+
   const getMediaElement = () => {
     if (!project.image) {
-      return <img src={placeholderImage} alt={`Image de présentation du projet ${project.title || 'sans titre'}`} className="card-image" />;
+      return (
+        <img
+          src={placeholderImage}
+          alt={`Image de présentation du projet ${project.title || 'sans titre'}`}
+          className="card-image"
+        />
+      );
     }
-    
+
     if (project.image?.endsWith('.mp4')) {
       return (
         <div className="video-wrapper">
@@ -43,19 +63,27 @@ const GalleryCard = ({
               }
             }}
           >
-            <source src={project.image} type="video/mp4" loading="lazy"/>
-            <img src={placeholderImage} alt={`Vidéo de présentation du projet ${project.title || 'sans titre'}`} className="card-image" />
+            <source src={project.image} type="video/mp4" loading="lazy" />
+            <img
+              src={placeholderImage}
+              alt={`Vidéo de présentation du projet ${project.title || 'sans titre'}`}
+              className="card-image"
+            />
           </video>
         </div>
       );
     }
 
     return (
-      <img 
+      <img
         src={placeholderImage}
         data-src={project.image}
         data-id={projectId}
-        alt={`Projet: ${project.title}${project.description ? ` - ${project.description.substring(0, 50)}${project.description.length > 50 ? '...' : ''}` : ''}`}
+        alt={`Projet: ${project.title}${
+          project.description
+            ? ` - ${project.description.substring(0, 50)}${project.description.length > 50 ? '...' : ''}`
+            : ''
+        }`}
         className={`card-image ${loadedImages[projectId] ? 'loaded' : ''}`}
       />
     );
@@ -82,7 +110,11 @@ const GalleryCard = ({
           <div className="expanded-content">
             <div className="left-content">
               {project.title !== '#' && <h4>{project.title}</h4>}
-              {project.description && <p className="card-description">{project.description}</p>}
+              {project.description && (
+                <p className="card-description">
+                  {formatDescription(project.description)}
+                </p>
+              )}
               {project.icons && (
                 <div className="tech-stack">
                   {project.icons.map((icon, iconIndex) => (
@@ -99,21 +131,45 @@ const GalleryCard = ({
               )}
             </div>
             <div className="right-content">
-              {project.link !== '#' && (
-                <Button 
-                  className="bnt-tab active" 
-                  size="small" 
-                  fullWidth={true} 
+              {project.link !== '#' && project.link != undefined && (
+                <Button
+                  className="bnt-tab active"
+                  size="small"
+                  fullWidth={true}
                   onClick={handleVisitClick}
                   aria-label={`Visiter le projet ${project.title}`}
+                  title={project.link}
                 >
-                  Visiter
+                  {project.status === 'In progress' ? 'En développement' : 'Visiter'}
                 </Button>
               )}
-              {project.github && (
-                <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`Voir le code source du projet ${project.title}`}>
-                  <Button className="bnt-tab active" size="small" fullWidth={true}>
+              {project.source_code !== '#' && project.source_code != undefined && (
+                <a
+                  href={project.source_code}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Voir le code source du projet ${project.title}`}
+                  title={project.source_code}
+                >
+                  <Button
+                    className="bnt-tab active"
+                    size="small"
+                    fullWidth={true}
+                  >
                     Voir le code
+                  </Button>
+                </a>
+              )}
+              {project.maquette !== '#' && project.maquette != undefined && (
+                <a
+                  href={project.maquette}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Voir la maquette du projet ${project.title}`}
+                  title={project.maquette}
+                >
+                  <Button className="bnt-tab active" size="small" fullWidth={true}>
+                    Voir la maquette
                   </Button>
                 </a>
               )}
@@ -125,4 +181,4 @@ const GalleryCard = ({
   );
 };
 
-export default GalleryCard; 
+export default GalleryCard;
