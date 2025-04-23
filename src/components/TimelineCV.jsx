@@ -11,6 +11,13 @@ const TimelineCV = ({ experiences, viewMode }) => {
     }));
   };
 
+  // Fonction pour générer le style CSS personnalisé pour les tooltips avec image
+  const getTooltipStyle = (imagePath) => {
+    return {
+      '--tooltip-image': `url(${imagePath})`,
+    };
+  };
+
   return (
     <article className="experience-timeline-container">
       {viewMode === 'timeline' ? (
@@ -20,6 +27,16 @@ const TimelineCV = ({ experiences, viewMode }) => {
           {experiences.map((experience, index) => (
             <div className={`timeline-item ${viewMode ? (index % 2 === 0 ? 'right' : 'left') : ''}`} key={index}>
               <div className="timeline-content">
+                <div className="tooltip-company">
+                  <a href={experience.link} target="_blank" rel="noopener noreferrer">
+                    <img className="timeline-media-img" src={`/logos/${experience.logo}`} alt={experience.company} />
+                    {experience.media && (
+                      <span className="tooltiptext">
+                        <img src={`/media/company/${experience.media}`} alt={experience.company} />
+                      </span>
+                    )}
+                  </a>
+                </div>
                 <div className="timeline-date" data-tooltip={experience.type}>
                   {experience.type === 'formation' ? (
                     <i className="fas fa-graduation-cap status-icon"></i>
@@ -37,9 +54,6 @@ const TimelineCV = ({ experiences, viewMode }) => {
                   {' '}
                   <i className="fa-solid fa-location-dot"></i> {experience.location}
                 </h5>
-                <a href={experience.link} target="_blank" rel="noopener noreferrer">
-                  <img src={`/logos/${experience.logo}`} alt={experience.company} />
-                </a>
                 <p>{experience.description}</p>
                 {experience.case && experience.case.length > 0 && (
                   <div className="stack-list">
@@ -75,9 +89,15 @@ const TimelineCV = ({ experiences, viewMode }) => {
                 {experience.date}
               </div>
               <div className="list-content">
-                {/* <a className="list-item-logo" href={experience.link} target="_blank" rel="noopener noreferrer"> */}
-                  <img src={`/logos/${experience.logo}`} alt={experience.company} />
-                {/* </a> */}
+                <a
+                  className="list-media"
+                  style={getTooltipStyle(experience.tooltipImage || experience.logo)}
+                  href={experience.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="list-media-img" src={`/logos/${experience.logo}`} alt={experience.company} />
+                </a>
                 <h4>{experience.title}</h4>
                 <h5>
                   {' '}

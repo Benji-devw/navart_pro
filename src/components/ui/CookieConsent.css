@@ -34,6 +34,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  font-size: 34px;
 }
 
 .cookie-text {
@@ -97,6 +98,7 @@
   from {
     bottom: -100%;
   }
+
   to {
     bottom: 0;
   }

@@ -5,6 +5,7 @@
       "date": "2023 - 2025",
       "title": "Testeur QA (Alternance)",
       "logo": "realityLogo.png",
+      "media": "ra.png",
       "company": "Reality Academy",
       "level": "Alternance",
       "location": "Bagnolet",
@@ -24,6 +25,7 @@
       "date": "2020 (2 mois)",
       "title": "Développeur Web (Stage)",
       "logo": "kokmoka.png",
+      "media": "kokmoka.png",
       "company": "Kokmoka",
       "level": "Stage",
       "location": "Paris 3e",
@@ -40,18 +42,19 @@
     }
   ],
   "formations": [
-  {
-    "type": "formation",
-    "date": "2023 - 2025",
-    "logo": "logo_open_classroom.png",
-    "title": "Développeur d'application - JavaScript React",
-    "company": "OpenClassrooms - Reality Academy",
-    "level": "Diplôme de niveau 6 (bac +3/4)",
-    "location": "Distance",
-    "link": "https://openclassrooms.com/fr/",
-    "description": "Formation en alternance avec 16 projets et soutenance tout au long de la formation",
-    "case": [
-      "HTML/CSS, JavaScript, React, Node.js, Express, MongoDB, SQL, Git, GitHub, Docker, figma, cahier des charges, User Stories, Diagrammes, Wireframes, Agile, Kanban, Scrum, Agile"
+    {
+      "type": "formation",
+      "date": "2023 - 2025",
+      "logo": "logo_open_classroom.png",
+      "media": "oc.png",
+      "title": "Développeur d'application - JavaScript React",
+      "company": "OpenClassrooms - Reality Academy",
+      "level": "Diplôme de niveau 6 (bac +3/4)",
+      "location": "Distance",
+      "link": "https://openclassrooms.com/fr/",
+      "description": "Formation en alternance avec 16 projets et soutenance tout au long de la formation",
+      "case": [
+        "HTML/CSS, JavaScript, React, Node.js, Express, MongoDB, SQL, Git, GitHub, Docker, figma, cahier des charges, User Stories, Diagrammes, Wireframes, Agile, Kanban, Scrum, Agile"
       ]
     },
     {
@@ -72,6 +75,7 @@
       "type": "formation",
       "date": "06/2013 - 12/2013",
       "logo": "etribartLogo.png",
+      "media": "etribart.png",
       "title": "Formation Infographie 3D",
       "company": "E-tribart",
       "level": "6 mois à distance",

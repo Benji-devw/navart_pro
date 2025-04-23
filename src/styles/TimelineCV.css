@@ -1,7 +1,16 @@
+/* ==========================================================================
+   TimelineCV Component Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Base Styles & Container
+   ========================================================================== */
 .experience-timeline-container {
   margin: 3rem 0;
 }
 
+/* Header Controls
+   ========================================================================== */
 .timeline-header {
   display: flex;
   flex-direction: column;
@@ -25,9 +34,12 @@
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
- 
- .list-content h5,
- .timeline-content h5 {
+
+/* ==========================================================================
+   Common Elements Styles
+   ========================================================================== */
+.list-content h5,
+.timeline-content h5 {
   font-size: 1.1rem;
   font-weight: 500;
   margin: 1rem 0;
@@ -39,8 +51,27 @@
   font-size: 1.4rem;
 }
 
-/* TODO: Create composant for tooltips */
-/* Tooltips style */
+/* Media Images
+   ========================================================================== */
+.timeline-media, 
+.list-media {
+  margin-top: -1rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.timeline-media-img, 
+.list-media-img {
+  max-width: 250px;
+  object-fit: contain;
+  background: transparent;
+  transition: transform 0.3s ease;
+}
+
+/* ==========================================================================
+   Tooltips Styles
+   ========================================================================== */
+/* Date Tooltips */
 .timeline-date::after,
 .list-date::after {
   content: attr(data-tooltip);
@@ -48,7 +79,6 @@
   z-index: 1202;
   bottom: -50px;
   left: 15%;
-  /* transform: translateX(-50%); */
   background: var(--dark-color);
   color: var(--light-color);
   padding: 4px 8px;
@@ -68,8 +98,49 @@
   bottom: -30px;
 }
 
-/* Stack collapse */
-/* ************************** */
+/* Company Tooltips with Images */
+.tooltip-company {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip-company .tooltiptext {
+  position: relative;
+  bottom: 140px;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  visibility: hidden;
+  color: var(--light-color);
+  text-align: center;
+
+  padding: 5px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+  width: 200px;
+  height: 100px;
+}
+
+.tooltip-company:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-company .tooltiptext img {
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  object-fit: contain;
+  background-color: var(--dark-color);
+  padding: 2px;
+}
+
+/* ==========================================================================
+   Stack Collapse Styles
+   ========================================================================== */
 .stack-list-toggle {
   background: none;
   border: none;
@@ -80,13 +151,7 @@
   justify-content: start;
   gap: 0.5rem;
   width: 100%;
-  /* padding: 0.5rem 0; */
   font-weight: 500;
-}
-
-/* Ajustement pour les items alignés à gauche */
-.timeline-item.left .stack-list-toggle {
-  justify-content: end;
 }
 
 .stack-list-toggle i {
@@ -106,11 +171,6 @@
   opacity: 0;
 }
 
-/* Ajustement pour les items alignés à gauche */
-.timeline-item.left .stack-list-collapse {
-  text-align: right;
-}
-
 .stack-list-collapse.open {
   max-height: 500px;
   opacity: 1;
@@ -119,7 +179,6 @@
 
 .timeline-content ul,
 .list-content ul {
-  /* font-size: 1.1rem; */
   margin-bottom: 0;
   line-height: 1.5;
   list-style-type: none;
@@ -135,40 +194,26 @@
   transition-delay: 0s;
 }
 
-/* Ajustement padding pour les items alignés à gauche */
-.timeline-item.left .stack-list-collapse li {
-  padding-left: 0;
-  padding-right: 0.5rem;
-}
-/* Ajustement padding pour les items alignés à droite */
-.timeline-item.right .stack-list-collapse li {
-  padding-left: 0.5rem;
-  padding-right: 0;
-}
-
 .stack-list-collapse.open li {
   transform: translateY(0);
   opacity: 1;
 }
 
-/* Délai progressif */
+/* Animation Delay for List Items */
 .stack-list-collapse.open li:nth-child(1) { transition-delay: 0.1s; }
 .stack-list-collapse.open li:nth-child(2) { transition-delay: 0.15s; }
 .stack-list-collapse.open li:nth-child(3) { transition-delay: 0.2s; }
 .stack-list-collapse.open li:nth-child(4) { transition-delay: 0.25s; }
 .stack-list-collapse.open li:nth-child(5) { transition-delay: 0.3s; }
-.stack-list-collapse.open li:nth-child(6) { transition-delay: 0.35s; }
-.stack-list-collapse.open li:nth-child(7) { transition-delay: 0.4s; }
-.stack-list-collapse.open li:nth-child(8) { transition-delay: 0.45s; }
 
-/* List mode */
-/* ************************** */
+/* ==========================================================================
+   List View Styles
+   ========================================================================== */
 .experience-list {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
-
 
 .list-item {
   position: relative;
@@ -186,13 +231,16 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-.list-item img {
+.list-content {
   position: relative;
-  top: 0rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  object-fit: contain;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-media {
+  align-self: center;
+  margin-bottom: 1rem;
 }
 
 .list-date {
@@ -208,63 +256,23 @@
   text-align: center;
 }
 
-.list-content {
-  position: relative;
-  flex: 1;
-}
-
 .list-content h4 {
-  /* font-size: 1.2rem; */
   margin-bottom: 5px;
   color: var(--dark-color);
 }
 
 .list-content p {
-  /* font-size: 1.1rem; */
   line-height: 1.5;
   margin-bottom: 0;
 }
 
-
-/* Timeline mode */
-/* ************************** */
+/* ==========================================================================
+   Timeline View Styles
+   ========================================================================== */
 .experience-timeline {
   position: relative;
   margin: 1rem 0;
   padding: 20px 0;
-}
-.timeline-stack-list {
-  margin-top: 1rem;
-}
-
-.timeline-content img {
-  position: absolute;
-  top: -2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 250px;
-  object-fit: contain;
-  background: transparent;
-}
-
-.timeline-date {
-  padding: 5px 10px;
-  background-color: var(--primary-color);
-  border-radius: 4px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 1rem 0;
-  position: relative;
-  top: -.3rem;
-  display: inline-block;
-
-}
-.timeline-item.right .timeline-date {
-  left: -2rem;
-}
-
-.timeline-item.left .timeline-date {
-  left: 2rem;
 }
 
 .timeline-center-line {
@@ -290,6 +298,7 @@
   clear: both;
 }
 
+/* Timeline Content Positioning */
 .timeline-item.left .timeline-content {
   float: left;
   margin-left: 0;
@@ -304,6 +313,7 @@
   text-align: left;
 }
 
+/* Timeline Content Styles */
 .timeline-content {
   position: relative;
   width: calc(50% - 40px);
@@ -319,6 +329,51 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
+/* Timeline Elements */
+.timeline-stack-list {
+  margin-top: 1rem;
+}
+
+.timeline-content img {
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  object-fit: contain;
+  background: transparent;
+}
+
+.timeline-date {
+  padding: 5px 10px;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  position: relative;
+  top: -.3rem;
+  display: inline-block;
+}
+
+.timeline-item.right .timeline-date {
+  left: -2rem;
+}
+
+.timeline-item.left .timeline-date {
+  left: 2rem;
+}
+
+.timeline-content h4 {
+  color: var(--dark-color);
+}
+
+.timeline-content p {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Timeline Visual Elements (Points & Lines) */
 .timeline-content::after {
   content: '';
   position: absolute;
@@ -357,54 +412,53 @@
   left: -30px;
 }
 
-.timeline-content h4 {
-  /* font-size: 1.4rem; */
-  color: var(--dark-color);
+/* Timeline Left/Right Specific Adjustments */
+.timeline-item.left .stack-list-toggle {
+  justify-content: end;
 }
 
-
-.timeline-content p {
-  /* font-size: 1.1rem; */
-  margin-bottom: 0;
-  line-height: 1.5;
+.timeline-item.left .stack-list-collapse {
+  text-align: right;
 }
 
+.timeline-item.left .stack-list-collapse li {
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
 
+.timeline-item.right .stack-list-collapse li {
+  padding-left: 0.5rem;
+  padding-right: 0;
+}
 
-/* .timeline-content ul li::before {
-  content: '';
-  border: 1px solid var(--primary-color);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 10px;
-} */
-
-
-/* Responsive timeline */
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
 @media screen and (max-width: 768px) {
+  /* Header */
   .timeline-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
-  
+
   .timeline-controls {
     width: 100%;
     justify-content: space-between;
   }
-  
+
+  /* List View */
   .list-item {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .list-date {
     min-width: auto;
     align-self: flex-start;
   }
 
+  /* Timeline View */
   .timeline-center-line {
     left: 30px;
   }

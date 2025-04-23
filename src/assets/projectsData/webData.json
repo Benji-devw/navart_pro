@@ -1,15 +1,105 @@
 {
   "web": [
     {
+      "title": "Socket.io Chat",
+      "description": "Projet test de websocket ",
+      "category": "web",
+      "status": "In progress",
+      "tags": [
+        "React",
+        "typescript",
+        "Redux",
+        "Node.js",
+        "Material UI",
+        "Socket.io"
+      ],
+      "icons": [
+        {
+          "name": "React",
+          "icon": "devicon-react-plain colored"
+        },
+        {
+          "name": "Node.js",
+          "icon": "devicon-nodejs-plain colored"
+        },
+        {
+          "name": "socket.io",
+          "icon": "devicon-socketio-plain colored"
+        },
+        {
+          "name": "Material UI",
+          "icon": "devicon-materialui-plain colored"
+        },
+        {
+          "name": "Redux",
+          "icon": "devicon-redux-plain colored"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "devicon-typescript-plain colored"
+        },
+        {
+          "name": "AWS",
+          "icon": "devicon-amazonwebservices-plain colored"
+        },
+        {
+          "name": "MongoDB",
+          "icon": "devicon-mongodb-plain colored"
+        }
+      ],
+      "image": "/media/web/socketChat.png",
+      "link": "#",
+      "source_code": "https://gitlab.com/Benji-devw/socket_io_client",
+      "maquette": "#"
+    },
+    {
+      "title": "Bien être à la campagne",
+      "description": "Projet client, - Reservation de gîte en ligne",
+      "category": "web",
+      "status": "In progress",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "icons": [
+        {
+          "name": "Figma",
+          "icon": "devicon-figma-plain colored"
+        },
+        {
+          "name": "React",
+          "icon": "devicon-react-plain colored"
+        }
+      ],
+      "image": "/media/web/Gite_Canu.png",
+      "link": "#",
+      "source_code": "#",
+      "maquette": "https://www.figma.com/community/file/1496457132357622089/mesnil-amand"
+    },
+    {
       "title": "Learn@Home",
       "description": "Projet Etudiant - ⭐️ Objectifs pédagogiques ⭐️, - User Stories, Diagrammes, Kanban, Maquette , - Créer une maquette pour un client, - Identifier les besoins de l'application à partir d'un cahier des charges, - Modéliser une solution technique pour un client, - Contribuer à un projet en utilisant une méthodologie agile.",
       "category": "web",
       "status": "In progress",
-      "tags": ["HTML", "CSS", "JavaScript"],
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
       "icons": [
-        { "name": "Figma", "icon": "devicon-figma-plain colored" },
-        { "name": "Notion", "icon": "/icons/notion.png" },
-        { "name": "Excalidraw", "icon": "/icons/excalidraw.png" }
+        {
+          "name": "Figma",
+          "icon": "devicon-figma-plain colored"
+        },
+        {
+          "name": "Notion",
+          "icon": "/icons/notion.png"
+        },
+        {
+          "name": "Excalidraw",
+          "icon": "/icons/excalidraw.png"
+        }
       ],
       "image": "/media/web/Learn@Home.png",
       "link": "#",
@@ -17,25 +107,20 @@
       "maquette": "https://www.figma.com/community/file/1496465375256167758/learnhome-web-platform"
     },
     {
-      "title": "Bien être à la campagne",
-      "description": "Projet client, - Reservation de gîte en ligne",
-      "category": "web",
-      "status": "In progress",
-      "tags": ["HTML", "CSS", "JavaScript"],
-      "icons": [
-        { "name": "Figma", "icon": "devicon-figma-plain colored" },
-        { "name": "React", "icon": "devicon-react-plain colored" }],
-      "image": "/media/web/Gite_Canu.png",
-      "link": "#",
-      "source_code": "#",
-      "maquette": "https://www.figma.com/community/file/1496457132357622089/mesnil-amand"
-    },
-    {
       "title": "My Stats",
       "description": "Projet personnel - Statistiques sportives. - Version 1.1.0, seulement pour le Foot en salle 'five'.",
       "category": "web",
       "status": "Online",
-      "tags": ["HTML", "CSS", "JavaScript"],
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js",
+        "PostgreSQL",
+        "Next.js",
+        "Sequelize",
+        "Vercel"
+      ],
       "icons": [
         {
           "name": "Next.js",
@@ -61,10 +146,16 @@
     },
     {
       "title": "Vallena",
-      "description": "Projet personnel - Atelier de couture. - Site web de vente de vêtements.",
+      "description": "Projet client - Atelier de couture. - Site web de vente de vêtements. - Saas de vente en ligne. - Dashboard Gestion de stock, gestion des commandes, gestion des clients, gestion des produits, gestion des ventes,",
       "category": "web",
       "status": "In progress",
-      "tags": ["React", "Node.js", "MongoDB", "Sass", "Bootstrap"],
+      "tags": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Sass",
+        "Bootstrap"
+      ],
       "icons": [
         {
           "name": "React",
@@ -97,7 +188,11 @@
       "description": "Projet Etudiant - ⭐️ Objectifs pédagogiques ⭐️, - Analyser un problème informatique, - Développer un algorithme pour résoudre un problème, - Web integration",
       "category": "web",
       "status": "Online",
-      "tags": ["HTML", "CSS", "JavaScript"],
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
       "icons": [
         {
           "name": "Figma",
@@ -126,7 +221,13 @@
       "description": "Projet personnel - Base de données de samples 'Musique'.",
       "category": "web",
       "status": "Online",
-      "tags": ["Next.js", "Node.js", "MongoDB", "TypeScript", "Tailwind"],
+      "tags": [
+        "Next.js",
+        "Node.js",
+        "MongoDB",
+        "TypeScript",
+        "Tailwind"
+      ],
       "icons": [
         {
           "name": "Next.js",
@@ -159,7 +260,12 @@
       "description": "Contribution chez Kokmoka - Site web école d'écriture.",
       "category": "web",
       "status": "Online",
-      "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
+      "tags": [
+        "WordPress",
+        "PHP",
+        "JavaScript",
+        "jQuery"
+      ],
       "icons": [
         {
           "name": "WordPress",
@@ -188,7 +294,12 @@
       "description": "Contribution chez Kokmoka - Site web de l'association FFMI.",
       "category": "web",
       "status": "Online",
-      "tags": ["WordPress", "PHP", "JavaScript", "jQuery"],
+      "tags": [
+        "WordPress",
+        "PHP",
+        "JavaScript",
+        "jQuery"
+      ],
       "icons": [
         {
           "name": "WordPress",
@@ -217,7 +328,10 @@
       "description": "Projet personnel - Portfolio 3D.",
       "category": "web",
       "status": "Online",
-      "tags": ["Next.js", "Three.js"],
+      "tags": [
+        "Next.js",
+        "Three.js"
+      ],
       "icons": [
         {
           "name": "Next.js",
@@ -238,7 +352,10 @@
       "description": "Projet personnel - Portfolio 3D.",
       "category": "web",
       "status": "Online",
-      "tags": ["Next.js", "Three.js"],
+      "tags": [
+        "Next.js",
+        "Three.js"
+      ],
       "icons": [
         {
           "name": "Next.js",
