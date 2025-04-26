@@ -13,11 +13,11 @@ import logoPlan2 from '@assets/images/logo-plan-2.png';
 
 const Layout = ({ children, onFilterChange, activeComponent }) => {
   const medias = [
-    { media: logoPlan1, intensity: 60, blur: 0, opacity: .3, zIndex: -1 },
-    { media: logoPlan2, intensity: 30, blur: 0, opacity: .3, zIndex: -2 },
+    { media: logoPlan1, intensity: 20, blur: 0, opacity: .3, zIndex: -1 },
+    { media: logoPlan2, intensity: 10, blur: 0, opacity: .3, zIndex: -2 },
     { media: onePlan, intensity: 100, blur: 1, opacity: .1, zIndex: -2 },
     { media: twoPlan, intensity: 50, blur: 0, opacity: 0.3, zIndex: -4 },
-    { media: threePlan, intensity: 20, blur: 2, opacity: 0.3, zIndex: -5 },
+    { media: threePlan, intensity: 5, blur: 2, opacity: 0.3, zIndex: -5 },
     // { media: fourPlan, intensity: 10, blur: 2, opacity: 0.3, zIndex: -4 },
   ];
 
