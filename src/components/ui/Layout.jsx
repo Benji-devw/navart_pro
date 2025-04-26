@@ -8,23 +8,23 @@ import onePlan from '@assets/images/one-plan-color.png';
 import twoPlan from '@assets/images/two-plan-color.png';
 import threePlan from '@assets/images/three-plan-dark.png';
 // import fourPlan from '@assets/images/four-plan-dark.png';
-// import logoPlan1 from '@assets/images/logo-plan-1.png';
-// import logoPlan2 from '@assets/images/logo-plan-2.png';
+import logoPlan1 from '@assets/images/logo-plan-1.png';
+import logoPlan2 from '@assets/images/logo-plan-2.png';
 
 const Layout = ({ children, onFilterChange, activeComponent }) => {
   const medias = [
-    // { media: logoPlan1, intensity: 0, blur: 0, opacity: .1, zIndex: -1 },
-    // { media: logoPlan2, intensity: 0, blur: 0, opacity: .1, zIndex: -2 },
+    { media: logoPlan1, intensity: 60, blur: 0, opacity: .3, zIndex: -1 },
+    { media: logoPlan2, intensity: 30, blur: 0, opacity: .3, zIndex: -2 },
     { media: onePlan, intensity: 100, blur: 1, opacity: .1, zIndex: -2 },
     { media: twoPlan, intensity: 50, blur: 0, opacity: 0.3, zIndex: -4 },
     { media: threePlan, intensity: 20, blur: 2, opacity: 0.3, zIndex: -5 },
     // { media: fourPlan, intensity: 10, blur: 2, opacity: 0.3, zIndex: -4 },
   ];
-  
+
 
   return (
     <div className="layout" page={activeComponent}>
-      <Header onFilterChange={onFilterChange}/>
+      <Header onFilterChange={onFilterChange} />
 
       {/* {activeComponent === 'hero' && (
         <video src={video} autoPlay muted loop className="hero-video" />
@@ -37,7 +37,7 @@ const Layout = ({ children, onFilterChange, activeComponent }) => {
       </div>
 
       <ContactForm />
-      
+
     </div>
   );
 };
