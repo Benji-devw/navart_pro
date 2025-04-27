@@ -135,6 +135,19 @@ p {
   margin: 0;
 }
 
+:focus {
+  outline: 2px solid #00aaff;
+  background-color: rgba(0, 170, 255, 0.2);
+}
+
+button:focus {
+  outline: 4px solid #00aaff;
+  background-color: rgba(0, 170, 255, 0.2);
+}
+
+
+
+
 /* Tabs Filter */
 .bnt-tabs {
   display: flex;

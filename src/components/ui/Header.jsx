@@ -73,7 +73,7 @@ export const Header = ({ onFilterChange }) => {
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''} ${isVisible ? 'visible' : 'hidden'}`}>
-      <div className="icon-menu-container">
+      <div className="icon-menu-container" tabIndex="0">
         <nav className="icon-menu" ref={navRef}>
           {items.map((item) => (
             <a

@@ -21,21 +21,21 @@ export const ContactBox = () => {
 
   return (
     <div className="contact-box contact-details">
-      <div className="detail">
+      <div className="detail" tabIndex="0">
         <i className="fas fa-map-marker-alt"></i>
         <span>Gap, France</span>
       </div>
-      <div className="detail" onClick={handleCopyEmail} style={{ cursor: 'pointer' }}>
+      <div className="detail" onClick={handleCopyEmail} style={{ cursor: 'pointer' }} tabIndex="0">
         <i className="fas fa-envelope"></i>
         <span>***.***@pm.me</span>
         <i className="copy-icon fas fa-copy"></i>
         {copied && <span className="copied-text">Copié !</span>}
       </div>
-      <div className="detail">
+      <div className="detail" tabIndex="0">
         <i className="fas fa-graduation-cap"></i>
         <span>Développement Web </span>
       </div>
-      <Button className="bnt-tab active download-btn" variant="primary" size="small" onClick={() => downloadCV()}>
+      <Button className="bnt-tab active download-btn" variant="primary" size="small" onClick={() => downloadCV()} tabIndex="0"> 
         Télécharger mon CV <i className="fas fa-download"></i>
       </Button>
     </div>

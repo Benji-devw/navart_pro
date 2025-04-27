@@ -23,7 +23,7 @@ const About = () => {
       <div className={`about-content ${inView ? 'animate' : 'not-active'}`} ref={ref}>
         <div className="about-image">
           <div className="image-container">
-            <img src="/profile.png" alt="Benjamin" />
+            <img src="/profile.png" alt="Benjamin" tabIndex="0" />
           </div>
 
           <div className="about-contact-box about-contact-desktop">
@@ -60,6 +60,7 @@ const About = () => {
                     className={`view-mode-btn ${viewMode === 'timeline' ? 'active' : ''}`}
                     onClick={() => changeViewMode('timeline')}
                     aria-label="Afficher en mode timeline"
+                    tabIndex="0"
                   >
                     <i className="fas fa-timeline fa-rotate-90"></i>
                   </button>
@@ -67,6 +68,7 @@ const About = () => {
                     className={`view-mode-btn ${viewMode === 'list' ? 'active' : ''}`}
                     onClick={() => changeViewMode('list')}
                     aria-label="Afficher en mode liste"
+                    tabIndex="0"
                   >
                     <i className="fa-solid fa-th-list"></i>
                   </button>

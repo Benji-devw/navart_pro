@@ -18,6 +18,13 @@ const TimelineCV = ({ experiences, viewMode }) => {
     };
   };
 
+  const handleKeyDown = (event, index) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleCollapse(index);
+    }
+  };
+
   return (
     <article className="experience-timeline-container">
       {viewMode === 'timeline' ? (
@@ -26,9 +33,9 @@ const TimelineCV = ({ experiences, viewMode }) => {
 
           {experiences.map((experience, index) => (
             <div className={`timeline-item ${viewMode ? (index % 2 === 0 ? 'right' : 'left') : ''}`} key={index}>
-              <div className="timeline-content">
+              <div className="timeline-content" tabIndex="0">
                 <div className="tooltip-company">
-                  <a href={experience.link} target="_blank" rel="noopener noreferrer">
+                  <a href={experience.link} target="_blank" rel="noopener noreferrer" tabIndex="0">
                     <img className="timeline-media-img" src={`/logos/${experience.logo}`} alt={experience.company} />
                     {experience.media && (
                       <span className="tooltiptext">
@@ -61,6 +68,8 @@ const TimelineCV = ({ experiences, viewMode }) => {
                       className={`stack-list-toggle ${openDropdowns[index] ? 'open' : ''}`}
                       onClick={() => toggleCollapse(index)}
                       aria-expanded={openDropdowns[index] ? 'true' : 'false'}
+                      onKeyDown={(e) => handleKeyDown(e, index)}
+                      tabIndex="0"
                     >
                       Détails
                       <i className="fa-solid fa-chevron-down"></i>

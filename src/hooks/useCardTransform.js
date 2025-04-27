@@ -8,6 +8,7 @@ export const useCardTransform = (projects) => {
   const cardsRef = useRef([]);
   const appStoreRef = useRef(null);
   const videoRefs = useRef({});
+  const previousFocusRef = useRef(null);
 
   const pauseAllVideosExcept = useCallback((exceptProjectId) => {
     Object.entries(videoRefs.current).forEach(([projectId, videoElement]) => {
@@ -24,6 +25,9 @@ export const useCardTransform = (projects) => {
       const appStore = appStoreRef.current;
 
       if (!card || !appStore || e.target.closest('.video-controls')) return;
+
+      // Stocker l'élément actuellement focusé pour restaurer le focus plus tard
+      previousFocusRef.current = document.activeElement;
 
       if (e.target.tagName === 'VIDEO' && transformState[projectId]) {
         e.stopPropagation();
@@ -110,6 +114,14 @@ export const useCardTransform = (projects) => {
 
     setOverlayVisible(false);
     setSelectedProject(null);
+
+    // Restaurer le focus à l'élément précédemment focusé
+    if (previousFocusRef.current) {
+      setTimeout(() => {
+        previousFocusRef.current.focus();
+        previousFocusRef.current = null;
+      }, 100);
+    }
   }, []);
 
   const handleOverlayClick = useCallback(() => {
@@ -117,6 +129,32 @@ export const useCardTransform = (projects) => {
       const projectId = selectedProject.id || `project-${projects.findIndex((p) => p === selectedProject)}`;
       closeCard(projectId);
     }
+  }, [selectedProject, projects, closeCard]);
+
+  // Fonction pour naviguer entre les cartes avec les touches de clavier
+  const handleKeyboardNavigation = useCallback((direction) => {
+    if (!selectedProject) return;
+    
+    const currentIndex = projects.findIndex(p => p === selectedProject);
+    if (currentIndex === -1) return;
+    
+    let newIndex;
+    if (direction === 'next') {
+      newIndex = (currentIndex + 1) % projects.length;
+    } else if (direction === 'prev') {
+      newIndex = (currentIndex - 1 + projects.length) % projects.length;
+    }
+    
+    // Fermer la carte actuelle et ouvrir la nouvelle
+    const projectId = selectedProject.id || `project-${currentIndex}`;
+    closeCard(projectId);
+    
+    // Simuler un clic sur la nouvelle carte après un petit délai
+    setTimeout(() => {
+      if (cardsRef.current[newIndex]) {
+        cardsRef.current[newIndex].click();
+      }
+    }, 200);
   }, [selectedProject, projects, closeCard]);
 
   return {
@@ -130,5 +168,6 @@ export const useCardTransform = (projects) => {
     captureAndTransform,
     closeCard,
     handleOverlayClick,
+    handleKeyboardNavigation,
   };
 }; 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import RenderIcon from '@hooks/RenderIcon';
 import Button from '../ui/Button';
 import placeholderImage from '@assets/placeholder.png';
@@ -20,18 +20,46 @@ const GalleryCard = ({
   const cardStyle = transformState[projectId] || {};
   const isDescriptionVisible = descriptionVisible[projectId];
   const isSelected = selectedProject === project;
+  const cardRef = useRef(null);
+
+  // Gestionnaire d'événements clavier pour la carte
+  const handleKeyDown = (e) => {
+    // Si la touche Entrée ou Espace est pressée, cliquer sur la carte
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onCardClick(project, index, e);
+    }
+  };
+
+  // Gérer le focus quand la carte est sélectionnée
+  useEffect(() => {
+    if (isSelected && cardRef.current) {
+      // Stocker les éléments focusables dans la description
+      const focusableElements = cardRef.current.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      
+      // Si des éléments focusables existent et qu'ils sont visibles, focus sur le premier
+      if (focusableElements.length > 0 && isDescriptionVisible) {
+        // Délai pour s'assurer que l'animation est terminée
+        setTimeout(() => {
+          focusableElements[0].focus();
+        }, 300);
+      }
+    }
+  }, [isSelected, isDescriptionVisible]);
 
   // Fonction pour formater la description avec des sauts de ligne
   const formatDescription = (description) => {
     if (!description) return null;
-    
+
     // Remplacer les tirets suivis d'un espace par des sauts de ligne
     const formattedText = description.split('- ').map((part, i) => {
       // Le premier élément n'a pas de tiret, donc on ne l'affiche pas avec un saut de ligne
       if (i === 0) return part;
       return <React.Fragment key={i}><br />- {part}</React.Fragment>;
     });
-    
+
     return formattedText;
   };
 
@@ -79,11 +107,10 @@ const GalleryCard = ({
         src={placeholderImage}
         data-src={project.image}
         data-id={projectId}
-        alt={`Projet: ${project.title}${
-          project.description
-            ? ` - ${project.description.substring(0, 50)}${project.description.length > 50 ? '...' : ''}`
-            : ''
-        }`}
+        alt={`Projet: ${project.title}${project.description
+          ? ` - ${project.description.substring(0, 50)}${project.description.length > 50 ? '...' : ''}`
+          : ''
+          }`}
         className={`card-image ${loadedImages[projectId] ? 'loaded' : ''}`}
       />
     );
@@ -98,15 +125,24 @@ const GalleryCard = ({
     <li
       className={`card ${isSelected ? 'selected' : ''}`}
       onClick={(e) => onCardClick(project, index, e)}
+      onKeyDown={handleKeyDown}
       style={cardStyle}
-      tabIndex={index}
-      ref={(el) => (cardsRef.current[index] = el)}
+      tabIndex="0"
+      ref={(el) => {
+        cardsRef.current[index] = el;
+        cardRef.current = el;
+      }}
       aria-label={`Projet: ${project.title}`}
+      aria-expanded={isSelected}
+      role="button"
     >
       <div className="card-content">
         <div className="card-image-container">{getMediaElement()}</div>
 
-        <div className={`expanded-description ${isDescriptionVisible ? 'visible' : ''}`}>
+        <div 
+          className={`expanded-description ${isDescriptionVisible ? 'visible' : ''}`} 
+          aria-hidden={!isDescriptionVisible}
+        >
           <div className="expanded-content">
             <div className="left-content">
               {project.title !== '#' && <h4>{project.title}</h4>}
@@ -116,13 +152,15 @@ const GalleryCard = ({
                 </p>
               )}
               {project.icons && (
-                <div className="tech-stack">
+                <div className="tech-stack" role="list" aria-label="Technologies utilisées">
                   {project.icons.map((icon, iconIndex) => (
                     <span
                       className="tech-icon"
                       key={iconIndex}
-                      alt={icon.name || icon.icon}
+                      role="listitem"
                       data-tooltip={icon.name || icon.icon}
+                      tabIndex={isDescriptionVisible ? 0 : -1}
+                      aria-label={`Technologie: ${icon.name || icon.icon}`}
                     >
                       {RenderIcon(icon.icon, '16px')}
                     </span>
@@ -139,6 +177,7 @@ const GalleryCard = ({
                   onClick={handleVisitClick}
                   aria-label={`Visiter le projet ${project.title}`}
                   title={project.link}
+                  tabIndex={isDescriptionVisible ? 0 : -1}
                 >
                   {project.status === 'In progress' ? 'En développement' : 'Visiter'}
                 </Button>
@@ -150,11 +189,18 @@ const GalleryCard = ({
                   rel="noopener noreferrer"
                   aria-label={`Voir le code source du projet ${project.title}`}
                   title={project.source_code}
+                  tabIndex="-1"
                 >
                   <Button
                     className="bnt-tab active"
                     size="small"
                     fullWidth={true}
+                    tabIndex={isDescriptionVisible ? 0 : -1}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        window.open(project.source_code, '_blank');
+                      }
+                    }}
                   >
                     Voir le code
                   </Button>
@@ -167,6 +213,7 @@ const GalleryCard = ({
                   rel="noopener noreferrer"
                   aria-label={`Voir la maquette du projet ${project.title}`}
                   title={project.maquette}
+                  tabIndex={isDescriptionVisible ? 0 : -1}
                 >
                   <Button className="bnt-tab active" size="small" fullWidth={true}>
                     Voir la maquette
