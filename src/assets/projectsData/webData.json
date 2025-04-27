@@ -158,8 +158,16 @@
       ],
       "icons": [
         {
-          "name": "React",
-          "icon": "devicon-react-plain colored"
+          "name": "Next.js",
+          "icon": "devicon-nextjs-plain colored"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "devicon-tailwindcss-plain colored"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "devicon-typescript-plain colored"
         },
         {
           "name": "Node.js",
@@ -170,12 +178,8 @@
           "icon": "devicon-mongodb-plain colored"
         },
         {
-          "name": "Sass",
-          "icon": "devicon-sass-plain colored"
-        },
-        {
-          "name": "Bootstrap",
-          "icon": "devicon-bootstrap-plain colored"
+          "name": "vitest",
+          "icon": "devicon-vitest-plain colored"
         }
       ],
       "image": "/media/web/vallena_.png",
