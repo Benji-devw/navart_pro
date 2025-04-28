@@ -35,10 +35,16 @@ const TimelineCV = ({ experiences, viewMode }) => {
             <div className={`timeline-item ${viewMode ? (index % 2 === 0 ? 'right' : 'left') : ''}`} key={index}>
               <div className="timeline-content" tabIndex="0">
                 <div className="tooltip-company">
-                  <a href={experience.link} target="_blank" rel="noopener noreferrer" tabIndex="0">
+                  <a
+                    className="timeline-media"
+                    href={experience.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    tabIndex="0"
+                  >
                     <img className="timeline-media-img" src={`/logos/${experience.logo}`} alt={experience.company} />
                     {experience.media && (
-                      <span className="tooltiptext">
+                      <span className="tooltiptext $#">
                         <img src={`/media/company/${experience.media}`} alt={experience.company} />
                       </span>
                     )}

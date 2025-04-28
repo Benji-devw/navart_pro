@@ -10,22 +10,8 @@
           "icon": "devicon-blender-original colored"
         }
       ],
-      "preview": "/media/3D/navart_circle_preview.jpg",
+      "preview": "/media/3D/navart_circle_preview.png",
       "image": "/media/3D/Navart_Circle.mp4",
-      "link": "#"
-    },
-    {
-      "title": "#",
-      "category": "infographie",
-      "tags": ["Blender", "3D", "Animation"],
-      "icons": [
-        {
-          "name": "Blender",
-          "icon": "devicon-blender-original colored"
-        }
-      ],
-      "preview": "/media/3D/cuby_preview.png",
-      "image": "/media/3D/Cuby.mp4",
       "link": "#"
     },
     {
@@ -52,6 +38,20 @@
         }
       ],
       "image": "/media/3D/Box_1.png",
+      "link": "#"
+    },
+    {
+      "title": "#",
+      "category": "infographie",
+      "tags": ["Blender", "3D", "Animation"],
+      "icons": [
+        {
+          "name": "Blender",
+          "icon": "devicon-blender-original colored"
+        }
+      ],
+      "preview": "/media/3D/cuby_preview.png",
+      "image": "/media/3D/Cuby.mp4",
       "link": "#"
     },
     {
