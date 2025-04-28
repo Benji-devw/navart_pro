@@ -55,6 +55,19 @@ function App() {
     setActiveView(sectionName);
   };
 
+  // effect to scroll to the top of the page after the component is rendered
+  useEffect(() => {
+    // scroll to the top of the page after the component is rendered
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [activeView]);
+
   // Function to return only the selected component
   const renderActiveComponent = () => {
     switch (activeView) {
