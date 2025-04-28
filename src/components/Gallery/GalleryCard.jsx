@@ -84,14 +84,24 @@ const GalleryCard = ({
             muted={true}
             playsInline={true}
             controls={true}
-            ref={(el) => (videoRefs.current[projectId] = el)}
+            preload="metadata"
+            ref={(el) => {
+              if (el) {
+                videoRefs.current[projectId] = el;
+                // Gestion des erreurs de chargement
+                el.onerror = () => {
+                  console.error(`Erreur de chargement de la vidéo pour le projet ${project.title}`);
+                  el.src = placeholderImage;
+                };
+              }
+            }}
             onClick={(e) => {
               if (transformState[projectId]) {
                 e.stopPropagation();
               }
             }}
           >
-            <source src={project.image} type="video/mp4" loading="lazy" />
+            <source src={project.image} type="video/mp4" />
             <img
               src={placeholderImage}
               alt={`Vidéo de présentation du projet ${project.title || 'sans titre'}`}
@@ -112,6 +122,10 @@ const GalleryCard = ({
           : ''
           }`}
         className={`card-image ${loadedImages[projectId] ? 'loaded' : ''}`}
+        onError={(e) => {
+          console.error(`Erreur de chargement de l'image pour le projet ${project.title}`);
+          e.target.src = placeholderImage;
+        }}
       />
     );
   };

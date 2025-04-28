@@ -13,7 +13,12 @@ export const useCardTransform = (projects) => {
   const pauseAllVideosExcept = useCallback((exceptProjectId) => {
     Object.entries(videoRefs.current).forEach(([projectId, videoElement]) => {
       if (projectId !== exceptProjectId && videoElement && !videoElement.paused) {
-        videoElement.pause();
+        try {
+          videoElement.pause();
+          videoElement.currentTime = 0;
+        } catch (error) {
+          console.error(`Erreur lors de la pause de la vidéo ${projectId}:`, error);
+        }
       }
     });
   }, []);
@@ -97,7 +102,12 @@ export const useCardTransform = (projects) => {
     // Pause the video and remove the transform state
     const videoElement = videoRefs.current[projectId];
     if (videoElement) {
-      videoElement.pause();
+      try {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+      } catch (error) {
+        console.error(`Erreur lors de la fermeture de la vidéo ${projectId}:`, error);
+      }
     }
 
     setTransformState((prev) => {
