@@ -23,7 +23,7 @@ export default function Projects() {
   const allCombinedProjects = useMemo(() => 
     Object.values(allProjects).flat()
   , [allProjects]);
-
+  
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [activeTab, setActiveTab] = useState('web');
 

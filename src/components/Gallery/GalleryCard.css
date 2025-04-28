@@ -17,9 +17,9 @@
   min-width: 600px;
   max-height: 320px;
   max-width: 600px;
-  opacity: 0;
+  /* opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease; */
 }
 
 /* Card Content Structure
@@ -222,6 +222,8 @@
 
 .video-wrapper .card-image {
   transition: all 0.3s ease;
+  height: 100%;
+  object-fit: cover;
 }
 
 .video-wrapper video {
@@ -271,25 +273,26 @@
    ========================================================================== */
 @media (max-width: 768px) {
   .card {
-    min-height: 100%;
+    min-height: 200px !important;
+    max-height: 200px !important;
     min-width: 100%;
+    flex: 0 0 100%;
+    overflow: hidden;
   }
 
-  .card-image-container {
+  .video-wrapper {
     height: 220px;
+  }
+
+  .video-wrapper img,
+  .video-wrapper video {
+    height: 220px;
+    object-fit: cover;
   }
 
   .selected {
     width: 100% !important;
-    height: 100% !important;
-  }
-
-  .video-wrapper video {
-    pointer-events: none;
-  }
-
-  .video-wrapper img {
-    object-fit: contain;
+    height: auto !important;
   }
 
   .card.selected .video-wrapper video {
