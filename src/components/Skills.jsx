@@ -16,7 +16,15 @@ const Skills = () => {
   const renderSkillsList = (skills) => (
     <div className="skills-grid">
       {skills.map((skill, index) => (
-        <div className="skill-item" key={index}>
+        <div 
+          className="skill-item" 
+          key={index}
+          style={{ 
+            animationDelay: `${index * 0.08}s`,
+            opacity: 0,
+            transform: 'translateY(20px)'
+          }}
+        >
           <div className="skill-icon">{RenderIcon(skill.icon, '36px')}</div>
           <div className="skill-info">
             <span className="skill-name">{skill.name}</span>
