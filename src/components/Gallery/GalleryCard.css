@@ -230,9 +230,10 @@
   object-fit: cover;
 }
 
-.video-wrapper video[poster] {
-  background-size: cover;
-  background-position: center;
+.video-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Card Description
@@ -287,8 +288,8 @@
     pointer-events: none;
   }
 
-  .video-wrapper video[poster] {
-    background-size: contain;
+  .video-wrapper img {
+    object-fit: contain;
   }
 
   .card.selected .video-wrapper video {

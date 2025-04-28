@@ -77,38 +77,46 @@ const GalleryCard = ({
     if (project.image?.endsWith('.mp4')) {
       return (
         <div className="video-wrapper">
-          <video
-            className="card-image"
-            autoPlay={false}
-            loop={true}
-            muted={true}
-            playsInline={true}
-            controls={true}
-            preload="metadata"
-            poster={project.preview || placeholderImage}
-            ref={(el) => {
-              if (el) {
-                videoRefs.current[projectId] = el;
-                // Gestion des erreurs de chargement
-                el.onerror = () => {
-                  console.error(`Erreur de chargement de la vidéo pour le projet ${project.title}`);
-                  el.src = placeholderImage;
-                };
-              }
-            }}
-            onClick={(e) => {
-              if (transformState[projectId]) {
-                e.stopPropagation();
-              }
-            }}
-          >
-            <source src={project.image} type="video/mp4" />
+          {isSelected ? (
+            <video
+              className="card-image"
+              autoPlay={false}
+              loop={true}
+              muted={true}
+              playsInline={true}
+              controls={true}
+              preload="metadata"
+              poster={project.preview || placeholderImage}
+              ref={(el) => {
+                if (el) {
+                  videoRefs.current[projectId] = el;
+                  el.onerror = () => {
+                    console.error(`Erreur de chargement de la vidéo pour le projet ${project.title}`);
+                    el.src = placeholderImage;
+                  };
+                }
+              }}
+              onClick={(e) => {
+                if (transformState[projectId]) {
+                  e.stopPropagation();
+                }
+              }}
+            >
+              <source src={project.image} type="video/mp4" />
+              <img
+                src={project.preview || placeholderImage}
+                alt={`Vidéo de présentation du projet ${project.title || 'sans titre'}`}
+                className="card-image"
+              />
+            </video>
+          ) : (
             <img
               src={project.preview || placeholderImage}
               alt={`Vidéo de présentation du projet ${project.title || 'sans titre'}`}
               className="card-image"
+              loading="lazy"
             />
-          </video>
+          )}
         </div>
       );
     }
