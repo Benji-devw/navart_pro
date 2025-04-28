@@ -10,6 +10,7 @@
           "icon": "devicon-blender-original colored"
         }
       ],
+      "preview": "/media/3D/navart_circle.png",
       "image": "/media/3D/Navart_Circle.mp4",
       "link": "#"
     },
@@ -23,6 +24,7 @@
           "icon": "devicon-blender-original colored"
         }
       ],
+      "preview": "/media/3D/cuby.png",
       "image": "/media/3D/Cuby.mp4",
       "link": "#"
     },

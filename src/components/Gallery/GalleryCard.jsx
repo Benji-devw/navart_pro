@@ -85,6 +85,7 @@ const GalleryCard = ({
             playsInline={true}
             controls={true}
             preload="metadata"
+            poster={project.preview || placeholderImage}
             ref={(el) => {
               if (el) {
                 videoRefs.current[projectId] = el;
@@ -103,7 +104,7 @@ const GalleryCard = ({
           >
             <source src={project.image} type="video/mp4" />
             <img
-              src={placeholderImage}
+              src={project.preview || placeholderImage}
               alt={`Vidéo de présentation du projet ${project.title || 'sans titre'}`}
               className="card-image"
             />
