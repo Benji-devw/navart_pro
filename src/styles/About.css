@@ -14,15 +14,16 @@
   /* max-width: 1200px; */
 }
 
-.about-image {
+.about-avatar {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  min-height: 200px;
 }
 
-.image-container {
+.avatar-container {
   position: relative;
   width: 100%;
   max-width: 150px;

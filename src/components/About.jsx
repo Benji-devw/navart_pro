@@ -5,6 +5,7 @@ import { ContactBox } from '@/components/ContactBox';
 import { ScrollObserverContext } from '@/App';
 import { useInView } from 'react-intersection-observer';
 import { experiences, formations } from '@/assets/experiencesData.json';
+import AvatarSlider from '@/components/AvatarSlider';
 
 const About = () => {
   const { defaultInViewOptions } = useContext(ScrollObserverContext);
@@ -21,9 +22,15 @@ const About = () => {
     <section id="about" className="about-section">
       <h2 className="section-title">À propos de moi</h2>
       <div className={`about-content ${inView ? 'animate' : 'not-active'}`} ref={ref}>
-        <div className="about-image">
-          <div className="image-container">
-            <img src="/profile.png" alt="Benjamin" tabIndex="0" />
+        <div className="about-avatar">
+          <div className="avatar-container">
+            <AvatarSlider 
+              startPosition={90}
+              size="medium"
+              image1="/avatar.png" 
+              image2="/avatar_anim.png" 
+              alt="avatar" 
+            />
           </div>
 
           <div className="about-contact-box about-contact-desktop">
@@ -35,7 +42,7 @@ const About = () => {
           <div className="about-text">
             <h3>Qui suis-je ?</h3>
             <p>
-              Je suis Benjamin, un développeur passionné par l’informatique, sa conception et son évolution.
+              Je suis Benjamin, un développeur passionné par l'informatique, sa conception et son évolution.
               <br />
               Je suis très ambitieux et constamment en recherche de connaissances dans ce que j'entreprends avec le
               métier de

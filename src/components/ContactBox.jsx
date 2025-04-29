@@ -16,7 +16,11 @@ export const ContactBox = () => {
   };
 
   const downloadCV = () => {
-    window.open('/CV_Numerique.pdf', '_blank');
+    try {
+      window.open('/CV_Numerique.pdf', '_blank');
+    } catch (err) {
+      console.error('Failed to download CV: ', err);
+    }
   };
 
   return (
