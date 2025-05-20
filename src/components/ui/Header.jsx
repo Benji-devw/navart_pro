@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './Header.css';
+import SocialMediaButton from '@/components/SocialMediaButton';
 
 export const Header = ({ onFilterChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -91,7 +92,8 @@ export const Header = ({ onFilterChange }) => {
           ))}
         </nav>
       </div>
+
+      <SocialMediaButton />
     </header>
   );
 };
-

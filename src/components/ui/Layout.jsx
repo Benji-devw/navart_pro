@@ -37,7 +37,6 @@ const Layout = ({ children, onFilterChange, activeComponent }) => {
       </div>
 
       <ContactForm />
-
     </div>
   );
 };

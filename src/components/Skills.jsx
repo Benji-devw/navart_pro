@@ -12,7 +12,7 @@ const Skills = () => {
   const [activeTab, setActiveTab] = useState('frontend');
   const categories = ['frontend', 'backend', 'tools'];
 
-  // Fonction pour rendre un groupe de compétences
+  // Function to render a list of skills
   const renderSkillsList = (skills) => (
     <div className="skills-grid">
       {skills.map((skill, index) => (
