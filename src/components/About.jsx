@@ -24,12 +24,12 @@ const About = () => {
       <div className={`about-content ${inView ? 'animate' : 'not-active'}`} ref={ref}>
         <div className="about-avatar">
           <div className="avatar-container">
-            <AvatarSlider 
+            <AvatarSlider
               startPosition={90}
               size="medium"
-              image1="/avatar.png" 
-              image2="/avatar_anim.png" 
-              alt="avatar" 
+              image1="/avatar.png"
+              image2="/avatar_anim.png"
+              alt="avatar"
             />
           </div>
 
@@ -42,19 +42,18 @@ const About = () => {
           <div className="about-text">
             <h3>Qui suis-je ?</h3>
             <p>
-              Je suis Benjamin, un développeur passionné par l'informatique, sa conception et son évolution.
+              Je suis Benjamin, développeur web spécialisé dans la création de <b>solutions digitales</b> et  <b>testeur QA</b> en
+              environnements VR et WEB.
               <br />
-              Je suis très ambitieux et constamment en recherche de connaissances dans ce que j'entreprends avec le
-              métier de
-              <b> développeur web</b>.
+              Suite à une reconversion professionnelle réussie, je combine un regard neuf avec une solide maîtrise
+              technique en tant que <b>développeur web</b>.
               <br />
-              Je suis à la <b>recherche de nouvelles opportunités</b> pour continuer à évoluer et contribuer.
+              Je suis à la <b>recherche d'opportunités stimulantes</b> pour déployer mes compétences et contribuer à des projets ambitieux et stimulants.
             </p>
             <h3>Mon parcours</h3>
             <p>
-              Avec 5 ans de background en programmation web, dont <b>2 ans d'expériences</b> en alternance en tant que
-              Testeur QA et <b>2 mois de stage</b> comme Intégrateur web, je suis toujours aussi passionné et motivé par
-              ce domaine.
+              Avec 5 ans d'immersion dans la programmation web, en <b>Assurance Qualité</b> et <b>intégration web</b>, je viens de finaliser ma reconversion professionnelle et
+              suis prêt à relever de nouveaux défis dans ce secteur en constante évolution.
             </p>
           </div>
 
