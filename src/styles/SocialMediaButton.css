@@ -32,3 +32,9 @@
 .social-icon:hover {
   transform: translateY(-5px);
 }
+
+@media (max-width: 768px) {
+  .social-button {
+    display: none;
+  }
+}
