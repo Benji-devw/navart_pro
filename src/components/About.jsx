@@ -42,18 +42,21 @@ const About = () => {
           <div className="about-text">
             <h3>Qui suis-je ?</h3>
             <p>
-              Je suis Benjamin, développeur web spécialisé en <b>developpement front-end</b> et <b>testeur QA</b>, avec
-              une expertise dans les environnements web et VR.
+              Je suis Benjamin, développeur web spécialisé en <b>développement front-end</b> et <b>Assurance Qualité</b>
+              , avec une expertise dans les environnements web et VR.
               <br />
-              Suite à une reconversion professionnelle réussie, je combine un regard neuf avec une solide maîtrise
-              technique en tant que <b>développeur web</b>.
+              Suite à une reconversion professionnelle réussie, je combine un regard neuf avec une maîtrise technique
+              complète, de la conception à la mise en production.
               <br />
-              Je suis à la <b>recherche d'opportunités </b> pour déployer mes compétences et contribuer à des projets ambitieux et passionnants.
+              Je suis à la <b>recherche d'opportunités</b> pour déployer mes compétences et contribuer à des projets
+              ambitieux et innovants.
             </p>
             <h3>Mon parcours</h3>
             <p>
-              Avec 5 ans d'immersion dans la programmation web, en <b>Assurance Qualité</b> et <b>intégration web</b>, je viens de finaliser ma reconversion professionnelle et
-              suis prêt à relever de nouveaux défis dans ce secteur passionnant.
+              Avec 5 ans d'immersion dans la programmation web, les notions de <b>développement continu</b>, de{' '}
+              <b>méthodes agiles</b>, de <b>tests</b> et d'<b>automatisation</b> sont acquises.
+              <br />
+              L'assistance de l'IA fait également partie de mes pratiques pour augmenter ma productivité...
             </p>
           </div>
 
