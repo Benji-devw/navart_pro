@@ -42,18 +42,18 @@ const About = () => {
           <div className="about-text">
             <h3>Qui suis-je ?</h3>
             <p>
-              Je suis Benjamin, développeur web spécialisé dans la création de <b>solutions digitales</b> et  <b>testeur QA</b> en
-              environnements VR et WEB.
+              Je suis Benjamin, développeur web spécialisé en <b>developpement front-end</b> et <b>testeur QA</b>, avec
+              une expertise dans les environnements web et VR.
               <br />
               Suite à une reconversion professionnelle réussie, je combine un regard neuf avec une solide maîtrise
               technique en tant que <b>développeur web</b>.
               <br />
-              Je suis à la <b>recherche d'opportunités stimulantes</b> pour déployer mes compétences et contribuer à des projets ambitieux et stimulants.
+              Je suis à la <b>recherche d'opportunités </b> pour déployer mes compétences et contribuer à des projets ambitieux et passionnants.
             </p>
             <h3>Mon parcours</h3>
             <p>
               Avec 5 ans d'immersion dans la programmation web, en <b>Assurance Qualité</b> et <b>intégration web</b>, je viens de finaliser ma reconversion professionnelle et
-              suis prêt à relever de nouveaux défis dans ce secteur en constante évolution.
+              suis prêt à relever de nouveaux défis dans ce secteur passionnant.
             </p>
           </div>
 
