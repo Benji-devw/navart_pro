@@ -24,7 +24,7 @@ const Hero = () => {
         <div className="hero-content">
           <span className="hero-title-sub">Bonjour, je suis</span>
           <h1 className="hero-title">Benjamin Navarro</h1>
-          <p className="hero-subtitle">Développeur web full stack</p>
+          <p className="hero-subtitle">Développeur Web & Testeur QA</p>
           
           {/* <div className="bnt-tabs">
             <Button variant="transparent" size="small" className={`bnt-tab`}>
