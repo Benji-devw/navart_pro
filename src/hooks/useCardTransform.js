@@ -23,6 +23,45 @@ export const useCardTransform = (projects) => {
     });
   }, []);
 
+  const closeCard = useCallback((projectId, restoreFocus = true) => {
+    // Pause the video and remove the transform state
+    const videoElement = videoRefs.current[projectId];
+    if (videoElement) {
+      try {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+      } catch (error) {
+        console.error(`Erreur lors de la fermeture de la vidéo ${projectId}:`, error);
+      }
+    }
+
+    setTransformState((prev) => {
+      const newState = { ...prev };
+      delete newState[projectId];
+      return newState;
+    });
+
+    setDescriptionVisible((prev) => {
+      const newState = { ...prev };
+      delete newState[projectId];
+      return newState;
+    });
+
+    setOverlayVisible(false);
+    setSelectedProject(null);
+
+    // Restaurer le focus à l'élément précédemment focusé seulement si demandé
+    if (restoreFocus && previousFocusRef.current) {
+      setTimeout(() => {
+        previousFocusRef.current.focus();
+        previousFocusRef.current = null;
+      }, 100);
+    } else if (!restoreFocus) {
+      // Réinitialiser le focus précédent si on ne restaure pas
+      previousFocusRef.current = null;
+    }
+  }, []);
+
   const captureAndTransform = useCallback(
     (project, index, e, isMobile) => {
       const projectId = project.id || `project-${index}`;
@@ -39,9 +78,16 @@ export const useCardTransform = (projects) => {
         return;
       }
 
+      // Si cette carte est déjà ouverte, basculer la description
       if (transformState[projectId]) {
         setDescriptionVisible((prev) => ({ ...prev, [projectId]: !prev[projectId] }));
         return;
+      }
+
+      // Si une autre carte est déjà ouverte, la fermer d'abord (sans restaurer le focus)
+      if (selectedProject && selectedProject !== project) {
+        const previousProjectId = selectedProject.id || `project-${projects.findIndex((p) => p === selectedProject)}`;
+        closeCard(previousProjectId, false);
       }
 
       // Pause all other videos
@@ -95,44 +141,8 @@ export const useCardTransform = (projects) => {
       setSelectedProject(project);
       setOverlayVisible(true);
     },
-    [transformState, pauseAllVideosExcept]
+    [transformState, pauseAllVideosExcept, selectedProject, projects, closeCard]
   );
-
-  const closeCard = useCallback((projectId) => {
-    // Pause the video and remove the transform state
-    const videoElement = videoRefs.current[projectId];
-    if (videoElement) {
-      try {
-        videoElement.pause();
-        videoElement.currentTime = 0;
-      } catch (error) {
-        console.error(`Erreur lors de la fermeture de la vidéo ${projectId}:`, error);
-      }
-    }
-
-    setTransformState((prev) => {
-      const newState = { ...prev };
-      delete newState[projectId];
-      return newState;
-    });
-
-    setDescriptionVisible((prev) => {
-      const newState = { ...prev };
-      delete newState[projectId];
-      return newState;
-    });
-
-    setOverlayVisible(false);
-    setSelectedProject(null);
-
-    // Restaurer le focus à l'élément précédemment focusé
-    if (previousFocusRef.current) {
-      setTimeout(() => {
-        previousFocusRef.current.focus();
-        previousFocusRef.current = null;
-      }, 100);
-    }
-  }, []);
 
   const handleOverlayClick = useCallback(() => {
     if (selectedProject) {
