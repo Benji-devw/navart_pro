@@ -1,6 +1,6 @@
 // Générer par l'IA
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import '@styles/DraggableScroll.css';
 
 /**
@@ -22,16 +22,11 @@ const DraggableScroll = ({
   cursor = "grab",
 }) => {
   const scrollContainerRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-  // Détecter si l'appareil est tactile
-  useEffect(() => {
-    const isTouchEnabled = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    setIsTouchDevice(isTouchEnabled);
-  }, []);
+  // Utiliser useRef pour l'état mutable afin d'éviter les re-rendus inutiles pendant le drag
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
 
   // Style pour le masque
   const maskStyle = maskGradient ? {
@@ -45,100 +40,76 @@ const DraggableScroll = ({
     msOverflowStyle: 'none',
   } : {};
 
-  // Gérer le début du glissement
-  const handleDragStart = (e) => {
+  // Gérer le début du glissement (Souris uniquement)
+  const handleMouseDown = (e) => {
     if (!scrollContainerRef.current) return;
 
-    // Différencier les événements de souris et tactiles
-    const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    isDragging.current = true;
+    startX.current = e.pageX - scrollContainerRef.current.offsetLeft;
+    scrollLeft.current = scrollContainerRef.current.scrollLeft;
 
-    setIsDragging(true);
-    setStartX(clientX);
-    setScrollLeft(scrollContainerRef.current.scrollLeft);
-
-    // Changer le curseur pendant le glissement
+    // Changer le curseur
     scrollContainerRef.current.style.cursor = "grabbing";
   };
 
-  // Gérer le déplacement pendant le glissement
-  const handleDragMove = (e) => {
-    if (!isDragging || !scrollContainerRef.current) return;
+  // Gérer le déplacement (Souris uniquement)
+  const handleMouseMove = (e) => {
+    if (!isDragging.current || !scrollContainerRef.current) return;
 
-    // Ne pas essayer d'annuler l'événement tactile pendant le défilement natif
-    if (e.type !== 'touchmove' || e.cancelable) {
-      e.preventDefault();
-    }
-
-    // Calculer la position et le déplacement
-    const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-    const walk = (clientX - startX) * dragSpeed;
-
-    // Appliquer le défilement
-    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX.current) * dragSpeed;
+    scrollContainerRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
   // Terminer le glissement
-  const handleDragEnd = () => {
-    setIsDragging(false);
+  const handleMouseUpOrLeave = () => {
+    isDragging.current = false;
     if (scrollContainerRef.current) {
       scrollContainerRef.current.style.cursor = cursor;
     }
   };
 
-  // Attacher les gestionnaires d'événement au document pour permettre 
-  // le glissement même si la souris sort du conteneur
-  useEffect(() => {
-    const handleGlobalMove = (e) => handleDragMove(e);
-    const handleGlobalEnd = () => handleDragEnd();
+  // Attacher les événements globaux pour mouseup/mouseleave n'est plus strictement nécessaire
+  // si on gère mouseleave sur le conteneur, mais pour une UX fluide (si on sort en draggant),
+  // on peut garder une logique globale ou simplifier en arrêtant le drag sur mouseleave du conteneur.
+  // Ici, pour simplifier et rester robuste, on attache mousemove/up au document quand on drag.
 
-    if (isDragging) {
-      document.addEventListener('mousemove', handleGlobalMove);
-      
-      // Modifier pour les appareils tactiles
-      if (isTouchDevice) {
-        // Utiliser { passive: true } pour les appareils tactiles pour éviter l'avertissement
-        document.addEventListener('touchmove', handleGlobalMove, { passive: true });
-      } else {
-        document.addEventListener('touchmove', handleGlobalMove, { passive: false });
+  useEffect(() => {
+    const handleGlobalMouseMove = (e) => {
+      if (isDragging.current) {
+        handleMouseMove(e);
       }
-      
-      document.addEventListener('mouseup', handleGlobalEnd);
-      document.addEventListener('touchend', handleGlobalEnd);
-    }
+    };
+
+    const handleGlobalMouseUp = () => {
+      if (isDragging.current) {
+        handleMouseUpOrLeave();
+      }
+    };
+
+    document.addEventListener('mousemove', handleGlobalMouseMove);
+    document.addEventListener('mouseup', handleGlobalMouseUp);
 
     return () => {
-      document.removeEventListener('mousemove', handleGlobalMove);
-      document.removeEventListener('touchmove', handleGlobalMove);
-      document.removeEventListener('mouseup', handleGlobalEnd);
-      document.removeEventListener('touchend', handleGlobalEnd);
+      document.removeEventListener('mousemove', handleGlobalMouseMove);
+      document.removeEventListener('mouseup', handleGlobalMouseUp);
     };
-  }, [isDragging, startX, scrollLeft, isTouchDevice]);
-
-  // Configuration du conteneur pour défilement horizontal natif sur mobile
-  const containerProps = isTouchDevice ? {
-    className: `draggable-scroll-container ${className}`,
-    ref: scrollContainerRef,
-    style: {
-      cursor,
-      ...maskStyle,
-      ...scrollbarStyle,
-      overflowX: 'auto',
-      WebkitOverflowScrolling: 'touch', // Pour une meilleure inertie sur iOS
-    }
-  } : {
-    className: `draggable-scroll-container ${className}`,
-    ref: scrollContainerRef,
-    onMouseDown: handleDragStart,
-    onTouchStart: handleDragStart,
-    style: {
-      cursor,
-      ...maskStyle,
-      ...scrollbarStyle
-    }
-  };
+  }, [dragSpeed, cursor]); // Dépendances minimales
 
   return (
-    <div {...containerProps}>
+    <div
+      ref={scrollContainerRef}
+      className={`draggable-scroll-container ${className}`}
+      onMouseDown={handleMouseDown}
+      // On garde le scroll natif pour le tactile, donc pas de onTouchStart ici
+      style={{
+        cursor,
+        ...maskStyle,
+        ...scrollbarStyle,
+        overflowX: 'auto', // Toujours permettre le scroll natif
+      }}
+    >
       <div className="draggable-scroll-content">
         {children}
       </div>
