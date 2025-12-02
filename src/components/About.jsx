@@ -42,21 +42,26 @@ const About = () => {
           <div className="about-text">
             <h3>Qui suis-je ?</h3>
             <p>
-              Je suis Benjamin, développeur web spécialisé en <b>développement front-end</b> et <b>Assurance Qualité</b>
-              , avec une expertise dans les environnements web et VR.
+              Benjamin — <strong>Développeur & Testeur QA</strong>, passionné par le code propre et les expériences
+              immersives (web + VR).
               <br />
-              Suite à une reconversion professionnelle réussie, je combine un regard neuf avec une maîtrise technique
-              complète, de la conception à la mise en production.
+              Après une reconversion réussie, j’allie un regard neuf et une exigence autodidacte à une stack qui me
+              passionne : développement web front/back, infographie 3D, sound design et création d’effets sonores
+              immersifs.
               <br />
-              Je suis à la <b>recherche d'opportunités</b> pour déployer mes compétences et contribuer à des projets
-              ambitieux et innovants.
+              <br />
+              Aujourd’hui, je cherche une équipe pour déployer mes compétences et contribuer à des projets ambitieux et
+              innovants.
             </p>
             <h3>Mon parcours</h3>
             <p>
-              Avec 5 ans d'immersion dans la programmation web, les notions de <b>développement continu</b>, de{' '}
-              <b>méthodes agiles</b>, de <b>tests</b> et d'<b>automatisation</b> sont acquises.
+              5 ans d'immersion dans la programmation web, les notions de : <strong>CI/CD</strong>,{' '}
+              <strong>agile</strong>, <strong>tests automatisés</strong> et <strong>revue de code</strong> font partie
+              de mon ADN.
               <br />
-              L'assistance de l'IA fait également partie de mes pratiques pour augmenter ma productivité...
+              <br />
+              L'assistance de l'IA fait également partie de mes pratiques pour augmenter ma productivité tout en restant
+              lead sur la structure du code...
             </p>
           </div>
 

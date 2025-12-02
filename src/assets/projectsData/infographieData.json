@@ -1,6 +1,19 @@
 {
   "infographie": [
     {
+      "title": "Blender Keyboard",
+      "category": "infographie",
+      "tags": ["Blender", "3D"],
+      "icons": [
+        {
+          "name": "Blender",
+          "icon": "devicon-blender-original colored"
+        }
+      ],
+      "image": "/media/3D/Mini_Keyboaed_Blender_PROD.png",
+      "link": "#"
+    },
+    {
       "title": "#",
       "category": "infographie",
       "tags": ["Blender", "3D", "Animation"],

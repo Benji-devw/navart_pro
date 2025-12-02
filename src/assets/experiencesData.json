@@ -10,14 +10,15 @@
       "level": "Alternance",
       "location": "Bagnolet",
       "link": "https://www.reality-academy.fr/",
-      "description": "En tant que Testeur QA, j'ai rédigé les User Stories et les Cas de Test avec Jira RTM, réalisé des tests fonctionnels pour le SaaS et l'app VR, et intégré des tests automatisés avec Cypress au pipeline CI/CD.",
+      "description": "Prise en charge complète du cycle qualité du SaaS et de l'application VR : rédaction des User Stories, conception des plans de tests, automatisation E2E avec Cypress et intégration continue dans le pipeline GitLab.",
       "case": [
-        "Rédaction des User Stories et des Cas de Test avec Jira RTM",
-        "Assurance qualité et tests fonctionnels pour le SaaS et l'application VR",
-        "Intégration de Cypress et tests End-to-End (E2E) au projet 'Vue.js'",
-        "Intégration de la couverture et du statut des tests au jobs sur 'Gitlab'",
-        "Chasse aux bugs et analyse des logs pour le SaaS et l'application VR",
-        "Ajout de mocks au backend Laravel/Docker"
+        "Stack: Jira · RTM · Cypress · GitLab CI/CD · Vue.js · Laravel · Docker · VR Testing",
+        "Rédaction et maintien des User Stories + cas de tests (Jira)",
+        "Tests fonctionnels manuels sur SaaS web et expérience VR",
+        "Développement et intégration des scénarios E2E Cypress dans le projet Vue.js",
+        "Affichage en temps réel de la couverture et du statut des tests dans les jobs GitLab CI",
+        "Chasse aux bugs + analyse approfondie des logs",
+        "Mise en place de mocks backend pour garantir des tests stables et rapides"
       ]
     },
     {
@@ -30,14 +31,15 @@
       "level": "Stage",
       "location": "Paris 3e",
       "link": "https://kokmoka.com/",
-      "description": "J'ai intégré des maquettes, corrigé des bugs d'affichage, créé des formulaires et questionnaires, et intégré du contenu multimédia.",
+      "description": "Intégration pixel-perfect de maquettes complexes, développement de formulaires dynamiques et questionnaires, intégration multimédia, correction de bugs d’affichage et maintenance continue.",
       "case": [
-        "Intégration de maquettes",
-        "Correction de bugs d'affichage",
-        "Création de formulaires/questionnaires",
-        "Intégration de contenu multimédia",
-        "HTML/CSS, Sass, Bootstrap, PHP, WordPress, JavaScript, jQuery, Ajax",
-        "Gestion avec Dropbox, Git, BitBucket, Redmine"
+        "Stack: HTML/CSS, Sass, Bootstrap, PHP, WordPress, JavaScript, jQuery, Ajax, Git, BitBucket, Redmine",
+        "Intégration pixel-perfect de maquettes",
+        "Correction et optimisation des bugs d’affichage cross-browser",
+        "Création de formulaires complexes et questionnaires dynamiques (jQuery/Ajax)",
+        "Intégration vidéo, carrousels, galeries et contenus multimédia responsifs",
+        "Développement sur WordPress + thème custom + shortcodes PHP",
+        "Versionning Git/BitBucket + suivi de tickets Redmine"
       ]
     }
   ],
